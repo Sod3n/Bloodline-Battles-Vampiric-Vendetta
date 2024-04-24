@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yyxc1tb3ycwl"
+path="res://.godot/imported/BGM.wav-b3b0222b0ab9eeabe0994354a5dd00f0.sample"
+
+[deps]
+
+source_file="res://assets/Undead Survivor/Audio/BGM.wav"
+dest_files=["res://.godot/imported/BGM.wav-b3b0222b0ab9eeabe0994354a5dd00f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2aexjr8v2057"]
+
+[ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
+[ext_resource type="Script" path="res://scripts/composer.gd" id="1_m0l7w"]
+[ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/character.tscn" id="1_osux2"]
+[ext_resource type="PackedScene" uid="uid://dcm4jk26lmset" path="res://scenes/range_mob.tscn" id="2_qp4j1"]
+[ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/fast_mob.tscn" id="4_gyi81"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m0l7w")
+
+[node name="mob" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(1065, 248)
+
+[node name="range_mob" parent="." instance=ExtResource("2_qp4j1")]
+position = Vector2(792, 797)
+
+[node name="player" parent="." instance=ExtResource("1_osux2")]
+position = Vector2(323, 173)
+invincible_effect_rate = 10
+
+[node name="fast_mob" parent="." instance=ExtResource("4_gyi81")]

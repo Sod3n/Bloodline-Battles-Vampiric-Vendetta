@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2aexjr8v2057"]
+
+[ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
+[ext_resource type="Script" path="res://scripts/composer.gd" id="1_m0l7w"]
+[ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/character.tscn" id="1_osux2"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1318, 472)
+script = ExtResource("1_m0l7w")
+
+[node name="mob45" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(991, 752)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob46" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(1071, 536)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob47" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(783, 864)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob48" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(823, 636)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob49" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(855, 448)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob50" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(495, 460)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob51" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(455, 784)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob52" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(619, 668)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob53" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(651, 356)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob54" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(267, 636)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob55" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(279, 316)
+keep_distance = 0
+distance_spread = 0
+
+[node name="mob56" parent="." instance=ExtResource("1_8pnsd")]
+position = Vector2(279, 316)
+keep_distance = 0
+distance_spread = 0
+
+[node name="player" parent="." instance=ExtResource("1_osux2")]
+position = Vector2(1337, 946)
+invincible_effect_rate = 10

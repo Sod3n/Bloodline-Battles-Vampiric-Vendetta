@@ -1,0 +1,9 @@
+res://scenes/game.tscn
+res://ui/base_theme.tres
+res://scenes/character.tscn
+res://scenes/basic_mob.tscn
+res://scenes/range_mob.tscn
+res://scenes/fast_mob.tscn
+res://scripts/mob.gd
+res://scripts/sidestep.gd
+res://scripts/fast_mob.gd

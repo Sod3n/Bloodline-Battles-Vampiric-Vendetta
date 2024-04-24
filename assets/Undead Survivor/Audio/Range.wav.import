@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cb5w0xjl6rac6"
+path="res://.godot/imported/Range.wav-8d4717d7d73f1de2cdcc17dc7578cfe7.sample"
+
+[deps]
+
+source_file="res://assets/Undead Survivor/Audio/Range.wav"
+dest_files=["res://.godot/imported/Range.wav-8d4717d7d73f1de2cdcc17dc7578cfe7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
