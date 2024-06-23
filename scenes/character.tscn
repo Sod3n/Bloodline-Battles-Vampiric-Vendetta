@@ -1,119 +1,67 @@
-[gd_scene load_steps=19 format=3 uid="uid://pqca05bjsioj"]
+[gd_scene load_steps=12 format=3 uid="uid://pqca05bjsioj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k12wf"]
-[ext_resource type="Texture2D" uid="uid://bqx2uqf6lam04" path="res://assets/Undead Survivor/Sprites/Farmer 0.png" id="1_kvy04"]
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_077ha"]
 [ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
-[ext_resource type="Script" path="res://scripts/damage.gd" id="4_ti5mw"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eg8u5"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(0, 42, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mshi3"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(19, 42, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0f6k"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(38, 42, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ishx7"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(0, 63, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7np0a"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(0, 0, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h51g0"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(19, 0, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6h644"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(38, 0, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jng4p"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(0, 21, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f6n2o"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(19, 21, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jeeea"]
-atlas = ExtResource("1_kvy04")
-region = Rect2(38, 21, 19, 21)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f0jtp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eg8u5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mshi3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o0f6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ishx7")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7np0a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h51g0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6h644")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jng4p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f6n2o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jeeea")
-}],
-"loop": true,
-"name": &"run",
-"speed": 9.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bvikgv8puy7gc" path="res://frames/character.tres" id="3_qpf8x"]
+[ext_resource type="Script" path="res://scripts/collect.gd" id="6_ylysf"]
+[ext_resource type="Script" path="res://scenes/weapon_slot.gd" id="7_rv4ed"]
+[ext_resource type="Script" path="res://scenes/weapon_adder.gd" id="8_q7db4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3yv3"]
 radius = 36.0
 height = 72.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvt3q"]
-radius = 167.0
-height = 344.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73gtw"]
+bg_color = Color(0.905882, 0.823529, 0.486275, 1)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdet2"]
+radius = 335.001
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmfvp"]
+radius = 1017.0
+
+[node name="Character" type="Node2D"]
 script = ExtResource("1_k12wf")
+attack = 80.0
+invincibility_time = 0.5
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 33
+motion_mode = 1
 script = ExtResource("2_077ha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_f0jtp")
-animation = &"idle"
-frame_progress = 0.0683141
+sprite_frames = ExtResource("3_qpf8x")
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-4, 67)
 shape = SubResource("CapsuleShape2D_t3yv3")
 
-[node name="Control" type="Control" parent="CharacterBody2D"]
+[node name="Exp" type="Control" parent="CharacterBody2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -145.0
+offset_top = -166.0
+offset_right = 155.0
+offset_bottom = -146.0
+
+[node name="Bar" type="ProgressBar" parent="CharacterBody2D/Exp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_dwfqp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/fill = SubResource("StyleBoxFlat_73gtw")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="Control" parent="CharacterBody2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -149.0
@@ -121,22 +69,59 @@ offset_top = -151.0
 offset_right = 151.0
 offset_bottom = -111.0
 
-[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D/Control"]
+[node name="Bar" type="ProgressBar" parent="CharacterBody2D/Health"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.007, 1)
+scale = Vector2(1, 0.993)
 theme = ExtResource("3_dwfqp")
 theme_override_font_sizes/font_size = 36
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-script = ExtResource("4_ti5mw")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-shape = SubResource("CapsuleShape2D_tvt3q")
+[node name="AudioListener2D" type="AudioListener2D" parent="CharacterBody2D"]
 
-[connection signal="area_shape_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_area_shape_entered"]
+[node name="CollectArea2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("6_ylysf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/CollectArea2D"]
+shape = SubResource("CircleShape2D_fdet2")
+
+[node name="WeaponSlots" type="Node2D" parent="CharacterBody2D"]
+script = ExtResource("7_rv4ed")
+
+[node name="Slot1" type="Node2D" parent="CharacterBody2D/WeaponSlots"]
+position = Vector2(-165, -150)
+
+[node name="Slot2" type="Node2D" parent="CharacterBody2D/WeaponSlots"]
+position = Vector2(165, -150)
+
+[node name="Slot3" type="Node2D" parent="CharacterBody2D/WeaponSlots"]
+position = Vector2(215, 100)
+
+[node name="Slot4" type="Node2D" parent="CharacterBody2D/WeaponSlots"]
+position = Vector2(-215, 100)
+
+[node name="Slot5" type="Node2D" parent="CharacterBody2D/WeaponSlots"]
+position = Vector2(0, 200)
+
+[node name="TargetArea2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/TargetArea2D"]
+shape = SubResource("CircleShape2D_xmfvp")
+
+[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
+script = ExtResource("8_q7db4")
+
+[connection signal="area_entered" from="CharacterBody2D/CollectArea2D" to="CharacterBody2D/CollectArea2D" method="_on_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_exited"]

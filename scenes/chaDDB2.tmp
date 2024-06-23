@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=3 uid="uid://pqca05bjsioj"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_k12wf"]
+[ext_resource type="Texture2D" uid="uid://bqx2uqf6lam04" path="res://assets/Undead Survivor/Sprites/Farmer 0.png" id="1_kvy04"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_077ha"]
+[ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/damage_area_2d.tscn" id="4_yu0pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg8u5"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(0, 42, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mshi3"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(19, 42, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0f6k"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(38, 42, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ishx7"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(0, 63, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7np0a"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(0, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h51g0"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(19, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h644"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(38, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jng4p"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(0, 21, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6n2o"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(19, 21, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeeea"]
+atlas = ExtResource("1_kvy04")
+region = Rect2(38, 21, 19, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0jtp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg8u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mshi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0f6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ishx7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7np0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h51g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h644")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jng4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6n2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeeea")
+}],
+"loop": true,
+"name": &"run",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3yv3"]
+radius = 36.0
+height = 72.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_k12wf")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("2_077ha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_f0jtp")
+animation = &"idle"
+frame_progress = 0.0683141
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-4, 67)
+shape = SubResource("CapsuleShape2D_t3yv3")
+
+[node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("4_yu0pu")]
+collision_mask = 2
+
+[node name="Control" type="Control" parent="CharacterBody2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -149.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = -111.0
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.007, 1)
+theme = ExtResource("3_dwfqp")
+theme_override_font_sizes/font_size = 36
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

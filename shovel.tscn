@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct84npj8x28me"]
+
+[ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="1_08xj8"]
+[ext_resource type="Script" path="res://shovel.gd" id="1_xummd"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/damage_area_2d.tscn" id="2_c4n6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl70q"]
+size = Vector2(239, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akv4x"]
+atlas = ExtResource("1_08xj8")
+region = Rect2(0, 0, 19, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sub8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akv4x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShovelPoint" type="Node2D"]
+
+[node name="Shovel" type="Node2D" parent="."]
+position = Vector2(145, 23)
+script = ExtResource("1_xummd")
+
+[node name="DamageArea2D" parent="Shovel" instance=ExtResource("2_c4n6s")]
+collision_layer = 0
+collision_mask = 14
+
+[node name="CollisionShape2D" parent="Shovel/DamageArea2D" index="0"]
+position = Vector2(26.5, -21)
+shape = SubResource("RectangleShape2D_yl70q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shovel"]
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_sub8d")
+
+[node name="Timer" type="Timer" parent="Shovel"]
+
+[editable path="Shovel/DamageArea2D"]

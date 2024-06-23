@@ -1,13 +1,15 @@
-extends "res://scripts/character.gd"
+extends "res://scripts/mob.gd"
 
 @export var distance_to_around = 500
 @export var around_max_time = 7
+@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
-@onready var move_mob = $CharacterBody2D
+func _ready():
+	body = $CharacterBody2D
 
-var player : Node2D
+var player_body : Node2D
 
-enum states {RUN, AWAY, AROUND}
+enum states {RUN, AWAY, AROUND, DIED, STAY}
 var state = states.RUN
 
 var around_left_time = 0
@@ -16,25 +18,53 @@ var around_angle = 0
 var away_vector_normalized : Vector2
 
 func _process(delta):
-	move_mob.vector = Vector2.ZERO
+	super(delta)
 	
-	var player_pos = player.global_position
-	var vector = player_pos - move_mob.global_position
+	velocity = Vector2.ZERO
+	
+	var player_pos = player_body.global_position
+	var vector = player_pos - body.global_position
 	var length = vector.length()
+	
+	
+	if is_stunned:
+		state = states.STAY
+		damage_area_2d.disable()
+		
+	if is_died:
+		state = states.DIED
+		damage_area_2d.disable()
+		
 	match state:
 		states.RUN:
+			damage_area_2d.enable()
+			
 			if length > 200:
-				move_mob.vector = vector.normalized() * speed * speed_scale
+				velocity = vector.normalized() * speed * speed_scale
 			else:
 				away_vector_normalized = vector.normalized()
 				state = states.AWAY
+			
+			animated_sprite_2d.play("run")
+			
 		states.AWAY:
 			if length < distance_to_around:
-				move_mob.vector = away_vector_normalized * speed * speed_scale
+				velocity = away_vector_normalized * speed * speed_scale
 			else:
 				state = states.AROUND
 				around_left_time = randi_range(3, around_max_time)
 				around_angle = (-vector - Vector2.RIGHT).angle()
+				
+			animated_sprite_2d.play("run")
+		
+		states.STAY:
+			animated_sprite_2d.play("idle")
+			
+			velocity = Vector2.ZERO
+			
+			if not is_stunned:
+				state = states.RUN
+		
 		states.AROUND:
 			around_left_time -= delta
 			if around_left_time < 0:
@@ -50,4 +80,12 @@ func _process(delta):
 			
 			var new_pos = Vector2(x_pos * distance_to_around, y_pos * distance_to_around) + player_pos
 			
-			move_mob.global_position = new_pos
+			body.global_position = new_pos
+			
+			animated_sprite_2d.play("run")
+			
+		states.DIED:
+			velocity = Vector2.ZERO
+			
+	body.vector = velocity
+	rotate_sprite()

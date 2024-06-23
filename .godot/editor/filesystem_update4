@@ -1,9 +1,7 @@
 res://scenes/game.tscn
 res://ui/base_theme.tres
+res://frames/character.tres
+res://tilesets/main.tres
+res://scripts/injecter.gd
+res://scenes/character_injecter.gd
 res://scenes/character.tscn
-res://scenes/basic_mob.tscn
-res://scenes/range_mob.tscn
-res://scenes/fast_mob.tscn
-res://scripts/mob.gd
-res://scripts/sidestep.gd
-res://scripts/fast_mob.gd

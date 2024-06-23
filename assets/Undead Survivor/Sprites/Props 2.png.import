@@ -2,30 +2,30 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpydapmids7ap"
-path="res://.godot/imported/Farmer 3.png-60f18bb8cd9c25f99235f5f6dd395f51.ctex"
+uid="uid://cqgtpcrcpurbw"
+path="res://.godot/imported/Props 2.png-a5c60e36fed4fa58f318e696270e45a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Undead Survivor/Sprites/Farmer 3.png"
-dest_files=["res://.godot/imported/Farmer 3.png-60f18bb8cd9c25f99235f5f6dd395f51.ctex"]
+source_file="res://assets/Undead Survivor/Sprites/Props 2.png"
+dest_files=["res://.godot/imported/Props 2.png-a5c60e36fed4fa58f318e696270e45a7.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

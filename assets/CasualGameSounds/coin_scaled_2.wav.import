@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://1qfo61k16co0"
-path="res://.godot/imported/DM-CGS-32.wav-1bb3015534a8b618e2a2a9b896c1faa2.sample"
+path="res://.godot/imported/coin_scaled_2.wav-51f40cdf7390692316bdb36bbbd60d69.sample"
 
 [deps]
 
-source_file="res://assets/CasualGameSounds/DM-CGS-32.wav"
-dest_files=["res://.godot/imported/DM-CGS-32.wav-1bb3015534a8b618e2a2a9b896c1faa2.sample"]
+source_file="res://assets/CasualGameSounds/coin_scaled_2.wav"
+dest_files=["res://.godot/imported/coin_scaled_2.wav-51f40cdf7390692316bdb36bbbd60d69.sample"]
 
 [params]
 

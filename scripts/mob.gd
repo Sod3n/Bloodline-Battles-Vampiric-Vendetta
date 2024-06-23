@@ -1,41 +1,45 @@
 extends "res://scripts/character.gd"
 
-@export var keep_distance = 500
-@export var distance_spread = 100
+@export_enum("Copper", "Silver", "Gold") var coin_drops: int
 
-@onready var player : Node2D
-@onready var move_mob = $CharacterBody2D
-@onready var sidestep = $CharacterBody2D/Sidestep
+const GOLD_COIN = preload("res://scenes/gold_coin.tscn")
+const SILVER_COIN = preload("res://scenes/silver_coin.tscn")
+const COPPER_COIN = preload("res://scenes/copper_coin.tscn")
+
+var alpha = 1
+var alpha_speed = 0.2
+
+var injecter : Node2D
+
+var is_mob_flag = true
 
 
-enum states {MOVE, STAY, SIDESTEP}
-var state = states.MOVE
+func die():
+	super()
+	animated_sprite_2d.play("die")
+	
+	var coin : Node2D
+	
+	match coin_drops:
+		0:
+			coin = COPPER_COIN.instantiate()
+		1:
+			coin = SILVER_COIN.instantiate()
+		2:
+			coin = GOLD_COIN.instantiate()
+	
+	coin.global_position = body.global_position
+	
+	injecter.inject(coin)
+	
+	get_owner().add_child(coin)
 
 func _process(delta):
-	var player_pos = player.global_position
-	var vector = player_pos - move_mob.global_position
-	var min_distance = keep_distance - distance_spread
-	var max_distance = keep_distance + distance_spread  
-	var length = vector.length()
+	super(delta)
 	
-	if sidestep.vector != Vector2.ZERO:
-		state = states.SIDESTEP
-	else:
-		state = states.MOVE
+	if is_died:
+		alpha -= delta * alpha_speed
+		animated_sprite_2d.modulate.a = alpha
 	
-	match state:
-		states.MOVE:
-			if abs(length - keep_distance) > 1:
-				move_mob.vector = (vector.normalized() * sign(length - keep_distance) * speed * speed_scale)
-			else:
-				state = states.STAY
-		states.STAY:
-			move_mob.vector = Vector2.ZERO
-			
-			if length < min_distance or length > max_distance:
-				state = states.MOVE
-		states.SIDESTEP:
-			move_mob.vector = sidestep.vector * speed * speed_scale
-	
-	
-	
+	if alpha <= 0:
+		queue_free()

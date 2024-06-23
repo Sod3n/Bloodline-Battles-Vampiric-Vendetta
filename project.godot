@@ -24,8 +24,23 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="mob"
+2d_physics/layer_3="range_mob"
+2d_physics/layer_4="fast_mob"
+2d_physics/layer_5="collectables"
+2d_physics/layer_6="tilemap"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
