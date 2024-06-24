@@ -1,2 +1,0 @@
-GDScript
-Theme
