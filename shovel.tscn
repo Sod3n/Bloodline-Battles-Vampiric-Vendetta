@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://shovel.gd" id="1_xummd"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/damage_area_2d.tscn" id="2_c4n6s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl70q"]
-size = Vector2(239, 118)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jp8tv"]
+radius = 53.0
+height = 118.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_akv4x"]
 atlas = ExtResource("1_08xj8")
@@ -32,14 +33,16 @@ script = ExtResource("1_xummd")
 collision_layer = 0
 collision_mask = 14
 
-[node name="CollisionShape2D" parent="Shovel/DamageArea2D" index="0"]
-position = Vector2(26.5, -21)
-shape = SubResource("RectangleShape2D_yl70q")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shovel/DamageArea2D"]
+position = Vector2(84, -26)
+shape = SubResource("CapsuleShape2D_jp8tv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shovel"]
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_sub8d")
 
 [node name="Timer" type="Timer" parent="Shovel"]
+
+[connection signal="on_enter" from="Shovel/DamageArea2D" to="Shovel" method="_on_damage_area_2d_on_enter"]
 
 [editable path="Shovel/DamageArea2D"]

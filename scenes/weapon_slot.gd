@@ -9,8 +9,6 @@ extends Node2D
 # Array to hold the weapon slots
 var weapon_slots := []
 
-var injecter : Node2D
-
 # Property to check if there is a free slot
 var is_there_free_slot :
 	get:
@@ -34,7 +32,6 @@ func add_weapon(weapon_resouce: Resource) -> void:
 	for slot in weapon_slots:
 		if slot.get_child_count() == 0:
 			slot.add_child(weapon)
-			injecter.inject(weapon)
 			weapon.position = Vector2.ZERO
 			print("Weapon added to slot: ", slot.name)
 			# Update the free slot status

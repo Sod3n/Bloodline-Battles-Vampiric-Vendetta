@@ -20,7 +20,7 @@ var shovel_point
 # Damage area 2D node
 var damage_area
 
-var player
+var player = Player
 
 # Additional angle for prepare attack
 var additional_angle = 120
@@ -48,14 +48,21 @@ func _process(delta):
 	match state:
 		
 		WeaponState.WAIT_ATTACK:
+			if player.target != null:
+				if _target == player.default_target:
+					_target = player.random_target
+				if not player.targets.has(_target):
+					_target = player.random_target
+			
 			if _target != null:
 				shovel_point.rotation = lerp_angle(shovel_point.rotation, shovel_point.global_position.angle_to_point(_target.global_position), rotation_speed * delta)
 				damage_area.disable()
-
 				var point_rot = get_rotation_between_neg_pi_and_pi(shovel_point)
 				attack_direct_to_left = abs(point_rot) > PI / 2
 			elif player.target != null:
 				_target = player.random_target
+			else:
+				_target = player.default_target
 
 		WeaponState.PREPARE_ATTACK:
 			if rotate_object(shovel_point, attack_direct_to_left, prepare_rotation_speed, additional_angle):
@@ -114,3 +121,7 @@ func get_rotation_between_neg_pi_and_pi(object_to_check: Node2D) -> float:
 		rotation_neg_pi_to_pi -= 2 * PI
 
 	return rotation_neg_pi_to_pi
+
+
+func _on_damage_area_2d_on_enter(body):
+	body.receive_damage(Player.damage)

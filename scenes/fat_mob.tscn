@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://oconfydlj17b"]
+[gd_scene load_steps=16 format=3 uid="uid://oconfydlj17b"]
 
 [ext_resource type="Script" path="res://scripts/basic_mob.gd" id="1_nptcl"]
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_t17cj"]
@@ -83,14 +83,15 @@ animations = [{
 radius = 90.0
 height = 196.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3gl5"]
+radius = 167.0
+height = 344.0
+
 [node name="BasicMob" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_nptcl")
 keep_distance = 180
 distance_spread = 30
-hp = 5000.0
-max_hp = 5000.0
-speed_scale = 0.4
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 2
@@ -110,3 +111,8 @@ shape = SubResource("CapsuleShape2D_t3yv3")
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("4_2rgpi")]
 collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
+shape = SubResource("CapsuleShape2D_y3gl5")
+
+[connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

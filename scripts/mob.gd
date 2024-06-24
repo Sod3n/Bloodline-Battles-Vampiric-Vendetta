@@ -1,5 +1,6 @@
 extends "res://scripts/character.gd"
 
+
 @export_enum("Copper", "Silver", "Gold") var coin_drops: int
 
 const GOLD_COIN = preload("res://scenes/gold_coin.tscn")
@@ -12,6 +13,9 @@ var alpha_speed = 0.2
 var injecter : Node2D
 
 var is_mob_flag = true
+
+func _ready():
+	MobManager.mobs.append(self)
 
 
 func die():
@@ -29,8 +33,6 @@ func die():
 			coin = GOLD_COIN.instantiate()
 	
 	coin.global_position = body.global_position
-	
-	injecter.inject(coin)
 	
 	get_owner().add_child(coin)
 

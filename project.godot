@@ -15,6 +15,13 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://scenes/character.tscn"
+MobManager="*res://scripts/mob_manager.gd"
+UpgradeManager="*res://scripts/upgrade_manager.gd"
+ChooseUpgrade="*res://scenes/choose_upgrade.tscn"
+
 [display]
 
 window/size/viewport_width=3960

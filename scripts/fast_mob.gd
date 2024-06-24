@@ -3,11 +3,12 @@ extends "res://scripts/mob.gd"
 @export var distance_to_around = 500
 @export var around_max_time = 7
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
+@onready var player_body : Node2D = Player.body
+
 
 func _ready():
+	super()
 	body = $CharacterBody2D
-
-var player_body : Node2D
 
 enum states {RUN, AWAY, AROUND, DIED, STAY}
 var state = states.RUN
@@ -89,3 +90,7 @@ func _process(delta):
 			
 	body.vector = velocity
 	rotate_sprite()
+
+
+func _on_damage_area_2d_on_enter(body):
+	body.receive_damage(damage)

@@ -1,7 +1,12 @@
 extends "res://scripts/character.gd"
-@onready var health_bar = $CharacterBody2D/Health/Bar
-@onready var exp_bar = $CharacterBody2D/Exp/Bar
+@onready var health_bar = %HealthBar
+@onready var exp_bar = %ExpBar
 @onready var collect_shape_2d = $CharacterBody2D/CollectArea2D/CollisionShape2D
+@onready var default_target = %DefaultTarget
+
+func _ready():
+	update_healthbar(100)
+	body = $CharacterBody2D
 
 func set_hp(value):
 	super(value)
@@ -17,6 +22,8 @@ var exp = 0.0 :
 			exp -= need_exp
 			level += 1
 			need_exp = 10 + pow(5, level / 2)
+			ChooseUpgrade.activate()
+			await Signal(ChooseUpgrade, 'deactivated')
 		
 		exp_bar.value = exp / (need_exp / 100)
 		
@@ -28,10 +35,6 @@ var collect_radius:
 		collect_shape_2d.shape.radius = value
 	get:
 		return collect_shape_2d.shape.radius
-
-func _ready():
-	update_healthbar(100)
-	body = $CharacterBody2D
 
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -54,7 +57,8 @@ func _process(delta):
 		
 
 func update_healthbar(health):
-	health_bar.value = health
+	if health_bar:
+		health_bar.value = health
 	
 
 

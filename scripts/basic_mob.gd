@@ -3,10 +3,11 @@ extends "res://scripts/mob.gd"
 @export var keep_distance = 500
 @export var distance_spread = 100
 
-@onready var player_body : Node2D
+@onready var player_body : Node2D = Player.body
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 func _ready():
+	super()
 	body = $CharacterBody2D
 
 
@@ -36,7 +37,7 @@ func _process(delta):
 			damage_area_2d.enable()
 			animated_sprite_2d.play("run")
 			
-			if abs(length - keep_distance) > 1:
+			if abs(length - keep_distance) > 10:
 				velocity = (vector.normalized() * sign(length - keep_distance) * speed * speed_scale)
 			else:
 				state = states.STAY
@@ -56,3 +57,8 @@ func _process(delta):
 	rotate_sprite()
 	
 	
+func can_act():
+	return not is_stunned and not is_died
+
+func _on_damage_area_2d_on_enter(body):
+	body.receive_damage(damage)

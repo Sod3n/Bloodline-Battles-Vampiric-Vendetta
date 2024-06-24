@@ -1,4 +1,4 @@
-#extends "res://scripts/injecter.gd"
+extends "res://scripts/injecter.gd"
 #
 #var character:
 	#get:

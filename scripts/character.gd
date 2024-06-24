@@ -1,12 +1,13 @@
-extends Node2D
+class_name Character
+extends Node
 
 @onready var animated_sprite_2d = find_child("AnimatedSprite2D")
-@export var hp = 100.0: set = set_hp
+@export var hp = 1000.0: set = set_hp
 
 func set_hp(value):
 	hp = value
 
-@export var max_hp = 100.0
+@export var max_hp = 1000.0
 @export var speed = 600.0
 @export var speed_scale = 1.0
 @export var crit_chance = 15.0
@@ -82,4 +83,3 @@ func die():
 func stun(value):
 	_stun_remaining_time = value
 	is_stunned = true
-	

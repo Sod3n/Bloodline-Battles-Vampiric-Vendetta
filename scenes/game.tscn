@@ -1,8 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=13 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
-[ext_resource type="Script" path="res://scripts/injecter.gd" id="1_m0l7w"]
-[ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/character.tscn" id="1_osux2"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://stopwatch.tscn" id="2_hkc4i"]
 [ext_resource type="TileSet" uid="uid://cvkcpive1accg" path="res://tilesets/main.tres" id="2_oytym"]
 [ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/fast_mob.tscn" id="4_ita4n"]
@@ -16,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dv7mxewvrmlc1" path="res://scenes/freeze.tscn" id="13_jdn5j"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Injecter" type="Node2D" parent="."]
-script = ExtResource("1_m0l7w")
 
 [node name="Stopwatch" parent="." instance=ExtResource("2_hkc4i")]
 
@@ -35,12 +30,8 @@ position = Vector2(279, 316)
 keep_distance = 0
 distance_spread = 0
 
-[node name="player" parent="." instance=ExtResource("1_osux2")]
-position = Vector2(1337, 946)
-invincible_effect_rate = 10
-
 [node name="FastMob" parent="." instance=ExtResource("4_ita4n")]
-position = Vector2(-70, 132)
+position = Vector2(-1214, 132)
 
 [node name="RangeMob" parent="." instance=ExtResource("5_rynri")]
 position = Vector2(330, 1200)

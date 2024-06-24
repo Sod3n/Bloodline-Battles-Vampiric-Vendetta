@@ -1,13 +1,14 @@
 c08adb725bd73014f3cfdd5764b15d1f
-::res://::1719154585
+::res://::1719233840
+freeze.gd::GDScript::-1::1719156361::0::1::::<>Area2D<>::
 icon.svg::CompressedTexture2D::980180422601156675::1713757017::1713757022::1::::<><>::
 pitchfork.gd::GDScript::-1::1714197562::0::1::::<>Node2D<>::
 pitchfork.tscn::PackedScene::3935676085024484430::1714207279::0::1::::<><>::uid://d1uthjjwun26j::::res://assets/Undead Survivor/Sprites/Props.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn<>res://pitchfork.gd
 README.md::TextFile::-1::1714118816::0::1::::<><>::
-shovel.gd::GDScript::-1::1714215738::0::1::::<>Node2D<>::
-shovel.tscn::PackedScene::6176338673788477512::1719040459::0::1::::<><>::uid://d1uthjjwun26j::::res://assets/Undead Survivor/Sprites/Props.png<>res://shovel.gd<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
+shovel.gd::GDScript::-1::1719219262::0::1::::<>Node2D<>::
+shovel.tscn::PackedScene::6176338673788477512::1719221400::0::1::::<><>::uid://d1uthjjwun26j::::res://assets/Undead Survivor/Sprites/Props.png<>res://shovel.gd<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
 stopwatch.gd::GDScript::-1::1714232720::0::1::::<>Node2D<>::
-stopwatch.tscn::PackedScene::7890823700942446512::1719040459::0::1::::<><>::uid://cmg4b2lpdwgfr::::res://assets/joystix monospace.otf<>res://stopwatch.gd
+stopwatch.tscn::PackedScene::7890823700942446512::1719221400::0::1::::<><>::uid://cmg4b2lpdwgfr::::res://assets/joystix monospace.otf<>res://stopwatch.gd
 ::res://addons/::1714118816
 ::res://addons/codeandweb.texturepacker/::1714118816
 codeandweb.texturepacker_importer.gd::GDScript::-1::1714118816::0::1::::<>EditorPlugin<>::
@@ -194,42 +195,53 @@ Props.png::CompressedTexture2D::9026626151809478075::1714145030::1714145032::1::
 Tiles.png::CompressedTexture2D::2973308391131076005::1714067554::1714067558::1::::<><>::
 UI.png::CompressedTexture2D::6850608434922538250::1703224261::1713758624::1::::<><>::
 ::res://assets/Undead Survivor/Tiles/::1713758123
-::res://frames/::1719034339
-character.tres::SpriteFrames::3877520461493490670::1719034339::0::1::::<><>::uid://bqx2uqf6lam04::::res://assets/Undead Survivor/Sprites/Farmer 0.png
-::res://scenes/::1719040459
-basic_mob.tscn::PackedScene::4498497690086114733::1719040458::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://cakshc6xbsv75::::res://assets/Undead Survivor/Sprites/Enemy 0.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn<>res://scenes/character_injecter.gd
-character.tscn::PackedScene::1085985492107040837::1719040458::0::1::::<><>::res://scripts/player.gd<>res://scripts/move.gd<>uid://dexdmgrhrsh0h::::res://ui/base_theme.tres<>uid://bvikgv8puy7gc::::res://frames/character.tres<>res://scripts/collect.gd<>res://scenes/weapon_slot.gd<>res://scenes/character_injecter.gd<>res://scenes/weapon_adder.gd
-character_injecter.gd::GDScript::-1::1714235347::0::1::::<>Node<>::
-coin.tscn::PackedScene::8162841284880235676::1719040458::0::1::::<><>::res://scripts/coin.gd<>uid://p2j7soefvrbb::::res://assets/CasualGameSounds/coin_scaled.wav
-copper_coin.tscn::PackedScene::7132977935868081011::1719040458::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
-damage_area_2d.tscn::PackedScene::1256351712534389943::1719040458::0::1::::<><>::res://scripts/damage.gd
-fast_mob.tscn::PackedScene::5016926341033146444::1719040458::0::1::::<><>::res://scripts/fast_mob.gd<>res://scripts/move.gd<>uid://ceyg278reao5v::::res://assets/Undead Survivor/Sprites/Enemy 2.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn<>res://scenes/character_injecter.gd
-fat_mob.tscn::PackedScene::987646119503514625::1719040459::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://n4auhs4g7ga8::::res://assets/Undead Survivor/Sprites/Enemy 1.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
-freeze.gd::GDScript::-1::1714196426::0::1::::<>Area2D<>::
-freeze.tscn::PackedScene::8700057777837350042::1719040459::0::1::::<><>::res://scenes/freeze.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
-game.tscn::PackedScene::6668224587344304520::1719040458::0::1::::<><>::uid://b5ddunjjnj0cn::::res://scenes/basic_mob.tscn<>res://scripts/injecter.gd<>uid://pqca05bjsioj::::res://scenes/character.tscn<>uid://dkomyi2bm2mtc::::res://stopwatch.tscn<>uid://cvkcpive1accg::::res://tilesets/main.tres<>uid://cdqibqxwvc0ls::::res://scenes/fast_mob.tscn<>uid://dcm4jk26lmset::::res://scenes/range_mob.tscn<>uid://c8vjds02f20yx::::res://scenes/copper_coin.tscn<>uid://cs4qmgihso51n::::res://scenes/gold_coin.tscn<>uid://rbwayjrogcqs::::res://scenes/silver_coin.tscn<>uid://cwhsy8qieg58l::::res://scenes/magnite.tscn<>uid://oconfydlj17b::::res://scenes/fat_mob.tscn<>uid://drvkqhhf5q7pk::::res://scenes/heal.tscn<>uid://dv7mxewvrmlc1::::res://scenes/freeze.tscn
-gold_coin.tscn::PackedScene::6097100736990864745::1719040459::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
-heal.tscn::PackedScene::8396460447136267464::1719040459::0::1::::<><>::res://scripts/heal.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
-magnite.tscn::PackedScene::6332584094981372629::1719040459::0::1::::<><>::res://scripts/magnite.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
-range_mob.tscn::PackedScene::7326189704706367891::1719040458::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://bnivr0pp64c2s::::res://assets/Undead Survivor/Sprites/Enemy 3.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn<>res://scenes/character_injecter.gd
-silver_coin.tscn::PackedScene::1196611768696465322::1719040459::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+::res://frames/::1719211314
+character.tres::SpriteFrames::3877520461493490670::1719211314::0::1::::<><>::uid://bqx2uqf6lam04::::res://assets/Undead Survivor/Sprites/Farmer 0.png
+::res://scenes/::1719221400
+basic_mob.tscn::PackedScene::4498497690086114733::1719221399::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://cakshc6xbsv75::::res://assets/Undead Survivor/Sprites/Enemy 0.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
+bullet.gd::GDScript::-1::1719201065::0::1::::<>CharacterBody2D<>::
+bullet.tscn::PackedScene::6759117463921648511::1719221400::0::1::::<><>::uid://c4uqrxfr3q11o::::res://assets/Undead Survivor/Sprites/UI.png<>res://scenes/bullet.gd<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
+character.tscn::PackedScene::1085985492107040837::1719221399::0::1::::<><>::res://scripts/player.gd<>res://scripts/move.gd<>uid://dexdmgrhrsh0h::::res://ui/base_theme.tres<>uid://bvikgv8puy7gc::::res://frames/character.tres<>res://scripts/collect.gd<>res://scenes/weapon_slot.gd<>res://scenes/weapon_adder.gd
+character_injecter.gd::GDScript::-1::1719155063::0::1::::<>Node<>::
+choose_upgrade.tscn::PackedScene::2546556823539995468::1719221400::0::1::::<><>::res://scripts/upgrade_menu.gd<>uid://t8qx80oscpko::::res://scenes/upgrade_controll.tscn
+coin.tscn::PackedScene::8162841284880235676::1719221399::0::1::::<><>::res://scripts/coin.gd<>uid://p2j7soefvrbb::::res://assets/CasualGameSounds/coin_scaled.wav
+copper_coin.tscn::PackedScene::7132977935868081011::1719221399::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+damage_area_2d.tscn::PackedScene::1256351712534389943::1719221399::0::1::::<><>::res://scripts/damage.gd
+fast_mob.tscn::PackedScene::5016926341033146444::1719221399::0::1::::<><>::res://scripts/fast_mob.gd<>res://scripts/move.gd<>uid://ceyg278reao5v::::res://assets/Undead Survivor/Sprites/Enemy 2.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
+fat_mob.tscn::PackedScene::987646119503514625::1719221400::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://n4auhs4g7ga8::::res://assets/Undead Survivor/Sprites/Enemy 1.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn
+freeze.tscn::PackedScene::8700057777837350042::1719221400::0::1::::<><>::res://freeze.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+game.tscn::PackedScene::6668224587344304520::1719221399::0::1::::<><>::uid://b5ddunjjnj0cn::::res://scenes/basic_mob.tscn<>uid://dkomyi2bm2mtc::::res://stopwatch.tscn<>uid://cvkcpive1accg::::res://tilesets/main.tres<>uid://cdqibqxwvc0ls::::res://scenes/fast_mob.tscn<>uid://dcm4jk26lmset::::res://scenes/range_mob.tscn<>uid://c8vjds02f20yx::::res://scenes/copper_coin.tscn<>uid://cs4qmgihso51n::::res://scenes/gold_coin.tscn<>uid://rbwayjrogcqs::::res://scenes/silver_coin.tscn<>uid://cwhsy8qieg58l::::res://scenes/magnite.tscn<>uid://oconfydlj17b::::res://scenes/fat_mob.tscn<>uid://drvkqhhf5q7pk::::res://scenes/heal.tscn<>uid://dv7mxewvrmlc1::::res://scenes/freeze.tscn
+gold_coin.tscn::PackedScene::6097100736990864745::1719221399::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+heal.tscn::PackedScene::8396460447136267464::1719221400::0::1::::<><>::res://scripts/heal.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+magnite.tscn::PackedScene::6332584094981372629::1719221399::0::1::::<><>::res://scripts/magnite.gd<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+PUI.tscn::PackedScene::6253290710628535424::1719156514::0::1::::<><>::
+range_mob.tscn::PackedScene::7326189704706367891::1719221399::0::1::::<><>::res://scripts/basic_mob.gd<>res://scripts/move.gd<>uid://bnivr0pp64c2s::::res://assets/Undead Survivor/Sprites/Enemy 3.png<>uid://r5t6udk2o024::::res://scenes/damage_area_2d.tscn<>res://scripts/shooter.gd
+silver_coin.tscn::PackedScene::1196611768696465322::1719221399::0::1::::<><>::uid://doke2kxdp1ge3::::res://scenes/coin.tscn<>uid://cqgtpcrcpurbw::::res://assets/Undead Survivor/Sprites/Props 2.png
+upgrade_controll.tscn::PackedScene::1402726812701575374::1719221400::0::1::::<><>::
 weapon_adder.gd::GDScript::-1::1714229664::0::1::::<>Node2D<>::
-weapon_slot.gd::GDScript::-1::1714233466::0::1::::<>Node2D<>::
-::res://scripts/::1714235077
-basic_mob.gd::GDScript::-1::1714138895::0::1::::<>Node2D<>::
-character.gd::GDScript::-1::1714232920::0::1::::<>Node2D<>::
+weapon_slot.gd::GDScript::-1::1719155682::0::1::::<>Node2D<>::
+::res://scripts/::1719221390
+basic_mob.gd::GDScript::-1::1719214749::0::1::::<>Node<>::
+character.gd::GDScript::-1::1719214684::0::1::::Character<>Node<>::
 coin.gd::GDScript::-1::1714126385::0::1::::<>Area2D<>::
 collect.gd::GDScript::-1::1714121531::0::1::::<>Area2D<>::
-collectable.gd::GDScript::-1::1714138425::0::1::::<>Area2D<>::
-damage.gd::GDScript::-1::1714234867::0::1::::<>Area2D<>::
-fast_mob.gd::GDScript::-1::1714197297::0::1::::<>Node2D<>::
+collectable.gd::GDScript::-1::1719212648::0::1::::Collectable<>Area2D<>::
+damage.gd::GDScript::-1::1719201022::0::1::::<>Area2D<>::
+fast_mob.gd::GDScript::-1::1719214793::0::1::::<>Node<>::
 heal.gd::GDScript::-1::1714135004::0::1::::<>Area2D<>::
-injecter.gd::GDScript::-1::1714235076::0::1::::<>Node<>::
+injecter.gd::GDScript::-1::1719155051::0::1::::<>Node<>::
 magnite.gd::GDScript::-1::1714124366::0::1::::<>Area2D<>::
-mob.gd::GDScript::-1::1714196379::0::1::::<>Node2D<>::
+mob.gd::GDScript::-1::1719214755::0::1::::<>Node<>::
+mob_manager.gd::GDScript::-1::1719221390::0::1::::<>Node<>::
 move.gd::GDScript::-1::1713950546::0::1::::<>CharacterBody2D<>::
-player.gd::GDScript::-1::1714197599::0::1::::<>Node2D<>::
-::res://tilesets/::1719034339
-main.tres::TileSet::6267599535063769010::1719034339::0::1::::<><>::uid://bimj7p0kpjylx::::res://assets/Undead Survivor/Sprites/Tiles.png
-::res://ui/::1719034339
-base_theme.tres::Theme::7487702036223223733::1719034339::0::1::::<><>::uid://cmg4b2lpdwgfr::::res://assets/joystix monospace.otf
+player.gd::GDScript::-1::1719216621::0::1::::<>Node<>::
+shooter.gd::GDScript::-1::1719211245::0::1::::<>Node<>::
+upgrade_manager.gd::GDScript::-1::1719214406::0::1::::<>Node<>::
+upgrade_menu.gd::GDScript::-1::1719220979::0::1::::<>CanvasLayer<>::
+::res://scripts/upgrades/::1719213068
+upgrade.gd::GDScript::-1::1719211557::0::1::::Upgrade<>Node<>::
+upgrade_health.gd::GDScript::-1::1719213068::0::1::::UpgradeHealth<>Upgrade<>::
+::res://tilesets/::1719211314
+main.tres::TileSet::6267599535063769010::1719211314::0::1::::<><>::uid://bimj7p0kpjylx::::res://assets/Undead Survivor/Sprites/Tiles.png
+::res://ui/::1719211314
+base_theme.tres::Theme::7487702036223223733::1719211314::0::1::::<><>::uid://cmg4b2lpdwgfr::::res://assets/joystix monospace.otf

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv7mxewvrmlc1"]
 
-[ext_resource type="Script" path="res://scenes/freeze.gd" id="1_8pqkb"]
+[ext_resource type="Script" path="res://freeze.gd" id="1_8b0wx"]
 [ext_resource type="Texture2D" uid="uid://cqgtpcrcpurbw" path="res://assets/Undead Survivor/Sprites/Props 2.png" id="2_pfkbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kggk2"]
@@ -24,7 +24,7 @@ animations = [{
 [node name="Freeze" type="Area2D"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("1_8pqkb")
+script = ExtResource("1_8b0wx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kggk2")
