@@ -23,7 +23,9 @@ var exp = 0.0 :
 			level += 1
 			need_exp = 10 + pow(5, level / 2)
 			ChooseUpgrade.activate()
+			hp = max_hp
 			await Signal(ChooseUpgrade, 'deactivated')
+			
 		
 		exp_bar.value = exp / (need_exp / 100)
 		
