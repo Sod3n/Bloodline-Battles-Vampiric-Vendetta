@@ -29,7 +29,7 @@ func deactivate():
 func spawn_mobs():
 	for i in count:
 		var spawn_position = Global.point_randomizer.generate_random_point_for_spawn(direction_priorities)
-		var mob = null
+		var mob = type
 		
 		get_tree().root.add_child(mob)
 		mob.owner = get_tree().root
