@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=23 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://stopwatch.tscn" id="2_hkc4i"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/mob_wave.gd" id="15_unpe8"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_dropped_collectable.gd" id="18_0h1cr"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_spawn_event.gd" id="18_ecff6"]
+[ext_resource type="PackedScene" uid="uid://xiwen8mqmc1k" path="res://scenes/grave_mob.tscn" id="20_n1bx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky1wr"]
 atlas = ExtResource("14_hod8k")
@@ -124,3 +125,6 @@ frequency = 1.0
 script = ExtResource("15_h07uc")
 type = ExtResource("5_rynri")
 count = 5
+
+[node name="GraveMob" parent="." instance=ExtResource("20_n1bx0")]
+position = Vector2(1076, 765)

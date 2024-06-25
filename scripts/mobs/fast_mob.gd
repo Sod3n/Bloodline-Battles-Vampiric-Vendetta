@@ -1,4 +1,4 @@
-extends "res://scripts/mob.gd"
+extends "res://scripts/mobs/mob.gd"
 
 @export var distance_to_around = 500
 @export var around_max_time = 7

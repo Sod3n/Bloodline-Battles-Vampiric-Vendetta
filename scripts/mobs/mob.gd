@@ -52,3 +52,6 @@ func _process(delta):
 	
 	if alpha <= 0:
 		queue_free()
+
+func can_act():
+	return not is_stunned and not is_died

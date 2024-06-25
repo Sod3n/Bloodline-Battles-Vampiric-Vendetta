@@ -1,4 +1,4 @@
-extends "res://scripts/mob.gd"
+extends "res://scripts/mobs/mob.gd"
 
 @export var keep_distance = 500
 @export var distance_spread = 100
@@ -55,10 +55,7 @@ func _process(delta):
 	body.vector = velocity
 	
 	rotate_sprite()
-	
-	
-func can_act():
-	return not is_stunned and not is_died
+
 
 func _on_damage_area_2d_on_enter(body):
 	body.receive_damage(damage)
