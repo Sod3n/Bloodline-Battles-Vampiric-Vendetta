@@ -14,6 +14,8 @@ var injecter : Node2D
 
 var is_mob_flag = true
 
+var dropped_collectable
+
 func _ready():
 	MobManager.mobs.append(self)
 
@@ -33,8 +35,13 @@ func die():
 			coin = GOLD_COIN.instantiate()
 	
 	coin.global_position = body.global_position
-	
 	get_owner().add_child(coin)
+	
+	if dropped_collectable != null:
+		var collectable = dropped_collectable.instantiate()
+		collectable.global_position = body.global_position
+		get_owner().add_child(collectable)
+	
 
 func _process(delta):
 	super(delta)

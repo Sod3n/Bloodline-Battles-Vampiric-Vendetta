@@ -18,6 +18,8 @@ PointRandomizer.Priorities.LEFT, PointRandomizer.Priorities.BOTTOM]
 
 var timer := Timer.new()
 
+var collectables : Array
+
 func _ready():
 	add_child(timer)
 
@@ -45,5 +47,12 @@ func spawn_mobs():
 		get_tree().root.add_child(mob)
 		mob.owner = get_tree().root
 		mob.body.global_position = spawn_position
+		
+		if collectables.size() >= count - i:
+			mob.dropped_collectable = collectables.pop_front()
+			print("size difference, adding")
+		elif randi_range(0, 100) >= 50:
+			mob.dropped_collectable = collectables.pop_front()
+		
 	
 	spawned.emit()

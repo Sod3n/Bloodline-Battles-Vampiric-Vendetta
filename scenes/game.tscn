@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=22 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://stopwatch.tscn" id="2_hkc4i"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scenes/mob_wave_manager.gd" id="15_4a6fw"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_spawn.gd" id="15_h07uc"]
 [ext_resource type="Script" path="res://scenes/mob_wave.gd" id="15_unpe8"]
+[ext_resource type="Script" path="res://scripts/spawn/mob_dropped_collectable.gd" id="18_0h1cr"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_spawn_event.gd" id="18_ecff6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky1wr"]
@@ -99,20 +100,25 @@ script = ExtResource("15_unpe8")
 
 [node name="BasicSpawn" type="Node" parent="MobWaveManager/Wave"]
 script = ExtResource("15_h07uc")
-count = 10
+count = 2
 frequency = 2.0
 
-[node name="MobWaveSpawnEvent" type="Node" parent="MobWaveManager/Wave"]
+[node name="MobDroppedCollectable" type="Node" parent="MobWaveManager/Wave" node_paths=PackedStringArray("spawn")]
+script = ExtResource("18_0h1cr")
+spawn = NodePath("../BasicSpawn")
+collectables = Array[PackedScene]([ExtResource("12_8y18e"), ExtResource("10_6pmfa")])
+
+[node name="Wave2" type="Node" parent="MobWaveManager"]
+script = ExtResource("15_unpe8")
+
+[node name="MobWaveSpawnEvent" type="Node" parent="MobWaveManager/Wave2"]
 script = ExtResource("18_ecff6")
 
-[node name="BasicSpawn2" type="Node" parent="MobWaveManager/Wave/MobWaveSpawnEvent"]
+[node name="BasicSpawn2" type="Node" parent="MobWaveManager/Wave2/MobWaveSpawnEvent"]
 script = ExtResource("15_h07uc")
 type = 2
 count = 30
 frequency = 1.0
-
-[node name="Wave2" type="Node" parent="MobWaveManager"]
-script = ExtResource("15_unpe8")
 
 [node name="BasicSpawn" type="Node" parent="MobWaveManager/Wave2"]
 script = ExtResource("15_h07uc")
