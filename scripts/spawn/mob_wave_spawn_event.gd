@@ -1,3 +1,4 @@
+class_name MobWaveSpawnEvent
 extends MobWaveEvent
 
 var spawns : Array

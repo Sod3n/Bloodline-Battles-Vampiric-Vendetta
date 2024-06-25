@@ -92,7 +92,7 @@ theme_override_font_sizes/font_size = 36
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="CharacterBody2D" instance=ExtResource("5_uwxc7")]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(1, 1)
 script = ExtResource("6_ywwtg")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="CharacterBody2D"]
