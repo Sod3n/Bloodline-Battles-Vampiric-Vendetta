@@ -5,6 +5,7 @@ extends "res://scripts/mobs/mob.gd"
 
 @onready var player_body : Node2D = Player.body
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
+@onready var shooter = $CharacterBody2D/Shooter
 
 func _ready():
 	super()

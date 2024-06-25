@@ -7,12 +7,11 @@ const BULLET = preload("res://scenes/bullet.tscn")
 @export var bullet_speed : float = 500
 @export var bullet_lifetime : float = 10
 @export var deviation : float = 0
+@export var active : bool = false
 @onready var range_mob = $"../.."
 
 var timer: Timer = Timer.new()
 @onready var player_body = Player.body
-
-var active: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,9 +19,12 @@ func _ready():
 	timer.timeout.connect(Callable(self, "_on_timeout"))
 	timer.wait_time = frequency
 	timer.one_shot = false
+	
+	if active:
+		activate()
 
 func _on_timeout():
-	if not range_mob.can_act() or active:
+	if not range_mob.can_act():
 		return
 	
 	var instance = BULLET.instantiate()
