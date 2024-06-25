@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k12wf"]
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_077ha"]
+[ext_resource type="SpriteFrames" uid="uid://baahiv2oupcj1" path="res://frames/character_frames.tres" id="3_0jnbf"]
 [ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
-[ext_resource type="SpriteFrames" uid="uid://bvikgv8puy7gc" path="res://frames/character.tres" id="3_qpf8x"]
 [ext_resource type="Script" path="res://scripts/collect.gd" id="6_ylysf"]
 [ext_resource type="Script" path="res://scenes/weapon_slot.gd" id="7_rv4ed"]
 [ext_resource type="Script" path="res://scenes/weapon_adder.gd" id="8_q7db4"]
@@ -37,8 +37,8 @@ script = ExtResource("2_077ha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(10, 10)
-sprite_frames = ExtResource("3_qpf8x")
-animation = &"die"
+sprite_frames = ExtResource("3_0jnbf")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-4, 67)

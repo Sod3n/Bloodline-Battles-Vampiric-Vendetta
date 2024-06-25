@@ -104,7 +104,7 @@ script = ExtResource("2_7hb47")
 z_index = -1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_gy5yk")
-animation = &"die"
+animation = &"idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 12)

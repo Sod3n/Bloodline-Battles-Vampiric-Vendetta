@@ -1,23 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3kfxa0gkfmh0"]
+[gd_scene load_steps=5 format=3 uid="uid://c3kfxa0gkfmh0"]
 
-[ext_resource type="Texture2D" uid="uid://c4uqrxfr3q11o" path="res://assets/Undead Survivor/Sprites/UI.png" id="1_2a8uf"]
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="1_btrkd"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/damage_area_2d.tscn" id="2_et5rn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwc5y"]
-atlas = ExtResource("1_2a8uf")
-region = Rect2(20, 77, 6, 6)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o1s0j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bwc5y")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://lpw5m7py2qf4" path="res://scenes/bullet_frame.tres" id="2_xpmqm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rir4d"]
 radius = 29.0
@@ -34,8 +19,10 @@ scale = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_o1s0j")
+position = Vector2(2.68221e-06, 2.38419e-07)
+scale = Vector2(9.33333, 9.33333)
+sprite_frames = ExtResource("2_xpmqm")
+autoplay = "default"
 
 [node name="DamageArea2D" parent="." instance=ExtResource("2_et5rn")]
 collision_layer = 2

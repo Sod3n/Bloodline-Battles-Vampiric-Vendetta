@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://lpw5m7py2qf4"]
+
+[ext_resource type="Texture2D" uid="uid://cqgtpcrcpurbw" path="res://assets/Undead Survivor/Sprites/Props 2.png" id="1_bm06q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3156k"]
+atlas = ExtResource("1_bm06q")
+region = Rect2(8, 32, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55tjn"]
+atlas = ExtResource("1_bm06q")
+region = Rect2(44, 32, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0sxi"]
+atlas = ExtResource("1_bm06q")
+region = Rect2(26, 32, 6, 6)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3156k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55tjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0sxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55tjn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
