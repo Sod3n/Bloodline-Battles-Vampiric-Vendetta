@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cvkcpive1accg"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://cvkcpive1accg"]
 
 [ext_resource type="Texture2D" uid="uid://bimj7p0kpjylx" path="res://assets/Undead Survivor/Sprites/Tiles.png" id="1_uqx6e"]
 
@@ -8,27 +8,40 @@ tile_data = PackedInt32Array(0, 1, 0, 65536, 65537, 1, 131072, 65537, 1, 196608,
 [sub_resource type="TileMapPattern" id="TileMapPattern_141gr"]
 tile_data = PackedInt32Array(327680, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 720896, 1, 0, 786432, 1, 0, 327681, 1, 0, 393217, 1, 2, 458753, 1, 0, 524289, 1, 0, 589825, 1, 0, 655361, 1, 0, 720897, 1, 0, 786433, 1, 0, 327682, 1, 0, 393218, 65537, 1, 458754, 131073, 1, 524290, 1, 0, 589826, 1, 0, 655362, 1, 0, 720898, 1, 0, 786434, 1, 0, 851970, 1, 0, 327683, 1, 0, 393219, 131073, 1, 458755, 1, 0, 524291, 131073, 1, 589827, 1, 0, 655363, 1, 0, 720899, 131073, 1, 786435, 131073, 1, 851971, 1, 2, 327684, 1, 0, 393220, 131073, 1, 458756, 1, 0, 524292, 65537, 1, 589828, 131073, 1, 655364, 1, 1, 720900, 1, 0, 786436, 131073, 1, 851972, 1, 0, 5, 1, 0, 65541, 1, 0, 131077, 1, 0, 196613, 1, 0, 262149, 1, 0, 327685, 1, 0, 393221, 131073, 1, 458757, 131073, 1, 524293, 131073, 1, 589829, 131073, 1, 655365, 1, 0, 720901, 131073, 1, 786437, 1, 0, 851973, 1, 0, 917509, 1, 0, 983045, 1, 0, 6, 1, 0, 65542, 1, 0, 131078, 1, 0, 196614, 1, 0, 262150, 131073, 1, 327686, 131073, 1, 393222, 1, 0, 458758, 1, 1, 524294, 1, 0, 589830, 1, 0, 655366, 65537, 1, 720902, 131073, 1, 786438, 1, 0, 851974, 1, 0, 917510, 1, 0, 983046, 1, 0, 7, 1, 0, 65543, 1, 2, 131079, 131073, 1, 196615, 131073, 1, 262151, 1, 0, 327687, 1, 0, 393223, 1, 0, 458759, 1, 1, 524295, 1, 0, 589831, 1, 0, 655367, 1, 0, 720903, 131073, 1, 786439, 1, 0, 851975, 1, 0, 917511, 1, 0, 983047, 1, 0, 8, 1, 0, 65544, 1, 0, 131080, 1, 0, 196616, 65537, 1, 262152, 131073, 1, 327688, 131073, 1, 393224, 1, 0, 458760, 65537, 1, 524296, 1, 0, 589832, 1, 0, 655368, 131073, 1, 720904, 1, 0, 786440, 131073, 1, 851976, 1, 0, 917512, 1, 0, 983048, 1, 0, 9, 1, 0, 65545, 1, 0, 131081, 1, 0, 196617, 1, 0, 262153, 1, 0, 327689, 1, 0, 393225, 131073, 1, 458761, 131073, 1, 524297, 131073, 1, 589833, 131073, 1, 655369, 131073, 1, 720905, 1, 0, 786441, 131073, 1, 851977, 1, 0, 917513, 1, 0, 983049, 1, 0, 10, 1, 0, 65546, 1, 0, 131082, 1, 0, 196618, 1, 0, 262154, 1, 0, 327690, 1, 0, 393226, 1, 0, 458762, 131073, 1, 524298, 1, 0, 589834, 1, 0, 655370, 131073, 1, 720906, 131073, 1, 786442, 131073, 1, 851978, 131073, 1, 917514, 1, 0, 983050, 1, 0, 11, 1, 0, 65547, 1, 0, 131083, 1, 0, 196619, 1, 0, 262155, 1, 0, 327691, 1, 0, 393227, 1, 0, 458763, 131073, 1, 524299, 1, 0, 589835, 65537, 1, 655371, 1, 0, 720907, 1, 0, 786443, 1, 0, 851979, 1, 1, 917515, 1, 2, 983051, 1, 0, 327692, 1, 0, 393228, 1, 0, 458764, 1, 0, 524300, 131073, 1, 589836, 131073, 1, 655372, 1, 0, 720908, 1, 0, 786444, 1, 0, 327693, 1, 0, 393229, 1, 0, 458765, 1, 0, 524301, 131073, 1, 589837, 65537, 1, 655373, 1, 0, 720909, 1, 0, 786445, 1, 0, 327694, 1, 0, 393230, 1, 0, 458766, 1, 0, 524302, 1, 2, 589838, 1, 0, 655374, 1, 0, 720910, 1, 0, 786446, 1, 0, 327695, 1, 0, 393231, 1, 0, 458767, 1, 0, 524303, 1, 0, 589839, 1, 0, 655375, 1, 0, 720911, 1, 0, 786447, 1, 0, 327696, 1, 0, 393232, 1, 0, 458768, 1, 0, 524304, 1, 0, 589840, 1, 0, 655376, 1, 0, 720912, 1, 0, 786448, 1, 0, 327697, 1, 0, 393233, 1, 0, 458769, 1, 0, 524305, 1, 0, 589841, 1, 0, 655377, 1, 0, 720913, 1, 0, 786449, 1, 0)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f478w"]
+vertices = PackedVector2Array(9, 9, -9, 9, -9, -9, 9, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjcwp"]
 texture = ExtResource("1_uqx6e")
 texture_region_size = Vector2i(19, 19)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f478w")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
@@ -46,6 +59,7 @@ texture_region_size = Vector2i(19, 19)
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 32
 physics_layer_0/collision_mask = 0
+navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_fjcwp")
 pattern_0 = SubResource("TileMapPattern_r62ik")
 pattern_1 = SubResource("TileMapPattern_141gr")

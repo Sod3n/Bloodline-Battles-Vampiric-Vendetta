@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=18 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://stopwatch.tscn" id="2_hkc4i"]
@@ -11,13 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cwhsy8qieg58l" path="res://scenes/magnite.tscn" id="10_6pmfa"]
 [ext_resource type="PackedScene" uid="uid://oconfydlj17b" path="res://scenes/fat_mob.tscn" id="11_i7pa4"]
 [ext_resource type="PackedScene" uid="uid://drvkqhhf5q7pk" path="res://scenes/heal.tscn" id="12_8y18e"]
-[ext_resource type="Script" path="res://scripts/spawn/point_randomizer.gd" id="13_18rpu"]
 [ext_resource type="PackedScene" uid="uid://dv7mxewvrmlc1" path="res://scenes/freeze.tscn" id="13_jdn5j"]
 [ext_resource type="Texture2D" uid="uid://tipirbkopv2d" path="res://assets/Undead Survivor/Icon.png" id="14_hod8k"]
-[ext_resource type="Script" path="res://scenes/mob_wave_manager.gd" id="15_4a6fw"]
-[ext_resource type="Script" path="res://scripts/spawn/mob_spawn.gd" id="15_h07uc"]
-[ext_resource type="Script" path="res://scenes/mob_wave.gd" id="15_unpe8"]
-[ext_resource type="Script" path="res://scripts/spawn/mob_wave_spawn_event.gd" id="18_ecff6"]
+[ext_resource type="Script" path="res://scripts/point_randomizer2.gd" id="14_tymug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra5tr"]
+size = Vector2(4000, 4000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky1wr"]
 atlas = ExtResource("14_hod8k")
@@ -78,43 +77,16 @@ position = Vector2(-106, 1726)
 [node name="Freeze" parent="." instance=ExtResource("13_jdn5j")]
 position = Vector2(1710, 1834)
 
-[node name="PointRandomizer" type="Node2D" parent="."]
-visible = false
-position = Vector2(100, -34)
-script = ExtResource("13_18rpu")
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13480, 8000)
+script = ExtResource("14_tymug")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="PointRandomizer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ra5tr")
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 sprite_frames = SubResource("SpriteFrames_sx3e5")
 
-[node name="MobWaveManager" type="Node" parent="."]
-script = ExtResource("15_4a6fw")
-
-[node name="Wave" type="Node" parent="MobWaveManager"]
-script = ExtResource("15_unpe8")
-
-[node name="BasicSpawn" type="Node" parent="MobWaveManager/Wave"]
-script = ExtResource("15_h07uc")
-count = 10
-frequency = 2.0
-
-[node name="MobWaveSpawnEvent" type="Node" parent="MobWaveManager/Wave"]
-script = ExtResource("18_ecff6")
-
-[node name="BasicSpawn2" type="Node" parent="MobWaveManager/Wave/MobWaveSpawnEvent"]
-script = ExtResource("15_h07uc")
-type = 2
-count = 30
-frequency = 1.0
-
-[node name="Wave2" type="Node" parent="MobWaveManager"]
-script = ExtResource("15_unpe8")
-
-[node name="BasicSpawn" type="Node" parent="MobWaveManager/Wave2"]
-script = ExtResource("15_h07uc")
-type = 1
-count = 5
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Node2D"]

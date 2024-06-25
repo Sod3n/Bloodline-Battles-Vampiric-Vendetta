@@ -19,6 +19,8 @@ func activate():
 	_set_button_text(button_3, _get_at(upgrades, 2))
 	button_1.grab_focus()
 	get_tree().paused = true
+	if upgrades.size() <= 0:
+		deactivate()
 
 func deactivate():
 	self.hide()
