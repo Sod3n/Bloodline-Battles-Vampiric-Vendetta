@@ -78,6 +78,7 @@ script = ExtResource("15_unpe8")
 script = ExtResource("15_h07uc")
 count = 10
 frequency = 2.0
+random_side = true
 
 [node name="MobDroppedCollectable" type="Node" parent="MobWaveManager/MobWave" node_paths=PackedStringArray("spawn")]
 script = ExtResource("18_0h1cr")

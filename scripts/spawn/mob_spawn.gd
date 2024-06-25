@@ -6,6 +6,7 @@ signal spawned
 @export var type : PackedScene = preload("res://scenes/basic_mob.tscn")
 @export var count : int = 1
 @export var frequency : float = 5
+@export var random_side : bool = false
 @export var direction_priorities : Array[PointRandomizer.Priorities] \
 = [PointRandomizer.Priorities.TOP, PointRandomizer.Priorities.RIGHT, \
 PointRandomizer.Priorities.LEFT, PointRandomizer.Priorities.BOTTOM]
@@ -28,6 +29,9 @@ func deactivate():
 
 func spawn_mobs():
 	for i in count:
+		if random_side:
+			direction_priorities.shuffle()
+		
 		var spawn_position = Global.point_randomizer.generate_random_point_for_spawn(direction_priorities)
 		var mob = type.instantiate()
 		
