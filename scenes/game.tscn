@@ -116,9 +116,11 @@ script = ExtResource("18_ecff6")
 
 [node name="BasicSpawn2" type="Node" parent="MobWaveManager/Wave2/MobWaveSpawnEvent"]
 script = ExtResource("15_h07uc")
+type = ExtResource("4_ita4n")
 count = 30
 frequency = 1.0
 
 [node name="BasicSpawn" type="Node" parent="MobWaveManager/Wave2"]
 script = ExtResource("15_h07uc")
+type = ExtResource("5_rynri")
 count = 5

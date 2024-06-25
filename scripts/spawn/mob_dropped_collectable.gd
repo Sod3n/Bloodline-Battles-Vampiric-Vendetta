@@ -17,5 +17,5 @@ func activate():
 
 func assign():
 	print("assign")
-	spawn.collectables = collectables
+	spawn.collectables.append_array(collectables) 
 	
