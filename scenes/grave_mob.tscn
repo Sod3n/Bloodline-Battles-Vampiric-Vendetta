@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xiwen8mqmc1k"]
+[gd_scene load_steps=12 format=3 uid="uid://cw0cbp7mkwguu"]
 
 [ext_resource type="Script" path="res://scripts/mobs/grave_mob.gd" id="1_3kyrr"]
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_fkmod"]
@@ -50,7 +50,7 @@ height = 344.0
 
 [node name="GraveMob" type="Node2D" node_paths=PackedStringArray("shooters")]
 script = ExtResource("1_3kyrr")
-shooters = [NodePath("CharacterBody2D/Shooter"), NodePath("CharacterBody2D/Shooter2"), NodePath("CharacterBody2D/Shooter3"), NodePath("CharacterBody2D/Shooter4"), NodePath("CharacterBody2D/Shooter5")]
+shooters = [NodePath("CharacterBody2D/Shooter"), NodePath("CharacterBody2D/Shooter4"), NodePath("CharacterBody2D/Shooter5")]
 hp = 100.0
 max_hp = 100.0
 speed = 0.0
@@ -74,30 +74,18 @@ shape = SubResource("CapsuleShape2D_50gcs")
 [node name="Shooter" type="Node2D" parent="CharacterBody2D"]
 script = ExtResource("4_1225u")
 frequency = 0.75
-bullet_lifetime = 5.0
-
-[node name="Shooter2" type="Node2D" parent="CharacterBody2D"]
-script = ExtResource("4_1225u")
-frequency = 0.75
-bullet_lifetime = 5.0
-deviation = 15.0
-
-[node name="Shooter3" type="Node2D" parent="CharacterBody2D"]
-script = ExtResource("4_1225u")
-frequency = 0.75
-bullet_lifetime = 5.0
-deviation = -15.0
+bullet_lifetime = 3.0
 
 [node name="Shooter4" type="Node2D" parent="CharacterBody2D"]
 script = ExtResource("4_1225u")
 frequency = 0.75
-bullet_lifetime = 5.0
+bullet_lifetime = 3.0
 deviation = 30.0
 
 [node name="Shooter5" type="Node2D" parent="CharacterBody2D"]
 script = ExtResource("4_1225u")
 frequency = 0.75
-bullet_lifetime = 5.0
+bullet_lifetime = 3.0
 deviation = -30.0
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("5_07app")]
