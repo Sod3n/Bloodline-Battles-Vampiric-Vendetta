@@ -4,17 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://cqgtpcrcpurbw" path="res://assets/Undead Survivor/Sprites/Props 2.png" id="2_pfkbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kggk2"]
-radius = 76.1183
+radius = 68.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iyfwj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0dlg"]
 atlas = ExtResource("2_pfkbi")
-region = Rect2(38, 42, 19, 14)
+region = Rect2(2, 41, 15, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y0h4a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iyfwj")
+"texture": SubResource("AtlasTexture_p0dlg")
 }],
 "loop": true,
 "name": &"default",
@@ -30,6 +30,6 @@ script = ExtResource("1_8b0wx")
 shape = SubResource("CircleShape2D_kggk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14, -12)
+position = Vector2(4, 4)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y0h4a")
