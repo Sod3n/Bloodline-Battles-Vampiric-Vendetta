@@ -1,53 +1,39 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://bvikgv8puy7gc"]
-
-[ext_resource type="Texture2D" uid="uid://bqx2uqf6lam04" path="res://assets/Undead Survivor/Sprites/Farmer 0.png" id="1_cdc3e"]
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://bvikgv8puy7gc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10rjy"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(19, 63, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3fhe"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(38, 63, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg8u5"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(0, 42, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mshi3"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(19, 42, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0f6k"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(38, 42, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ishx7"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(0, 63, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7np0a"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(0, 0, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h51g0"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(19, 0, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6h644"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(38, 0, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jng4p"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(0, 21, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6n2o"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(19, 21, 19, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeeea"]
-atlas = ExtResource("1_cdc3e")
 region = Rect2(38, 21, 19, 21)
 
 [resource]

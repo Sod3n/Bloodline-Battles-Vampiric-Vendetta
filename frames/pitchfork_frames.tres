@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c22nhpv2j2fnb"]
+
+[ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="1_l2ygq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h8ro"]
+atlas = ExtResource("1_l2ygq")
+region = Rect2(19, 0, 19, 7)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h8ro")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

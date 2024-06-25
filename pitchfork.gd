@@ -14,7 +14,7 @@ enum _states { WAIT, ATTACK, RETURN }
 
 var _state = _states.WAIT
 
-var player : Node2D
+var player : Node = Player
 
 var _attack_point = Vector2.ZERO
 
@@ -32,12 +32,20 @@ func _process(delta):
 		_states.WAIT:
 			damage_area_2d.disable()
 			
+			if player.target != null:
+				if _target == player.default_target:
+					_target = player.random_target
+				if not player.targets.has(_target):
+					_target = player.random_target
+			
 			if _target != null:
 				var angle = player.body.global_position.direction_to(_target.global_position).angle()
 					
 				pitchfork_point.rotation = lerp_angle(pitchfork_point.rotation, angle, delta * rotation_speed)
 			elif player.target != null:
 				_target = player.random_target
+			else:
+				_target = player.default_target
 			
 		_states.ATTACK:
 			damage_area_2d.enable()
@@ -80,3 +88,7 @@ func short_angle_dist(from, to):
 	var max_angle = PI * 2
 	var difference = fmod(to - from, max_angle)
 	return fmod(2 * difference, max_angle) - difference
+
+
+func _on_damage_area_2d_on_enter(body):
+	body.receive_damage(Player.damage)
