@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_077ha"]
 [ext_resource type="SpriteFrames" uid="uid://baahiv2oupcj1" path="res://frames/character_frames.tres" id="3_0jnbf"]
 [ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
-[ext_resource type="PackedScene" uid="uid://wtb0bpq1j403" path="res://scenes/camera_2d.tscn" id="5_uwxc7"]
+[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="5_uwxc7"]
 [ext_resource type="Script" path="res://scripts/collect.gd" id="6_ylysf"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="6_ywwtg"]
 [ext_resource type="Script" path="res://scenes/weapon_slot.gd" id="7_rv4ed"]
@@ -92,7 +92,7 @@ theme_override_font_sizes/font_size = 36
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="CharacterBody2D" instance=ExtResource("5_uwxc7")]
-zoom = Vector2(1, 1)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("6_ywwtg")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="CharacterBody2D"]

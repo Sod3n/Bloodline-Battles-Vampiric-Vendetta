@@ -1,6 +1,7 @@
 class_name Shooter
 extends Node
 
+
 const BULLET = preload("res://scenes/bullet.tscn")
 
 @export var frequency : float = 2
