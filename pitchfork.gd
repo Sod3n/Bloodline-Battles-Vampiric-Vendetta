@@ -77,7 +77,7 @@ func _return_state():
 	
 func _wait_state():
 	_state = _states.WAIT
-	timer.start(reload_time)
+	timer.start(reload_time * player.reload)
 	if player:
 		_target = player.random_target
 	

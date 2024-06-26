@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://nrj6x38vqmld"]
+
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_manager.gd" id="1_jpjis"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_list.gd" id="2_7tqqv"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_health.gd" id="3_0pg8i"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_collect_radius.gd" id="4_3effc"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_crit.gd" id="5_5g4cg"]
+[ext_resource type="Script" path="res://scenes/UpgradeAddWeaponList.gd" id="6_33g2o"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_add_weapon.gd" id="6_q82hu"]
+[ext_resource type="PackedScene" uid="uid://ct84npj8x28me" path="res://shovel.tscn" id="7_ffne1"]
+[ext_resource type="PackedScene" uid="uid://bwcqalxnsfuru" path="res://pitchfork.tscn" id="8_53tnl"]
+
+[node name="UpgradeManager" type="Node"]
+script = ExtResource("1_jpjis")
+
+[node name="UpgradeHealthList" type="Node" parent="."]
+script = ExtResource("2_7tqqv")
+
+[node name="UpgradeHealth" type="Node" parent="UpgradeHealthList"]
+script = ExtResource("3_0pg8i")
+
+[node name="UpgradeHealth2" type="Node" parent="UpgradeHealthList"]
+script = ExtResource("3_0pg8i")
+
+[node name="UpgradeHealth3" type="Node" parent="UpgradeHealthList"]
+script = ExtResource("3_0pg8i")
+
+[node name="UpgradeCollectRadiusList" type="Node" parent="."]
+script = ExtResource("2_7tqqv")
+
+[node name="UpgradeCollectRadius" type="Node" parent="UpgradeCollectRadiusList"]
+script = ExtResource("4_3effc")
+
+[node name="UpgradeCollectRadius2" type="Node" parent="UpgradeCollectRadiusList"]
+script = ExtResource("4_3effc")
+
+[node name="UpgradeCritList" type="Node" parent="."]
+script = ExtResource("2_7tqqv")
+
+[node name="UpgradeCrit" type="Node" parent="UpgradeCritList"]
+script = ExtResource("5_5g4cg")
+
+[node name="UpgradeCrit2" type="Node" parent="UpgradeCritList"]
+script = ExtResource("5_5g4cg")
+
+[node name="UpgradeCrit3" type="Node" parent="UpgradeCritList"]
+script = ExtResource("5_5g4cg")
+
+[node name="UpgradeAddWeaponList" type="Node" parent="."]
+script = ExtResource("6_33g2o")
+
+[node name="UpgradeAddWeapon" type="Node" parent="UpgradeAddWeaponList"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("7_ffne1")
+_desription = "Give shovel."
+
+[node name="UpgradeAddWeapon2" type="Node" parent="UpgradeAddWeaponList"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("7_ffne1")
+_desription = "Give shovel."
+
+[node name="UpgradeAddWeapon3" type="Node" parent="UpgradeAddWeaponList"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("7_ffne1")
+_desription = "Give shovel."
+
+[node name="UpgradeAddWeapon4" type="Node" parent="UpgradeAddWeaponList"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("7_ffne1")
+_desription = "Give shovel."
+
+[node name="UpgradeAddWeapon5" type="Node" parent="UpgradeAddWeaponList"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("7_ffne1")
+_desription = "Give shovel."
+
+[node name="UpgradeAddWeaponList2" type="Node" parent="."]
+script = ExtResource("2_7tqqv")
+
+[node name="UpgradeAddWeapon" type="Node" parent="UpgradeAddWeaponList2"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("8_53tnl")
+_desription = "Give pitchfork."
+
+[node name="UpgradeAddWeapon2" type="Node" parent="UpgradeAddWeaponList2"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("8_53tnl")
+_desription = "Give pitchfork."
+
+[node name="UpgradeAddWeapon3" type="Node" parent="UpgradeAddWeaponList2"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("8_53tnl")
+_desription = "Give pitchfork."
+
+[node name="UpgradeAddWeapon4" type="Node" parent="UpgradeAddWeaponList2"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("8_53tnl")
+_desription = "Give pitchfork."
+
+[node name="UpgradeAddWeapon5" type="Node" parent="UpgradeAddWeaponList2"]
+script = ExtResource("6_q82hu")
+weapon = ExtResource("8_53tnl")
+_desription = "Give pitchfork."

@@ -1,5 +1,5 @@
+class_name Mob
 extends "res://scripts/character.gd"
-
 
 @export_enum("Copper", "Silver", "Gold") var coin_drops: int
 
@@ -17,7 +17,7 @@ var is_mob_flag = true
 var dropped_collectable
 
 func _ready():
-	MobManager.mobs.append(self)
+	GlobalMobManager.mobs.append(self)
 
 
 func die():

@@ -3,5 +3,5 @@ extends Node
 
 var description = "upgrade"
 
-func apply(character : Character) -> void:
+func apply(character : BasicCharacter) -> void:
 	pass

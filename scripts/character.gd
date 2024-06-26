@@ -15,7 +15,7 @@ func set_hp(value):
 @export var attack = 10.0
 @export var damage_decrease = 0.0
 @export var dodge = 10.0
-@export var reload = 0.0
+@export var reload = 1.0
 @export var invincibility_time = 3.0
 @export var is_invincible = false
 @export var invincible_effect_rate = 8

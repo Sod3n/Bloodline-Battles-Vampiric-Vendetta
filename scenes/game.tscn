@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=14 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
-[ext_resource type="PackedScene" uid="uid://by2q4idcj0bsg" path="res://scenes/tile_map.tscn" id="2_5vsdh"]
+[ext_resource type="PackedScene" uid="uid://dtnxu58so78by" path="res://scenes/tile_map.tscn" id="2_5vsdh"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://stopwatch.tscn" id="2_hkc4i"]
 [ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/fast_mob.tscn" id="4_ita4n"]
 [ext_resource type="PackedScene" uid="uid://dcm4jk26lmset" path="res://scenes/range_mob.tscn" id="5_rynri"]
@@ -13,11 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://drvkqhhf5q7pk" path="res://scenes/heal.tscn" id="12_8y18e"]
 [ext_resource type="Script" path="res://scripts/spawn/point_randomizer.gd" id="13_18rpu"]
 [ext_resource type="PackedScene" uid="uid://dv7mxewvrmlc1" path="res://scenes/freeze.tscn" id="13_jdn5j"]
-[ext_resource type="Script" path="res://scenes/mob_wave_manager.gd" id="15_4a6fw"]
-[ext_resource type="Script" path="res://scripts/spawn/mob_spawn.gd" id="15_h07uc"]
-[ext_resource type="Script" path="res://scenes/mob_wave.gd" id="15_unpe8"]
-[ext_resource type="Script" path="res://scripts/spawn/mob_dropped_collectable.gd" id="18_0h1cr"]
-[ext_resource type="Script" path="res://scripts/spawn/mob_wave_spawn_event.gd" id="18_ecff6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -61,45 +56,3 @@ position = Vector2(1710, 1834)
 script = ExtResource("13_18rpu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="PointRandomizer"]
-
-[node name="MobWaveManager" type="Node" parent="."]
-script = ExtResource("15_4a6fw")
-
-[node name="MobWave" type="Node" parent="MobWaveManager"]
-script = ExtResource("15_unpe8")
-
-[node name="MobSpawn" type="Node" parent="MobWaveManager/MobWave"]
-script = ExtResource("15_h07uc")
-count = 10
-frequency = 2.0
-random_side = true
-
-[node name="MobDroppedCollectable" type="Node" parent="MobWaveManager/MobWave" node_paths=PackedStringArray("spawn")]
-script = ExtResource("18_0h1cr")
-spawn = NodePath("../MobSpawn")
-collectables = Array[PackedScene]([ExtResource("13_jdn5j"), ExtResource("12_8y18e"), ExtResource("10_6pmfa")])
-
-[node name="MobWave2" type="Node" parent="MobWaveManager"]
-script = ExtResource("15_unpe8")
-
-[node name="MobSpawn" type="Node" parent="MobWaveManager/MobWave2"]
-script = ExtResource("15_h07uc")
-type = ExtResource("5_rynri")
-count = 10
-frequency = 2.0
-direction_priorities = Array[int]([3, 0, 2, 1])
-
-[node name="MobDroppedCollectable" type="Node" parent="MobWaveManager/MobWave2" node_paths=PackedStringArray("spawn")]
-script = ExtResource("18_0h1cr")
-spawn = NodePath("../MobSpawn")
-collectables = Array[PackedScene]([ExtResource("13_jdn5j"), ExtResource("12_8y18e"), ExtResource("10_6pmfa")])
-
-[node name="MobWaveSpawnEvent" type="Node" parent="MobWaveManager/MobWave2"]
-script = ExtResource("18_ecff6")
-
-[node name="MobSpawn2" type="Node" parent="MobWaveManager/MobWave2/MobWaveSpawnEvent"]
-script = ExtResource("15_h07uc")
-type = ExtResource("4_ita4n")
-count = 30
-frequency = 1.0
-direction_priorities = Array[int]([1, 2, 0, 3])

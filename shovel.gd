@@ -95,7 +95,7 @@ func _wait_attack():
 	if player:
 		_target = player.random_target
 	state = WeaponState.WAIT_ATTACK
-	await get_tree().create_timer(wait_attack_time).timeout
+	await get_tree().create_timer(wait_attack_time * player.reload).timeout
 	rotate_distance = 0
 	state = WeaponState.PREPARE_ATTACK
 

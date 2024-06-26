@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2q4idcj0bsg"]
+[gd_scene load_steps=3 format=3 uid="uid://dtnxu58so78by"]
 
 [ext_resource type="TileSet" uid="uid://cvkcpive1accg" path="res://tilesets/main.tres" id="1_2fbvo"]
-[ext_resource type="PackedScene" uid="uid://cw0cbp7mkwguu" path="res://scenes/grave_mob.tscn" id="2_hqwa2"]
+[ext_resource type="PackedScene" uid="uid://xiwen8mqmc1k" path="res://scenes/grave_mob.tscn" id="2_hqwa2"]
 
 [node name="TileMap" type="TileMap"]
 z_index = -100
@@ -16,268 +16,230 @@ z_as_relative = false
 position = Vector2(-350.1, 388.3)
 scale = Vector2(0.1, 0.1)
 
-[node name="GraveMob4" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob4" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-44.2, -764)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob31" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob31" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-8.5, -763.7)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob32" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob32" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(9.2, -763.3)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob5" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob5" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(45.7, -763.8)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob6" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob6" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(189.2, -961.9)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob7" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob7" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(405.5, -1051.9)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob8" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob8" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(423.3, -1051.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob9" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob9" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(441.5, -1051.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob10" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob10" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(459.1, -1051.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob11" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob11" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(765.7, -1052)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob19" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob19" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(801.3, -763.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob20" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob20" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(909.5, -764)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob12" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob12" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(765.7, -1068.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob14" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob14" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-296.5, -925.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob17" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob17" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-890.3, -1034)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob21" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob21" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-620.8, -980)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob22" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob22" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-602.2, -979.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob36" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob36" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-494.9, -1123.3)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob37" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob37" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-476.9, -1123.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob38" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob38" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-458.9, -1123.7)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob39" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob39" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-440.5, -1123.6)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob23" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob23" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-584.8, -979.8)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob18" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob18" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-890.9, -961.8)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob15" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob15" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-278.9, -925.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob16" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob16" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-260.5, -925.2)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob13" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob13" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(765.7, -1087.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob24" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob24" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1071.8, -1123.5)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob25" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob25" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1089.1, -1123.5)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob26" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob26" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1107.2, -1123.9)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob27" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob27" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1143.8, -1087.9)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob28" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob28" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1143.6, -1069.4)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob29" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob29" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1143.9, -1052)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob30" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob30" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(1143.9, -1033.1)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob3" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob3" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-242.6, 388.3)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob2" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob2" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-314.5, 316.2)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob33" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob33" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-368.7, -115.8)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob34" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob34" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(-296.9, -385.3)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]
 
-[node name="GraveMob35" parent="." node_paths=PackedStringArray("shooters") instance=ExtResource("2_hqwa2")]
+[node name="GraveMob35" parent="." instance=ExtResource("2_hqwa2")]
 z_index = 1
 z_as_relative = false
 position = Vector2(315.5, -403.1)
 scale = Vector2(0.1, 0.1)
-shooters = [NodePath("../GraveMob/CharacterBody2D/Shooter"), NodePath("../GraveMob/CharacterBody2D/Shooter4"), NodePath("../GraveMob/CharacterBody2D/Shooter5")]

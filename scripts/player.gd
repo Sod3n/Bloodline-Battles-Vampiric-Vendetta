@@ -1,8 +1,10 @@
+class_name BasicCharacter
 extends "res://scripts/character.gd"
-@onready var health_bar = %HealthBar
-@onready var exp_bar = %ExpBar
-@onready var collect_shape_2d = $CharacterBody2D/CollectArea2D/CollisionShape2D
-@onready var default_target = %DefaultTarget
+@onready var health_bar : ProgressBar = %HealthBar
+@onready var exp_bar : ProgressBar = %ExpBar
+@onready var collect_shape_2d : CollisionShape2D = $CharacterBody2D/CollectArea2D/CollisionShape2D
+@onready var default_target : Node2D = %DefaultTarget
+@onready var weapon_slots : WeaponSlots = %WeaponSlots
 
 func _ready():
 	update_healthbar(100)

@@ -1,3 +1,4 @@
+class_name WeaponSlots
 extends Node2D
 
 @onready var slot_1 = $Slot1
@@ -7,10 +8,10 @@ extends Node2D
 @onready var slot_5 = $Slot5
 
 # Array to hold the weapon slots
-var weapon_slots := []
+var weapon_slots : Array
 
 # Property to check if there is a free slot
-var is_there_free_slot :
+var is_there_free_slot : bool :
 	get:
 		for slot in weapon_slots:
 			if slot.get_child_count() == 0:
