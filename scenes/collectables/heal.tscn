@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://drvkqhhf5q7pk"]
+
+[ext_resource type="Script" path="res://scripts/collectables/heal.gd" id="1_fy6y1"]
+[ext_resource type="Texture2D" uid="uid://cqgtpcrcpurbw" path="res://assets/Undead Survivor/Sprites/Props 2.png" id="2_3ge47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kggk2"]
+radius = 76.1183
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhtyt"]
+atlas = ExtResource("2_3ge47")
+region = Rect2(18, 14, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0h4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhtyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heal" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_fy6y1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kggk2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-30, -4)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_y0h4a")

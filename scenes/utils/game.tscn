@@ -1,0 +1,96 @@
+[gd_scene load_steps=22 format=3 uid="uid://c2aexjr8v2057"]
+
+[ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/player/character.tscn" id="1_rdu3g"]
+[ext_resource type="Script" path="res://scripts/mob_manager.gd" id="2_omk5f"]
+[ext_resource type="PackedScene" uid="uid://bcjtoiftywxt1" path="res://scenes/upgrade/upgrade_menu.tscn" id="3_8x7k2"]
+[ext_resource type="PackedScene" uid="uid://djm4xctll8d8i" path="res://scenes/mob_wave_manager.tscn" id="4_pv2l7"]
+[ext_resource type="PackedScene" uid="uid://nrj6x38vqmld" path="res://scenes/upgrade/upgrade_manager.tscn" id="5_m10ex"]
+[ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://scenes/ui/stopwatch.tscn" id="6_ycbsj"]
+[ext_resource type="PackedScene" uid="uid://dtnxu58so78by" path="res://scenes/world/tile_map.tscn" id="7_0b2ls"]
+[ext_resource type="Script" path="res://scripts/ui/fade_out_screen.gd" id="7_3luq2"]
+[ext_resource type="PackedScene" uid="uid://2v6pwr8trys1" path="res://scenes/world/spikes.tscn" id="8_5o8ov"]
+[ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/mobs/basic_mob.tscn" id="9_n3ogn"]
+[ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/mobs/fast_mob.tscn" id="10_rdch8"]
+[ext_resource type="PackedScene" uid="uid://dcm4jk26lmset" path="res://scenes/mobs/range_mob.tscn" id="11_tre7t"]
+[ext_resource type="PackedScene" uid="uid://c8vjds02f20yx" path="res://scenes/collectables/copper_coin.tscn" id="12_marlb"]
+[ext_resource type="PackedScene" uid="uid://cs4qmgihso51n" path="res://scenes/collectables/gold_coin.tscn" id="13_rhqea"]
+[ext_resource type="PackedScene" uid="uid://rbwayjrogcqs" path="res://scenes/collectables/silver_coin.tscn" id="14_erhcp"]
+[ext_resource type="PackedScene" uid="uid://cwhsy8qieg58l" path="res://scenes/collectables/magnite.tscn" id="15_ybtgr"]
+[ext_resource type="PackedScene" uid="uid://oconfydlj17b" path="res://scenes/mobs/fat_mob.tscn" id="16_61psr"]
+[ext_resource type="PackedScene" uid="uid://drvkqhhf5q7pk" path="res://scenes/collectables/heal.tscn" id="17_4u8ce"]
+[ext_resource type="PackedScene" uid="uid://dv7mxewvrmlc1" path="res://scenes/collectables/freeze.tscn" id="18_l7dxt"]
+[ext_resource type="Script" path="res://scripts/spawn/point_randomizer.gd" id="19_jaa5l"]
+[ext_resource type="PackedScene" uid="uid://cryb1xr80tjun" path="res://scenes/mobs/chest_mob.tscn" id="20_8k481"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_rdu3g")]
+
+[node name="MobManager" type="Node" parent="."]
+script = ExtResource("2_omk5f")
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("3_8x7k2")]
+
+[node name="MobWaveManager" parent="." instance=ExtResource("4_pv2l7")]
+
+[node name="UpgradeManager" parent="." instance=ExtResource("5_m10ex")]
+
+[node name="Stopwatch" parent="." instance=ExtResource("6_ycbsj")]
+
+[node name="FadeOutScreen" type="CanvasLayer" parent="."]
+script = ExtResource("7_3luq2")
+
+[node name="ColorRect" type="ColorRect" parent="FadeOutScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="TileMap" parent="." instance=ExtResource("7_0b2ls")]
+
+[node name="Spikes" parent="." instance=ExtResource("8_5o8ov")]
+
+[node name="mob55" parent="." instance=ExtResource("9_n3ogn")]
+position = Vector2(279, 316)
+keep_distance = 0
+distance_spread = 0
+
+[node name="FastMob" parent="." instance=ExtResource("10_rdch8")]
+position = Vector2(-3748, -546)
+
+[node name="RangeMob" parent="." instance=ExtResource("11_tre7t")]
+position = Vector2(330, 1200)
+
+[node name="CoinBase" parent="." instance=ExtResource("12_marlb")]
+position = Vector2(-2242, 500)
+
+[node name="CoinBase2" parent="." instance=ExtResource("13_rhqea")]
+position = Vector2(-1509, 130)
+
+[node name="CoinBase3" parent="." instance=ExtResource("14_erhcp")]
+position = Vector2(-769, 1078)
+
+[node name="Magnite" parent="." instance=ExtResource("15_ybtgr")]
+position = Vector2(390, 1763)
+
+[node name="BasicMob" parent="." instance=ExtResource("16_61psr")]
+position = Vector2(1015, 1690)
+
+[node name="Magnite2" parent="." instance=ExtResource("17_4u8ce")]
+position = Vector2(-106, 1726)
+
+[node name="Freeze" parent="." instance=ExtResource("18_l7dxt")]
+position = Vector2(1710, 1834)
+
+[node name="PointRandomizer" type="Node2D" parent="."]
+script = ExtResource("19_jaa5l")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="PointRandomizer"]
+
+[node name="ChestMob" parent="." instance=ExtResource("20_8k481")]
+position = Vector2(-2146, -282)
+content = Array[PackedScene]([ExtResource("13_rhqea"), ExtResource("13_rhqea")])
+
+[connection signal="gui_input" from="FadeOutScreen/ColorRect" to="FadeOutScreen" method="_on_color_rect_gui_input"]

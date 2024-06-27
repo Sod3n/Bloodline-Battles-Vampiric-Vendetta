@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://ci63j5ho6wu0c"]
+
+[ext_resource type="Script" path="res://scripts/mobs/ghost_mob.gd" id="1_kuwe1"]
+[ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_s5a8f"]
+[ext_resource type="Texture2D" uid="uid://c0o0y0vkqfbjr" path="res://assets/Undead Survivor/Sprites/Enemy 5.png" id="3_csyif"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="4_laapk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yptla"]
+atlas = ExtResource("3_csyif")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdnag"]
+atlas = ExtResource("3_csyif")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv6ad"]
+atlas = ExtResource("3_csyif")
+region = Rect2(0, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsyu8"]
+atlas = ExtResource("3_csyif")
+region = Rect2(19, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxvpe"]
+atlas = ExtResource("3_csyif")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyhct"]
+atlas = ExtResource("3_csyif")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nk7ne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yptla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdnag")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv6ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsyu8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxvpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyhct")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3yv3"]
+radius = 50.0
+height = 124.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0wmd"]
+radius = 167.0
+height = 344.0
+
+[node name="GhostMob" type="Node2D"]
+script = ExtResource("1_kuwe1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 14
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("2_s5a8f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+z_index = -1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_nk7ne")
+animation = &"run"
+frame_progress = 0.312488
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-6, 13)
+shape = SubResource("CapsuleShape2D_t3yv3")
+
+[node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("4_laapk")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
+shape = SubResource("CapsuleShape2D_y0wmd")
+
+[connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

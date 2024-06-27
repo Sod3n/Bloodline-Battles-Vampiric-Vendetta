@@ -1,6 +1,7 @@
 extends "res://scripts/mobs/mob.gd"
 
-@export var distance_to_around = 500
+@export var distance_to_around = 3000
+@export var distance_to_stub = 500
 @export var around_max_time = 7
 @export var attack_cooldown = 1
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
@@ -28,6 +29,7 @@ func _process(delta):
 	var vector = player_pos - body.global_position
 	var length = vector.length()
 	
+	print("length ", length)
 	
 	if is_stunned:
 		state = states.STAY
@@ -41,7 +43,7 @@ func _process(delta):
 		states.RUN:
 			damage_area_2d.enable()
 			
-			if length > 200:
+			if length > distance_to_stub:
 				velocity = vector.normalized() * speed * speed_scale
 			else:
 				away_vector_normalized = vector.normalized()

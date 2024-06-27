@@ -3,6 +3,7 @@ extends "res://scripts/mobs/mob.gd"
 var shoot_timer: Timer = Timer.new()
 var relief_timer: Timer = Timer.new()
 
+
 @export var relief_time : float = 2
 @export var shoot_time : float = 0.75 * 2
 @export var shooters : Array[Shooter]

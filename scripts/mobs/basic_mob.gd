@@ -14,6 +14,8 @@ func _ready():
 
 enum states {MOVE, STAY, DIED}
 var state = states.MOVE
+var _actual_velocity : Vector2
+var _last_point : Vector2
 
 func _process(delta):
 	super(delta)
@@ -35,12 +37,15 @@ func _process(delta):
 	
 	match state:
 		states.MOVE:
-			animated_sprite_2d.play("run")
-			
 			if abs(length - keep_distance) > 10:
 				velocity = (vector.normalized() * sign(length - keep_distance) * speed * speed_scale)
 			else:
 				state = states.STAY
+			
+			if _actual_velocity.length() <= 1:
+				animated_sprite_2d.play("idle")
+			else:
+				animated_sprite_2d.play("run")
 		states.STAY:
 			animated_sprite_2d.play("idle")
 			
@@ -56,6 +61,9 @@ func _process(delta):
 	
 	rotate_sprite()
 
+func _physics_process(delta):
+	_actual_velocity = body.global_position - _last_point
+	_last_point = body.global_position
 
 
 func _on_damage_area_2d_on_enter(body):

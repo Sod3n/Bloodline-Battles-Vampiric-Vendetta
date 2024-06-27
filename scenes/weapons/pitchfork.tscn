@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwcqalxnsfuru"]
+
+[ext_resource type="Script" path="res://scripts/weapons/pitchfork.gd" id="1_vcgqx"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="2_dohqh"]
+[ext_resource type="SpriteFrames" uid="uid://c22nhpv2j2fnb" path="res://frames/pitchfork_frames.tres" id="3_vthg0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0m2n"]
+radius = 38.0
+height = 76.0
+
+[node name="PitchforkPoint" type="Node2D"]
+
+[node name="Pitchfork" type="Node2D" parent="."]
+position = Vector2(256, 13)
+script = ExtResource("1_vcgqx")
+
+[node name="DamageArea2D" parent="Pitchfork" instance=ExtResource("2_dohqh")]
+collision_layer = 0
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pitchfork/DamageArea2D"]
+position = Vector2(52, -3)
+shape = SubResource("CapsuleShape2D_q0m2n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pitchfork"]
+scale = Vector2(9, 9)
+sprite_frames = ExtResource("3_vthg0")
+
+[node name="Timer" type="Timer" parent="Pitchfork"]
+
+[connection signal="on_enter" from="Pitchfork/DamageArea2D" to="Pitchfork" method="_on_damage_area_2d_on_enter"]
+
+[editable path="Pitchfork/DamageArea2D"]

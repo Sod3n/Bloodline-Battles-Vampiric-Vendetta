@@ -1,11 +1,11 @@
 class_name Mob
-extends "res://scripts/character.gd"
+extends "res://scripts/character_components/character.gd"
 
 @export_enum("Copper", "Silver", "Gold") var coin_drops: int
 
-const GOLD_COIN = preload("res://scenes/gold_coin.tscn")
-const SILVER_COIN = preload("res://scenes/silver_coin.tscn")
-const COPPER_COIN = preload("res://scenes/copper_coin.tscn")
+const GOLD_COIN = preload("res://scenes/collectables/gold_coin.tscn")
+const SILVER_COIN = preload("res://scenes/collectables/silver_coin.tscn")
+const COPPER_COIN = preload("res://scenes/collectables/copper_coin.tscn")
 
 var alpha = 1
 var alpha_speed = 0.2

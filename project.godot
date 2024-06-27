@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Bloodline Battles Vampiric Vendetta"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/utils/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scripts/global.gd"
-GlobalDamageNumbersManager="*res://scripts/damage_numbers_manager.gd"
+Global="*res://scripts/utils/global.gd"
+GlobalDamageNumbersManager="*res://scripts/ui/damage_numbers_manager.gd"
 
 [display]
 
@@ -48,5 +48,6 @@ enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0605303, 0.0605304, 0.0605303, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

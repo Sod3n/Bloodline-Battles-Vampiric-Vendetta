@@ -3,7 +3,7 @@ extends Node
 
 signal spawned
 
-@export var type : PackedScene = preload("res://scenes/basic_mob.tscn")
+@export var type : PackedScene = preload("res://scenes/mobs/basic_mob.tscn")
 @export var count : int = 1
 @export var frequency : float = 5
 @export var random_side : bool = false

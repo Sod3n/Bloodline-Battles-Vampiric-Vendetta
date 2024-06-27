@@ -1,8 +1,8 @@
 class_name MobWaveWallEvent
 extends MobWaveEvent
 
-const GHOST_WALL_HORIZONTAL = preload("res://scenes/ghost_wall_horizontal.tscn")
-const GHOST_WALL_VERTICAL = preload("res://scenes/ghost_wall_vertical.tscn")
+const GHOST_WALL_HORIZONTAL = preload("res://scenes/mobs/ghost_wall_horizontal.tscn")
+const GHOST_WALL_VERTICAL = preload("res://scenes/mobs/ghost_wall_vertical.tscn")
 
 @export var random_side : bool = false
 @export var direction_priorities : Array[PointRandomizer.Priorities] \

@@ -1,7 +1,7 @@
 class_name BasicCharacter
-extends "res://scripts/character.gd"
+extends "res://scripts/character_components/character.gd"
 
-const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
+const GAME_OVER_SCREEN = preload("res://scenes/ui/game_over_screen.tscn")
 
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var exp_bar : ProgressBar = %ExpBar
