@@ -9,7 +9,7 @@ func set_hp(value):
 
 @export var max_hp = 1000.0
 @export var speed = 600.0
-@export var speed_scale = 1.0
+var speed_scale = 1.0
 @export var crit_chance = 15.0
 @export var crit_damage = 150.0
 @export var attack = 10.0

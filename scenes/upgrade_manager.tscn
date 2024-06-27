@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://nrj6x38vqmld"]
+[gd_scene load_steps=13 format=3 uid="uid://nrj6x38vqmld"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_manager.gd" id="1_yqoji"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_list.gd" id="2_cwbcd"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_health.gd" id="3_g3yrt"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_collect_radius.gd" id="4_kpss4"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_crit.gd" id="5_nnehc"]
+[ext_resource type="Script" path="res://scripts/upgrades/upgrade_speed.gd" id="6_bqi7o"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_reload.gd" id="6_y5bae"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_add_weapon_list.gd" id="7_ip8v3"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_attack.gd" id="7_qndhl"]
@@ -53,6 +54,18 @@ script = ExtResource("5_nnehc")
 
 [node name="UpgradeCrit3" type="Node" parent="UpgradeCritList"]
 script = ExtResource("5_nnehc")
+
+[node name="UpgradeSpeedList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeSpeed" type="Node" parent="UpgradeSpeedList"]
+script = ExtResource("6_bqi7o")
+
+[node name="UpgradeSpeed2" type="Node" parent="UpgradeSpeedList"]
+script = ExtResource("6_bqi7o")
+
+[node name="UpgradeSpeed3" type="Node" parent="UpgradeSpeedList"]
+script = ExtResource("6_bqi7o")
 
 [node name="UpgradeReloadList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")

@@ -9,6 +9,9 @@ const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 @onready var default_target : Node2D = %DefaultTarget
 @onready var weapon_slots : WeaponSlots = %WeaponSlots
 
+@export var speed_scale_on_damage : float = 0.5
+@export var speed_scale_on_damage_time : float = 0.5
+
 func _init():
 	Global.player = self
 	
@@ -19,11 +22,12 @@ func _ready():
 func set_hp(value):
 	super(value)
 	update_healthbar(hp / (max_hp / 100))
-	if hp <= 0:
-		die()
 
 var exp = 0.0 :
 	set(value):
+		if is_died:
+			return
+		
 		exp += value
 		
 		var need_exp = 10 + pow(5, level / 2)
@@ -123,3 +127,10 @@ func die():
 func fade_out():
 	var fade_out = create_tween()
 	fade_out.tween_property(self, "modulate:a", 0.0, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+
+
+func receive_damage(value):
+	super(value)
+	speed_scale = speed_scale_on_damage_time
+	await get_tree().create_timer(speed_scale_on_damage_time).timeout
+	speed_scale = 1

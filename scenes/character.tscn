@@ -23,8 +23,9 @@ radius = 1017.0
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_k12wf")
-hp = 100.0
-speed = 2800.0
+hp = 500.0
+max_hp = 500.0
+speed = 1000.0
 attack = 1000.0
 invincibility_time = 0.0
 
@@ -144,16 +145,17 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+[node name="SpikeDetector" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(-3, 47)
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("11_djunl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/SpikeDetector"]
 shape = ExtResource("4_q6s4o")
 
 [connection signal="area_entered" from="CharacterBody2D/CollectArea2D" to="CharacterBody2D/CollectArea2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_exited"]
-[connection signal="body_shape_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="CharacterBody2D/SpikeDetector" to="CharacterBody2D/SpikeDetector" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="CharacterBody2D/SpikeDetector" to="CharacterBody2D/SpikeDetector" method="_on_body_shape_exited"]

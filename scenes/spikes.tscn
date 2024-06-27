@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://2v6pwr8trys1"]
+
+[ext_resource type="Texture2D" uid="uid://cw45vbtqynf2q" path="res://assets/Undead Survivor/Sprites/spike.png" id="1_lasle"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_excv7"]
+texture = ExtResource("1_lasle")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
+
+[sub_resource type="TileSet" id="TileSet_khbjw"]
+tile_size = Vector2i(18, 18)
+physics_layer_0/collision_layer = 64
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_excv7")
+
+[node name="Spikes" type="TileMap"]
+z_index = -100
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_khbjw")
+format = 2
+layer_0/tile_data = PackedInt32Array(196615, 0, 0, 196616, 0, 0, 131080, 0, 0, 65548, 0, 0, 12, 0, 0, 13, 0, 0, 196625, 0, 0, 196626, 0, 0, 131090, 0, 0)
