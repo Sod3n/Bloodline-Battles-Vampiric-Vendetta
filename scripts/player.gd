@@ -1,11 +1,17 @@
 class_name BasicCharacter
 extends "res://scripts/character.gd"
+
+const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
+
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var exp_bar : ProgressBar = %ExpBar
 @onready var collect_shape_2d : CollisionShape2D = $CharacterBody2D/CollectArea2D/CollisionShape2D
 @onready var default_target : Node2D = %DefaultTarget
 @onready var weapon_slots : WeaponSlots = %WeaponSlots
 
+func _init():
+	Global.player = self
+	
 func _ready():
 	update_healthbar(100)
 	body = $CharacterBody2D
@@ -13,6 +19,8 @@ func _ready():
 func set_hp(value):
 	super(value)
 	update_healthbar(hp / (max_hp / 100))
+	if hp <= 0:
+		die()
 
 var exp = 0.0 :
 	set(value):
@@ -24,9 +32,9 @@ var exp = 0.0 :
 			exp -= need_exp
 			level += 1
 			need_exp = 10 + pow(5, level / 2)
-			ChooseUpgrade.activate()
+			Global.upgrade_menu.activate()
 			hp = max_hp
-			await Signal(ChooseUpgrade, 'deactivated')
+			await Signal(Global.upgrade_menu, 'deactivated')
 			
 		
 		exp_bar.value = exp / (need_exp / 100)
@@ -51,10 +59,18 @@ func _process(delta):
 	
 	get_input()
 	
+	if is_died:
+		animated_sprite_2d.play("die")
+	
+	if not can_act():
+		return
+	
 	if velocity.length() > 0:
 		animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("idle")
+	
+	
 	
 	body.vector = velocity
 	rotate_sprite()
@@ -95,3 +111,15 @@ func _on_target_area_2d_body_entered(body):
 
 func _on_target_area_2d_body_exited(body):
 	targets.erase(body)
+
+func die():
+	super()
+	var game_over_screen = GAME_OVER_SCREEN.instantiate()
+	add_child(game_over_screen)
+	Global.stopwatch.stop()
+	fade_out()
+	game_over_screen.show_game_over()
+
+func fade_out():
+	var fade_out = create_tween()
+	fade_out.tween_property(self, "modulate:a", 0.0, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)

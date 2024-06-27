@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_menu.gd" id="1_oj2vu"]
 [ext_resource type="PackedScene" uid="uid://t8qx80oscpko" path="res://scenes/upgrade_controll.tscn" id="2_ujutr"]
 
-[node name="ChooseUpgrade" type="CanvasLayer"]
+[node name="UpgradeMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_oj2vu")
 

@@ -3,7 +3,7 @@ extends Area2D
 signal damage_dealed
 signal on_enter(body)
 
-var collision_shape_2d
+var collision_shape_2d : CollisionShape2D
 
 func _ready():
 	collision_shape_2d = find_child("CollisionShape2D")

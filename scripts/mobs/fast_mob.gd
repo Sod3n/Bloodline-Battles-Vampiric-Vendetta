@@ -2,8 +2,9 @@ extends "res://scripts/mobs/mob.gd"
 
 @export var distance_to_around = 500
 @export var around_max_time = 7
+@export var attack_cooldown = 1
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
-@onready var player_body : Node2D = Player.body
+@onready var player_body : Node2D = Global.player.body
 
 
 func _ready():
@@ -94,3 +95,10 @@ func _process(delta):
 
 func _on_damage_area_2d_on_enter(body):
 	body.receive_damage(damage)
+	damage_area_2d.disable()
+	get_tree().create_timer(attack_cooldown * reload).timeout.connect(Callable(self, "_enable_damage_area"))
+
+
+func _enable_damage_area():
+	damage_area_2d.enable()
+	print("damage_area_2d")

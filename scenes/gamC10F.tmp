@@ -1,13 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2aexjr8v2057"]
+[gd_scene load_steps=21 format=3 uid="uid://c2aexjr8v2057"]
 
 [ext_resource type="PackedScene" uid="uid://b5ddunjjnj0cn" path="res://scenes/basic_mob.tscn" id="1_8pnsd"]
 [ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/character.tscn" id="1_qbfb7"]
 [ext_resource type="PackedScene" uid="uid://dtnxu58so78by" path="res://scenes/tile_map.tscn" id="2_5vsdh"]
 [ext_resource type="PackedScene" uid="uid://dkomyi2bm2mtc" path="res://scenes/stopwatch.tscn" id="2_hkc4i"]
 [ext_resource type="Texture2D" uid="uid://cw45vbtqynf2q" path="res://assets/Undead Survivor/Sprites/spike.png" id="2_rio48"]
-[ext_resource type="PackedScene" uid="uid://bcjtoiftywxt1" path="res://scenes/upgrade_menu.tscn" id="3_io7pl"]
 [ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/fast_mob.tscn" id="4_ita4n"]
-[ext_resource type="PackedScene" uid="uid://nrj6x38vqmld" path="res://scenes/upgrade_manager.tscn" id="5_o0aft"]
 [ext_resource type="PackedScene" uid="uid://dcm4jk26lmset" path="res://scenes/range_mob.tscn" id="5_rynri"]
 [ext_resource type="PackedScene" uid="uid://c8vjds02f20yx" path="res://scenes/copper_coin.tscn" id="7_svnaf"]
 [ext_resource type="PackedScene" uid="uid://cs4qmgihso51n" path="res://scenes/gold_coin.tscn" id="8_52i0t"]
@@ -41,12 +39,6 @@ sources/0 = SubResource("TileSetAtlasSource_excv7")
 
 [node name="MobManager" type="Node" parent="."]
 script = ExtResource("16_6uiux")
-
-[node name="UpgradeMenu" parent="." instance=ExtResource("3_io7pl")]
-
-[node name="MobWaveManager" parent="." instance=ExtResource("17_6coju")]
-
-[node name="UpgradeManager" parent="." instance=ExtResource("5_o0aft")]
 
 [node name="Stopwatch" parent="." instance=ExtResource("2_hkc4i")]
 
@@ -99,3 +91,5 @@ script = ExtResource("13_18rpu")
 [node name="ChestMob" parent="." instance=ExtResource("15_5406k")]
 position = Vector2(-2146, -282)
 content = Array[PackedScene]([ExtResource("8_52i0t"), ExtResource("8_52i0t")])
+
+[node name="MobWaveManager" parent="." instance=ExtResource("17_6coju")]

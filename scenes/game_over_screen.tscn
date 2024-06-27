@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://qqjy7qm3lddw"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_5dst0"]
+[ext_resource type="FontFile" uid="uid://cmg4b2lpdwgfr" path="res://assets/joystix monospace.otf" id="2_0axiw"]
+[ext_resource type="Script" path="res://scripts/unhandled_input.gd" id="2_ko557"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource("1_5dst0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ko557")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -345.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1980, 300)
+theme_override_fonts/normal_font = ExtResource("2_0axiw")
+theme_override_font_sizes/normal_font_size = 416
+bbcode_enabled = true
+text = "[center]Game Over"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 154.0
+offset_right = 5.0
+offset_bottom = 754.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1980, 300)
+theme_override_colors/default_color = Color(0.552956, 0.552956, 0.552956, 1)
+theme_override_fonts/normal_font = ExtResource("2_0axiw")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center](press any key to restart)"
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
+[connection signal="on_unhandled_input" from="Control" to="." method="_on_control_on_unhandled_input"]
+[connection signal="gui_input" from="Control/ColorRect" to="." method="_on_color_rect_gui_input"]

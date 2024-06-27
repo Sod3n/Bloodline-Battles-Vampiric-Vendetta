@@ -12,7 +12,7 @@ const BULLET = preload("res://scenes/bullet.tscn")
 @onready var range_mob = $"../.."
 
 var timer: Timer = Timer.new()
-@onready var player_body = Player.body
+@onready var player_body = Global.player.body
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,7 +34,7 @@ func _on_timeout():
 	instance.global_position = self.global_position
 	instance.damage = range_mob.damage
 	instance.lifetime = bullet_lifetime
-	get_tree().root.add_child(instance)
+	get_tree().current_scene.add_child.call_deferred(instance)
 	pass
 
 func activate():

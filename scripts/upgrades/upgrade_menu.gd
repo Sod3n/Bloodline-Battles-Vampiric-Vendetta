@@ -1,3 +1,4 @@
+class_name UpgradeMenu
 extends CanvasLayer
 
 signal deactivated
@@ -8,12 +9,15 @@ signal deactivated
 
 var upgrade_lists : Array[UpgradeList]
 
+func _init():
+	Global.upgrade_menu = self
+
 func _ready():
 	deactivate()
 
 func activate():
 	self.show()
-	upgrade_lists = UpgradeManager.get_random_upgrades(3)
+	upgrade_lists = Global.upgrade_manager.get_random_upgrades(3)
 	_set_button_text(button_1, _get_at(upgrade_lists, 0))
 	_set_button_text(button_2, _get_at(upgrade_lists, 1))
 	_set_button_text(button_3, _get_at(upgrade_lists, 2))
@@ -41,8 +45,8 @@ func _hide_all():
 func _on_button_pressed(button_index):
 	var upgrade = upgrade_lists[button_index].upgrades.pop_front()
 	upgrade_lists[button_index].selected = true
-	upgrade.apply(Player)
-	UpgradeManager.return_upgrades(upgrade_lists)
+	upgrade.apply(Global.player)
+	Global.upgrade_manager.return_upgrades(upgrade_lists)
 	deactivate()
 
 func _on_button_1_pressed():

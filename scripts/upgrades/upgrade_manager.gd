@@ -1,9 +1,13 @@
+class_name UpgradeManager
 extends Node
 
 @export var selected_upgrade_chanse : int = 50
 
 var selected_upgrades : Array[UpgradeList] = []
 var not_selected_upgrades : Array[UpgradeList] = []
+
+func _init():
+	Global.upgrade_manager = self
 
 func _ready():
 	for list in get_children_upgrade_lists():

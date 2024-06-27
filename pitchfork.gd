@@ -14,7 +14,7 @@ enum _states { WAIT, ATTACK, RETURN }
 
 var _state = _states.WAIT
 
-var player : Node = Player
+var player : Node = Global.player
 
 var _attack_point = Vector2.ZERO
 
@@ -28,6 +28,9 @@ func _ready():
 	_wait_state()
 
 func _process(delta):
+	if not Global.player.can_act():
+		return
+	
 	match _state:
 		_states.WAIT:
 			damage_area_2d.disable()
@@ -91,4 +94,6 @@ func short_angle_dist(from, to):
 
 
 func _on_damage_area_2d_on_enter(body):
-	body.receive_damage(Player.damage)
+	var damage = Global.player.damage
+	body.receive_damage(damage)
+	GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)

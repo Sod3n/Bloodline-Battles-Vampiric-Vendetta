@@ -10,14 +10,10 @@ const COPPER_COIN = preload("res://scenes/copper_coin.tscn")
 var alpha = 1
 var alpha_speed = 0.2
 
-var injecter : Node2D
-
-var is_mob_flag = true
-
 var dropped_collectable
 
 func _ready():
-	GlobalMobManager.mobs.append(self)
+	Global.mob_manager.mobs.append(self)
 
 
 func die():
@@ -53,5 +49,4 @@ func _process(delta):
 	if alpha <= 0:
 		queue_free()
 
-func can_act():
-	return not is_stunned and not is_died
+

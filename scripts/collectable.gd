@@ -1,8 +1,8 @@
 class_name Collectable
 extends Area2D
 
-@onready var player_body : Node2D = Player.body
-var player : Node = Player
+@onready var player_body : Node2D = Global.player.body
+var player : Node = Global.player
 var is_collecting = false
 var is_collected = false
 @export var speed = 900

@@ -1,11 +1,12 @@
+class_name GhostMob
 extends "res://scripts/mobs/mob.gd"
 
-@export var keep_distance = 500
-@export var distance_spread = 100
 @export var attack_cooldown = 1
 
 @onready var player_body : Node2D = Global.player.body
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
+
+var direction : Vector2
 
 func _ready():
 	super()
@@ -19,10 +20,6 @@ func _process(delta):
 	super(delta)
 	
 	var player_pos = player_body.global_position
-	var vector = player_pos - body.global_position
-	var min_distance = keep_distance - distance_spread
-	var max_distance = keep_distance + distance_spread  
-	var length = vector.length()
 	
 	if is_stunned:
 		damage_area_2d.disable()
@@ -31,24 +28,18 @@ func _process(delta):
 	if is_died:
 		damage_area_2d.disable()
 		state = states.DIED
-	
+		
+	if not Global.point_randomizer.is_point_inside_rect(body.global_position, player_pos, body.get_viewport_rect().size * 4):
+		queue_free()
 	
 	match state:
 		states.MOVE:
 			animated_sprite_2d.play("run")
-			
-			if abs(length - keep_distance) > 10:
-				velocity = (vector.normalized() * sign(length - keep_distance) * speed * speed_scale)
-			else:
-				state = states.STAY
+			velocity = (direction.normalized() * speed * speed_scale)
 		states.STAY:
-			animated_sprite_2d.play("idle")
-			
 			velocity = Vector2.ZERO
-			
-			if (length < min_distance or length > max_distance) and not is_stunned:
+			if not is_stunned:
 				state = states.MOVE
-			
 		states.DIED:
 			velocity = Vector2.ZERO
 	

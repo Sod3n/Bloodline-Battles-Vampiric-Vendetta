@@ -34,9 +34,9 @@ func spawn_mobs():
 		
 		var spawn_position = Global.point_randomizer.generate_random_point_for_spawn(direction_priorities)
 		var mob = type.instantiate()
-		
-		get_tree().root.add_child(mob)
-		mob.owner = get_tree().root
+		print("name", get_tree().current_scene.name)
+		get_tree().current_scene.add_child(mob)
+		mob.owner = get_tree().current_scene
 		mob.body.global_position = spawn_position
 		
 		if collectables.size() >= count - i:

@@ -1,5 +1,5 @@
 class_name Character
-extends Node
+extends Node2D
 
 @onready var animated_sprite_2d = find_child("AnimatedSprite2D")
 @export var hp = 1000.0: set = set_hp
@@ -30,11 +30,14 @@ var velocity : Vector2
 var is_died = false
 var body : Node2D
 
+var is_damage_was_crit : bool = false
+
 var damage:
 	get:
 		var dmg = attack
 		var crit = randi_range(0, 100)
-		if crit < crit_chance:
+		is_damage_was_crit = crit < crit_chance
+		if is_damage_was_crit:
 			dmg *= crit_damage /100
 		return dmg
 
@@ -62,7 +65,7 @@ func _process(delta):
 func receive_damage(value):
 	if is_invincible or is_died:
 		return
-	
+		
 	invincibility_current_time = invincibility_time
 	is_invincible = true
 	
@@ -83,3 +86,8 @@ func die():
 func stun(value):
 	_stun_remaining_time = value
 	is_stunned = true
+
+func can_act():
+	return not is_stunned and not is_died
+
+

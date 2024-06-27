@@ -15,3 +15,6 @@ func remove_invalid_objects(array: Array[Mob]) -> Array[Mob]:
 	return array.filter(func(item):
 		return item != null and is_instance_valid(item)
 	)
+
+func _init():
+	Global.mob_manager = self

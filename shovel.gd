@@ -20,7 +20,7 @@ var shovel_point
 # Damage area 2D node
 var damage_area
 
-var player = Player
+@onready var player = Global.player
 
 # Additional angle for prepare attack
 var additional_angle = 120
@@ -45,6 +45,9 @@ func _ready():
 
 # Process function called every frame
 func _process(delta):
+	if not Global.player.can_act():
+		return
+	
 	match state:
 		
 		WeaponState.WAIT_ATTACK:
@@ -124,4 +127,7 @@ func get_rotation_between_neg_pi_and_pi(object_to_check: Node2D) -> float:
 
 
 func _on_damage_area_2d_on_enter(body):
-	body.receive_damage(Player.damage)
+	var damage = Global.player.damage
+	body.receive_damage(damage)
+	GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)
+	

@@ -7,6 +7,7 @@
 script = ExtResource("1_alq34")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

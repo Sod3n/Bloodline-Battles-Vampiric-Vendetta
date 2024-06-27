@@ -6,6 +6,9 @@ var waves : Array
 
 var next_wave : MobWave
 
+func _init():
+	Global.mob_wave_manager = self
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	waves = get_children()

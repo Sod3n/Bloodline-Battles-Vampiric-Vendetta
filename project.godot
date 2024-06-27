@@ -17,12 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Player="*res://scenes/character.tscn"
-ChooseUpgrade="*res://scenes/choose_upgrade.tscn"
 Global="*res://scripts/global.gd"
-UpgradeManager="*res://upgrade_manager.tscn"
-GlobalMobWaveManager="*res://scenes/mob_wave_manager.tscn"
-GlobalMobManager="*res://scripts/mob_manager.gd"
+GlobalDamageNumbersManager="*res://scripts/damage_numbers_manager.gd"
 
 [display]
 
@@ -45,6 +41,7 @@ enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
 2d_physics/layer_4="fast_mob"
 2d_physics/layer_5="collectables"
 2d_physics/layer_6="tilemap"
+2d_physics/layer_7="spikes"
 
 [rendering]
 

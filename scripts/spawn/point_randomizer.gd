@@ -30,6 +30,47 @@ func is_point_inside_rect(point: Vector2, center_position: Vector2, rect_size: V
 	var rect = Rect2(rect_position, rect_size)
 	return rect.has_point(point)
 
+func generate_point_for_spawn(priorities: Array) -> Array:
+	var vps = get_viewport_rect().size
+	
+	var min_spawn_distance = vps.x / 2  # Минимальная дистанция спавна мобов
+	var max_spawn_distance = vps.x      # Максимальная дистанция спавна мобов
+	
+	for side in priorities:
+		var first_point: Vector2
+		var second_point: Vector2
+		var offset: Vector2
+		
+		match side:
+			Priorities.LEFT:
+				first_point = Vector2(0, vps.y / 2) + player_position
+				second_point = Vector2(0, -vps.y / 2) + player_position
+				offset = (Vector2(-min_spawn_distance, 0) + Vector2(-max_spawn_distance, 0)) / 2
+			Priorities.RIGHT:
+				first_point = Vector2(0, vps.y / 2) + player_position
+				second_point = Vector2(0, -vps.y / 2) + player_position
+				offset = (Vector2(min_spawn_distance, 0) + Vector2(max_spawn_distance, 0)) / 2
+			Priorities.TOP:
+				first_point = Vector2(-vps.x / 2, 0) + player_position
+				second_point = Vector2(vps.x / 2, 0) + player_position
+				offset = (Vector2(0, -min_spawn_distance) + Vector2(0, -max_spawn_distance)) / 2
+			Priorities.BOTTOM:
+				first_point = Vector2(-vps.x / 2, 0) + player_position
+				second_point = Vector2(vps.x / 2, 0) + player_position
+				offset = (Vector2(0, min_spawn_distance) + Vector2(0, max_spawn_distance)) / 2
+			_:
+				continue
+
+		# Средняя точка между first_point и second_point
+		var mid_point = (first_point + second_point) / 2
+		
+		# Средняя точка с учетом offset
+		var offset_point = mid_point + offset
+		
+		return [offset_point, side]
+	
+	return [Vector2.ZERO, 0]
+
 # Основная функция, которая выполняет все шаги
 func generate_random_point_for_spawn(priorities: Array) -> Vector2:
 	var vps = get_viewport_rect().size
@@ -66,29 +107,15 @@ func generate_random_point_for_spawn(priorities: Array) -> Vector2:
 		var double_offset_point = get_random_point_with_offset(first_point, second_point, 2 * offset)
 		var nearest_point = find_nearest_point_in_navigation(random_point, double_offset_point)
 		
-		print("Nearest:", nearest_point, " Rand: ", random_point, " double_offset_point ", double_offset_point)
 		if not is_point_inside_rect(nearest_point, player_position, vps):
 			return nearest_point
 	
 	return Vector2.ZERO
 
-@onready var node_2d = $"../Node2D"
-
 # Пример использования
-func _ready():
+func _init():
 	Global.point_randomizer = self
-	#await get_tree().create_timer(5.0).timeout
-	#player_position = Player.body.global_position
-	#print("player", player_position)
-#
-	#var priorities = [Priorities.TOP, Priorities.RIGHT, Priorities.LEFT, Priorities.BOTTOM]  # Приоритеты сторон
-	#for i in range(10):
-		#var spawn_point = generate_random_point_for_spawn(priorities)
-		#if spawn_point != Vector2.ZERO:
-			#var node = node_2d.duplicate()
-			#get_tree().root.add_child(node)
-			#node.global_position = spawn_point
-			#print("Spawn point: ", spawn_point, " ", i)
-
+	
+	
 func _process(delta):
-	player_position = Player.body.global_position
+	player_position = Global.player.body.global_position

@@ -2,7 +2,7 @@ extends "res://scripts/collectable.gd"
 
 @export var freeze_time = 5
 
-var mob_manager : MobManager = GlobalMobManager
+@onready var mob_manager : MobManager = Global.mob_manager
 
 var freeze_remaining_time = 0
 
