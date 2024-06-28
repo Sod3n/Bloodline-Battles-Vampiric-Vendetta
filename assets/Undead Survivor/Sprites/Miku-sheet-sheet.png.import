@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjmo3elrmmenl"
-path="res://.godot/imported/Miku-sheet.png-59b2e23553b3ddcef063a0c70f0c256a.ctex"
+uid="uid://bnqbcyo4a45uq"
+path="res://.godot/imported/Miku-sheet-sheet.png-53237d0179b13afa36867f7f3b3026df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Undead Survivor/Sprites/Miku-sheet.png"
-dest_files=["res://.godot/imported/Miku-sheet.png-59b2e23553b3ddcef063a0c70f0c256a.ctex"]
+source_file="res://assets/Undead Survivor/Sprites/Miku-sheet-sheet.png"
+dest_files=["res://.godot/imported/Miku-sheet-sheet.png-53237d0179b13afa36867f7f3b3026df.ctex"]
 
 [params]
 
