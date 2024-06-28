@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcm4jk26lmset"]
+[gd_scene load_steps=19 format=3 uid="uid://dcm4jk26lmset"]
 
 [ext_resource type="Script" path="res://scripts/mobs/range_mob.gd" id="1_6263v"]
 [ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_e4rgh"]
 [ext_resource type="Texture2D" uid="uid://bnivr0pp64c2s" path="res://assets/Undead Survivor/Sprites/Enemy 3.png" id="3_qupfv"]
 [ext_resource type="Script" path="res://scripts/character_components/shooter.gd" id="4_sxkdm"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="5_20n5i"]
+[ext_resource type="Script" path="res://scripts/character_components/shooter_ray.gd" id="5_fwhl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc7b8"]
 atlas = ExtResource("3_qupfv")
@@ -84,6 +85,13 @@ animations = [{
 radius = 90.0
 height = 196.0
 
+[sub_resource type="Resource" id="Resource_4dd1c"]
+script = ExtResource("5_fwhl7")
+frequency = 2.0
+bullet_speed = 500.0
+bullet_lifetime = 10.0
+deviation = 0.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmp3u"]
 radius = 167.0
 height = 344.0
@@ -112,6 +120,7 @@ shape = SubResource("CapsuleShape2D_50gcs")
 
 [node name="Shooter" type="Node2D" parent="CharacterBody2D"]
 script = ExtResource("4_sxkdm")
+rays = Array[Resource]([SubResource("Resource_4dd1c")])
 active = true
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("5_20n5i")]

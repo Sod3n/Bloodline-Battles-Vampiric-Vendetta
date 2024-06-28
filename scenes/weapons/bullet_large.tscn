@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5r4plc8fbdnv"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_hu4nm"]
+[ext_resource type="SpriteFrames" uid="uid://lpw5m7py2qf4" path="res://scenes/weapons/bullet_frame.tres" id="2_yo7ql"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="3_ajckr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rir4d"]
+radius = 29.0
+height = 58.0
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(1.25, 1.25)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_hu4nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-60, 130)
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(2.68221e-06, 2.38419e-07)
+scale = Vector2(9.33333, 9.33333)
+sprite_frames = ExtResource("2_yo7ql")
+autoplay = "default"
+
+[node name="DamageArea2D" parent="." instance=ExtResource("3_ajckr")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+shape = SubResource("CapsuleShape2D_rir4d")
+
+[connection signal="damage_dealed" from="DamageArea2D" to="." method="_on_damage_area_2d_damage_dealed"]
+[connection signal="on_enter" from="DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

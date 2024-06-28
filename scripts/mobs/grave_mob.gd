@@ -6,7 +6,8 @@ var relief_timer: Timer = Timer.new()
 
 @export var relief_time : float = 2
 @export var shoot_time : float = 0.75 * 2
-@export var shooters : Array[Shooter]
+@onready var shooter = %Shooter
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,12 +24,10 @@ func shoot():
 	shoot_timer.wait_time = shoot_time
 	shoot_timer.one_shot = true
 	shoot_timer.start()
-	for shooter in shooters:
-		shooter.activate()
+	shooter.activate()
 
 func relief():
 	relief_timer.wait_time = relief_time
 	relief_timer.one_shot = true
 	relief_timer.start()
-	for shooter in shooters:
-		shooter.deactivate()
+	shooter.deactivate()

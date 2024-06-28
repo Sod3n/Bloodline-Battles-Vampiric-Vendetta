@@ -1,7 +1,7 @@
 extends Area2D
 
 signal damage_dealed
-signal on_enter(body)
+signal on_enter(body: Character)
 
 var collision_shape_2d : CollisionShape2D
 

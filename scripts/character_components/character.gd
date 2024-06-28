@@ -63,7 +63,7 @@ func _process(delta):
 	else:
 		_stun_remaining_time -= delta
 
-func receive_damage(value):
+func receive_damage(value: float):
 	if is_invincible or is_died:
 		return
 		

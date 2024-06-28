@@ -6,7 +6,6 @@ var timer: Timer = Timer.new()
 
 var damage : float
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	timer.wait_time = lifetime
 	timer.one_shot = true

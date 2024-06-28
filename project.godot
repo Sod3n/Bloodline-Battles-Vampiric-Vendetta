@@ -31,7 +31,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
+enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/ui_design_tool/plugin.cfg")
 
 [layer_names]
 
