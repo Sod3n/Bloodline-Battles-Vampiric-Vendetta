@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://jkg61ngdnd8w"]
+
+[ext_resource type="Script" path="res://scripts/weapons/skythe.gd" id="1_7apvp"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="2_0xdv5"]
+[ext_resource type="SpriteFrames" uid="uid://bsh85dtyor71v" path="res://frames/scythe_frames.tres" id="3_s5jyp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0m2n"]
+radius = 38.0
+height = 76.0
+
+[node name="Scythe" type="Node2D"]
+script = ExtResource("1_7apvp")
+
+[node name="DamageArea2D" parent="." instance=ExtResource("2_0xdv5")]
+position = Vector2(34, 3)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+position = Vector2(52, -3)
+shape = SubResource("CapsuleShape2D_q0m2n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(38, 5)
+scale = Vector2(9, 9)
+sprite_frames = ExtResource("3_s5jyp")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="on_enter" from="DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]
+
+[editable path="DamageArea2D"]

@@ -128,6 +128,6 @@ func get_rotation_between_neg_pi_and_pi(object_to_check: Node2D) -> float:
 
 func _on_damage_area_2d_on_enter(body):
 	var damage = Global.player.damage
-	body.receive_damage(damage)
-	GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)
+	if body.receive_damage(damage):
+		GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)
 	

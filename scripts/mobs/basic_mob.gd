@@ -1,16 +1,15 @@
+class_name BasicMob
 extends "res://scripts/mobs/mob.gd"
 
-@export var keep_distance = 500
-@export var distance_spread = 100
+@export var keep_distance : float = 500
+@export var distance_spread : float  = 100
 @export var attack_cooldown = 1
 
-@onready var player_body : Node2D = Global.player.body
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 func _ready():
 	super()
 	body = $CharacterBody2D
-
 
 enum states {MOVE, STAY, DIED}
 var state = states.MOVE
@@ -19,7 +18,6 @@ var _last_point : Vector2
 
 func _process(delta):
 	super(delta)
-	
 	var player_pos = player_body.global_position
 	var vector = player_pos - body.global_position
 	var min_distance = keep_distance - distance_spread
@@ -37,9 +35,7 @@ func _process(delta):
 	
 	match state:
 		states.MOVE:
-			if abs(length - keep_distance) > 10:
-				velocity = (vector.normalized() * sign(length - keep_distance) * speed * speed_scale)
-			else:
+			if not keep_distance_with_player(keep_distance, distance_spread):
 				state = states.STAY
 			
 			if _actual_velocity.length() <= 1:
@@ -51,7 +47,7 @@ func _process(delta):
 			
 			velocity = Vector2.ZERO
 			
-			if (length < min_distance or length > max_distance) and not is_stunned:
+			if (length < min_distance or length > max_distance):
 				state = states.MOVE
 			
 		states.DIED:
@@ -64,7 +60,6 @@ func _process(delta):
 func _physics_process(delta):
 	_actual_velocity = body.global_position - _last_point
 	_last_point = body.global_position
-
 
 func _on_damage_area_2d_on_enter(body):
 	body.receive_damage(damage)

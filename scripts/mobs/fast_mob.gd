@@ -1,11 +1,10 @@
 extends "res://scripts/mobs/mob.gd"
 
-@export var distance_to_around = 3000
-@export var distance_to_stub = 500
+@export var distance_to_around : float  = 3000
+@export var distance_to_stub : float  = 500
 @export var around_max_time = 7
 @export var attack_cooldown = 1
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
-@onready var player_body : Node2D = Global.player.body
 
 
 func _ready():

@@ -9,8 +9,13 @@ const GAME_OVER_SCREEN = preload("res://scenes/ui/game_over_screen.tscn")
 @onready var default_target : Node2D = %DefaultTarget
 @onready var weapon_slots : WeaponSlots = %WeaponSlots
 
+@onready var skins : SkinSelector = $CharacterBody2D/Skins
+
 @export var speed_scale_on_damage : float = 0.5
 @export var speed_scale_on_damage_time : float = 0.5
+@export var in_main_menu : bool = false
+
+@onready var savestate = $Savestate
 
 func _init():
 	Global.player = self
@@ -18,6 +23,13 @@ func _init():
 func _ready():
 	update_healthbar(100)
 	body = $CharacterBody2D
+	if in_main_menu:
+		stun(9999999)
+		weapon_slots.hide()
+		health_bar.hide()
+		exp_bar.hide()
+	savestate.load_game_state()
+	savestate.get_game_variables(skins)
 
 func set_hp(value):
 	super(value)
@@ -65,6 +77,9 @@ func _process(delta):
 	
 	if is_died:
 		animated_sprite_2d.play("die")
+	elif is_stunned:
+		animated_sprite_2d.play("idle")
+	
 	
 	if not can_act():
 		return
@@ -73,8 +88,6 @@ func _process(delta):
 		animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("idle")
-	
-	
 	
 	body.vector = velocity
 	rotate_sprite()

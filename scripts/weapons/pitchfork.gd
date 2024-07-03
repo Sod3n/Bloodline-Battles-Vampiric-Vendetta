@@ -95,5 +95,5 @@ func short_angle_dist(from, to):
 
 func _on_damage_area_2d_on_enter(body):
 	var damage = Global.player.damage
-	body.receive_damage(damage)
-	GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)
+	if body.receive_damage(damage):
+		GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)

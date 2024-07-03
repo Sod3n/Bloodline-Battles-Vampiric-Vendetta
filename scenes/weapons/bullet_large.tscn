@@ -1,8 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5r4plc8fbdnv"]
+[gd_scene load_steps=9 format=3 uid="uid://c5r4plc8fbdnv"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_hu4nm"]
-[ext_resource type="SpriteFrames" uid="uid://lpw5m7py2qf4" path="res://scenes/weapons/bullet_frame.tres" id="2_yo7ql"]
+[ext_resource type="Texture2D" uid="uid://swv2nq1k0e26" path="res://assets/Undead Survivor/Sprites/Props 3.png" id="2_6t4tc"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="3_ajckr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sstrk"]
+atlas = ExtResource("2_6t4tc")
+region = Rect2(8, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03e8t"]
+atlas = ExtResource("2_6t4tc")
+region = Rect2(24, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfd85"]
+atlas = ExtResource("2_6t4tc")
+region = Rect2(40, 32, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pucrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sstrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03e8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfd85")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rir4d"]
 radius = 29.0
@@ -20,10 +49,11 @@ scale = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(2.68221e-06, 2.38419e-07)
+position = Vector2(10.4, 9.6)
 scale = Vector2(9.33333, 9.33333)
-sprite_frames = ExtResource("2_yo7ql")
+sprite_frames = SubResource("SpriteFrames_pucrr")
 autoplay = "default"
+frame_progress = 0.359578
 
 [node name="DamageArea2D" parent="." instance=ExtResource("3_ajckr")]
 collision_layer = 2

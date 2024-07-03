@@ -1,7 +1,7 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://do6ll7p23ta3a"]
 
-[ext_resource type="Texture2D" uid="uid://d2gpduq24qm7v" path="res://assets/GUI_scaled_11x_pngcrushed(2).png" id="1_nxttp"]
+[ext_resource type="Texture2D" uid="uid://dfnuidsfs83ko" path="res://assets/button.png" id="1_q4p77"]
 
 [resource]
-texture = ExtResource("1_nxttp")
-modulate_color = Color(0.890196, 0.890196, 0.890196, 0.537255)
+texture = ExtResource("1_q4p77")
+modulate_color = Color(0.890196, 0.890196, 0.890196, 0.486275)

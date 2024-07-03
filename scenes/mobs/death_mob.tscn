@@ -1,18 +1,53 @@
-[gd_scene load_steps=23 format=3 uid="uid://cu8h487obshij"]
+[gd_scene load_steps=33 format=3 uid="uid://cu8h487obshij"]
 
 [ext_resource type="Script" path="res://scripts/mobs/death_mob.gd" id="1_lbmig"]
 [ext_resource type="Script" path="res://scripts/character_components/shooter_ray.gd" id="2_knkgr"]
 [ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_rc17y"]
 [ext_resource type="Texture2D" uid="uid://bg18ums5tplhl" path="res://assets/Undead Survivor/Sprites/death.png" id="3_mxx15"]
+[ext_resource type="Script" path="res://scripts/mobs/attacks/circle_attack.gd" id="3_p8gmv"]
 [ext_resource type="Script" path="res://scripts/character_components/shooter.gd" id="4_7vkq1"]
+[ext_resource type="Script" path="res://scripts/mobs/attacks/ghost_attack.gd" id="4_i53fr"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="5_k2152"]
+[ext_resource type="PackedScene" uid="uid://jkg61ngdnd8w" path="res://scenes/weapons/scythe.tscn" id="6_q4f4d"]
+[ext_resource type="Script" path="res://scripts/ui/marker.gd" id="10_s4erm"]
+[ext_resource type="Texture2D" uid="uid://c4uqrxfr3q11o" path="res://assets/Undead Survivor/Sprites/UI.png" id="11_426a5"]
 
-[sub_resource type="Resource" id="Resource_ltqeu"]
+[sub_resource type="Resource" id="Resource_6upo5"]
 script = ExtResource("2_knkgr")
-frequency = 1.0
-bullet_speed = 500.0
+frequency = 2.0
+bullet_speed = 700.0
 bullet_lifetime = 10.0
 deviation = 0.0
+
+[sub_resource type="Resource" id="Resource_xe4ej"]
+script = ExtResource("3_p8gmv")
+number_of_bullets = 16
+rotation_speed = 0.0
+bullet_ref = SubResource("Resource_6upo5")
+rest_time = 3.0
+duration = 1.0
+
+[sub_resource type="Resource" id="Resource_duxsf"]
+script = ExtResource("2_knkgr")
+frequency = 0.4
+bullet_speed = 750.0
+bullet_lifetime = 10.0
+deviation = 0.0
+
+[sub_resource type="Resource" id="Resource_87s7s"]
+script = ExtResource("3_p8gmv")
+number_of_bullets = 12
+rotation_speed = -15.0
+bullet_ref = SubResource("Resource_duxsf")
+rest_time = 3.0
+duration = 10.0
+
+[sub_resource type="Resource" id="Resource_y26ng"]
+script = ExtResource("4_i53fr")
+ghost_speed = 2000.0
+stun_time = 3.0
+rest_time = 3.0
+duration = 0.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_echa5"]
 atlas = ExtResource("3_mxx15")
@@ -124,21 +159,40 @@ height = 196.0
 radius = 167.0
 height = 344.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e2ia"]
+atlas = ExtResource("11_426a5")
+region = Rect2(0, 76, 8, 8)
+
 [node name="DeathMob" type="Node2D"]
 script = ExtResource("1_lbmig")
-number_of_bullets = 16
-bullet_ref = SubResource("Resource_ltqeu")
+circle_attack = SubResource("Resource_xe4ej")
+ray_circle_attack = SubResource("Resource_87s7s")
+ghost_attack = SubResource("Resource_y26ng")
+circle_attack_count = 0
+ghost_attack_freshold = 1
+cooldown_time = 1.0
+keep_distance = 750.0
+hp = 10000.0
+max_hp = 10000.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("2_rc17y")
 
+[node name="Scythe" parent="CharacterBody2D" instance=ExtResource("6_q4f4d")]
+unique_name_in_owner = true
+position = Vector2(177, -51)
+rotation = -1.5708
+move_speed = 2250
+return_speed = 1500
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
 z_index = -1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_gy5yk")
-animation = &"die"
+animation = &"run"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 12)
@@ -147,10 +201,18 @@ shape = SubResource("CapsuleShape2D_50gcs")
 [node name="Shooter" type="Node2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
 script = ExtResource("4_7vkq1")
-active = true
 auto_init = false
 
 [node name="FakeTarget" type="Node2D" parent="CharacterBody2D/Shooter"]
+unique_name_in_owner = true
+position = Vector2(100, 0)
+
+[node name="Shooter2" type="Node2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+script = ExtResource("4_7vkq1")
+auto_init = false
+
+[node name="FakeTarget2" type="Node2D" parent="CharacterBody2D/Shooter2"]
 unique_name_in_owner = true
 position = Vector2(100, 0)
 
@@ -159,5 +221,24 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
 shape = SubResource("CapsuleShape2D_bmp3u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("target")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_s4erm")
+target = NodePath("../../CharacterBody2D")
+margin = 100.0
+
+[node name="Marker" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -89.0
+offset_right = 78.0
+offset_bottom = 61.0
+texture = SubResource("AtlasTexture_5e2ia")
 
 [connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

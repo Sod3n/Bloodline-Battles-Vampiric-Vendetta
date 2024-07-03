@@ -95,7 +95,7 @@ shape = SubResource("CapsuleShape2D_50gcs")
 [node name="Shooter" type="Node2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
 script = ExtResource("4_f7ior")
-rays = Array[Object]([SubResource("Resource_ftdh0"), SubResource("Resource_24bwd"), SubResource("Resource_y3tt8")])
+rays = Array[ExtResource("5_6lpa0")]([SubResource("Resource_ftdh0"), SubResource("Resource_24bwd"), SubResource("Resource_y3tt8")])
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("5_jhone")]
 collision_layer = 2

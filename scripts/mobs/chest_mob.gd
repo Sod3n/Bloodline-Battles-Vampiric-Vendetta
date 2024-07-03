@@ -1,7 +1,5 @@
 extends "res://scripts/mobs/mob.gd"
 
-@onready var player_body : Node2D = Global.player.body
-
 @export var content : Array[PackedScene]
 @export var open_distance : float = 200
 

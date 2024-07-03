@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://xomta3dn45hh"]
+
+[ext_resource type="FontFile" uid="uid://cmg4b2lpdwgfr" path="res://assets/joystix monospace.otf" id="1_xj5iw"]
+[ext_resource type="Script" path="res://scripts/ui/button.gd" id="2_ci5xp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72yyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muy02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k53co"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxl0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xkvjr"]
+
+[node name="RichTextLabel" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1980.0
+offset_top = -1080.0
+offset_right = -1768.0
+offset_bottom = -772.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(100, 150)
+theme_override_fonts/font = ExtResource("1_xj5iw")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxEmpty_72yyv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_muy02")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k53co")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kxl0h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xkvjr")
+text = "<
+"
+script = ExtResource("2_ci5xp")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

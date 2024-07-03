@@ -48,6 +48,8 @@ func _hide_all():
 func _on_button_pressed(button_index):
 	await get_tree().create_timer(0.2).timeout
 	var upgrade = upgrade_lists[button_index].upgrades.pop_front()
+	if not upgrade:
+		return
 	upgrade_lists[button_index].selected = true
 	upgrade.apply(Global.player)
 	Global.upgrade_manager.return_upgrades(upgrade_lists)

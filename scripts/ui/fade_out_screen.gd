@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var color_rect = $ColorRect
 
 func _ready():
+	show()
 	fade_out()
 
 func fade_out():

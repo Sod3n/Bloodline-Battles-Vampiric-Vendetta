@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k12wf"]
 [ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_i2kvp"]
 [ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
-[ext_resource type="Script" path="res://scripts/utils/skin_selector.gd" id="3_fo20f"]
-[ext_resource type="SpriteFrames" uid="uid://bd2rjyuo1q3p1" path="res://frames/miku_frames.tres" id="4_8mwhn"]
+[ext_resource type="PackedScene" uid="uid://yjm5uou5xda6" path="res://scenes/utils/skin_selector.tscn" id="3_i5um2"]
 [ext_resource type="Shape2D" uid="uid://d1enhgygmn6ng" path="res://collision_shapes/character.tres" id="4_q6s4o"]
 [ext_resource type="PackedScene" uid="uid://wtb0bpq1j403" path="res://scenes/utils/camera_2d.tscn" id="5_uwxc7"]
 [ext_resource type="Script" path="res://scripts/utils/camera_2d.gd" id="6_ywwtg"]
@@ -12,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/character_components/weapon_slot.gd" id="9_xv6n2"]
 [ext_resource type="Script" path="res://scripts/character_components/weapon_adder.gd" id="10_mo5pi"]
 [ext_resource type="Script" path="res://scripts/character_components/detect_spikes.gd" id="11_y2khf"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_gamestate.gd" id="13_4rph6"]
 [ext_resource type="Texture2D" uid="uid://oenbp7enbwix" path="res://assets/exp.png" id="13_22dfr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdet2"]
@@ -42,21 +42,8 @@ collision_mask = 33
 motion_mode = 1
 script = ExtResource("2_i2kvp")
 
-[node name="Node" type="Node2D" parent="CharacterBody2D"]
-script = ExtResource("3_fo20f")
-id = 1
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Node"]
-scale = Vector2(10, 10)
-sprite_frames = ExtResource("4_8mwhn")
-animation = &"die"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CharacterBody2D/Node"]
-visible = false
-position = Vector2(1, -2)
-scale = Vector2(10, 10)
-sprite_frames = ExtResource("4_8mwhn")
-animation = &"idle"
+[node name="Skins" parent="CharacterBody2D" instance=ExtResource("3_i5um2")]
+position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-4, 47)
@@ -119,7 +106,7 @@ position = Vector2(0, 200)
 
 [node name="TargetArea2D" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 14
+collision_mask = 142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/TargetArea2D"]
 shape = SubResource("CircleShape2D_xmfvp")
@@ -177,6 +164,9 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_i534i")
 value = 50.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="Savestate" type="Node" parent="."]
+script = ExtResource("13_4rph6")
 
 [connection signal="area_entered" from="CharacterBody2D/CollectArea2D" to="CharacterBody2D/CollectArea2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_entered"]

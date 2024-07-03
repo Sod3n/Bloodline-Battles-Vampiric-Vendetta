@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://c76tip27aw8su"]
+
+[ext_resource type="PackedScene" uid="uid://dtnxu58so78by" path="res://scenes/world/tile_map.tscn" id="1_dm50q"]
+[ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/player/character.tscn" id="2_vll7i"]
+[ext_resource type="Script" path="res://scripts/mob_manager.gd" id="3_fwwmk"]
+[ext_resource type="Script" path="res://scenes/utils/main_menu.gd" id="4_qys3h"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_gamestate.gd" id="6_7cy3r"]
+[ext_resource type="PackedScene" uid="uid://xomta3dn45hh" path="res://scenes/utils/button.tscn" id="6_cd770"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y51xp"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="MobManager" type="Node" parent="."]
+script = ExtResource("3_fwwmk")
+
+[node name="Character" parent="." instance=ExtResource("2_vll7i")]
+in_main_menu = true
+
+[node name="TileMap" parent="." instance=ExtResource("1_dm50q")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_qys3h")
+
+[node name="Control" type="Panel" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 2
+offset_left = 1669.0
+offset_top = 921.0
+offset_right = 2269.0
+offset_bottom = 1271.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y51xp")
+metadata/flex_metas = {
+"align_self": 0
+}
+
+[node name="MinusSkin" parent="CanvasLayer/Control/Control" instance=ExtResource("6_cd770")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 212.0
+offset_bottom = 308.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlusSkin" parent="CanvasLayer/Control/Control" instance=ExtResource("6_cd770")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 395.0
+offset_top = -2.0
+offset_right = 607.0
+offset_bottom = 306.0
+grow_horizontal = 1
+grow_vertical = 1
+text = ">
+"
+
+[node name="Start" parent="CanvasLayer/Control" instance=ExtResource("6_cd770")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1461.0
+offset_top = 1384.0
+offset_right = 2482.0
+offset_bottom = 1692.0
+grow_horizontal = 1
+grow_vertical = 1
+pivot_offset = Vector2(497.11, 150)
+theme_override_font_sizes/font_size = 256
+text = "START
+"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="Savestate" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_7cy3r")
+
+[connection signal="pressed" from="CanvasLayer/Control/Control/MinusSkin" to="CanvasLayer/Control" method="_on_minus_skin_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control/PlusSkin" to="CanvasLayer/Control" method="_on_plus_skin_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Start" to="CanvasLayer/Control" method="_on_start_pressed"]

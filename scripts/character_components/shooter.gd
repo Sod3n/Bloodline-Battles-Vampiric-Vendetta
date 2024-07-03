@@ -1,14 +1,13 @@
 class_name Shooter
-extends Node
+extends Node2D
 
 const BULLET = preload("res://scenes/weapons/bullet.tscn")
 
 @export var rays : Array[ShooterRay]
 @export var active : bool = false
 @export var auto_init : bool = true
+@export var rotation_speed : float = 0
 @onready var range_mob = $"../.."
-
-@onready var player_body = Global.player.body
 
 var bullet = BULLET
 var target : Node2D
@@ -53,3 +52,6 @@ func activate():
 func deactivate():
 	for ray in rays:
 		ray.timer.stop()
+
+func _physics_process(delta):
+	rotate(deg_to_rad(rotation_speed) * delta)

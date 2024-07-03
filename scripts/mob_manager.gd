@@ -16,5 +16,9 @@ func remove_invalid_objects(array: Array[Mob]) -> Array[Mob]:
 		return item != null and is_instance_valid(item)
 	)
 
+func kill_all():
+	for mob in mobs:
+		mob.die()
+
 func _init():
 	Global.mob_manager = self

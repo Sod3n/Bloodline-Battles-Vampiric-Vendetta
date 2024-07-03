@@ -2,8 +2,8 @@ class_name GhostMob
 extends "res://scripts/mobs/mob.gd"
 
 @export var attack_cooldown = 1
+@export var stun_time = 1.5
 
-@onready var player_body : Node2D = Global.player.body
 @onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 var direction : Vector2
@@ -36,9 +36,10 @@ func _process(delta):
 		states.MOVE:
 			animated_sprite_2d.play("run")
 			velocity = (direction.normalized() * speed * speed_scale)
+			_enable_damage_area()
 		states.STAY:
 			velocity = Vector2.ZERO
-			if not is_stunned:
+			if can_act():
 				state = states.MOVE
 		states.DIED:
 			velocity = Vector2.ZERO
@@ -49,10 +50,11 @@ func _process(delta):
 
 
 
-func _on_damage_area_2d_on_enter(body):
+func _on_damage_area_2d_on_enter(body: Character):
 	body.receive_damage(damage)
+	body.stun(stun_time)
 	damage_area_2d.disable()
-	get_tree().create_timer(attack_cooldown * reload).timeout.connect(Callable(self, "_enable_damage_area"))
+	die()
 
 
 func _enable_damage_area():

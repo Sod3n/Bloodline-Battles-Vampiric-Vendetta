@@ -1,8 +1,7 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bbio73juo5mgo"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hl1xk"]
-load_path = "res://.godot/imported/GUI_scaled_11x_pngcrushed(2).png-00d61003caedad0f977d935013cb54ea.ctex"
+[ext_resource type="Texture2D" uid="uid://dfnuidsfs83ko" path="res://assets/button.png" id="1_surfr"]
 
 [resource]
-texture = SubResource("CompressedTexture2D_hl1xk")
+texture = ExtResource("1_surfr")
 modulate_color = Color(0.733005, 0.733005, 0.733005, 1)
