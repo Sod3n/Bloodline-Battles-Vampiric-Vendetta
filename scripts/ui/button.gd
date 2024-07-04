@@ -7,6 +7,7 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exited)
 	pressed.connect(_on_pressed)
 	_set_normal_state()
+	grab_focus()
 
 func _on_mouse_entered():
 	_set_hover_state()
@@ -19,6 +20,13 @@ func _on_pressed():
 
 func _on_released():
 	_set_hover_state()
+
+func _on_focus_entered():
+	_set_hover_state()
+	print("focusentered")
+
+func _on_focus_exited():
+	_set_normal_state()
 
 func _set_normal_state():
 	tween = create_tween()
@@ -38,3 +46,6 @@ func _set_pressed_state():
 
 func _on_button_up():
 	_set_hover_state()
+
+
+

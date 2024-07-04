@@ -1,17 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://nrj6x38vqmld"]
+[gd_scene load_steps=21 format=3 uid="uid://nrj6x38vqmld"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_manager.gd" id="1_yqoji"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_list.gd" id="2_cwbcd"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_health.gd" id="3_g3yrt"]
+[ext_resource type="Texture2D" uid="uid://bt2ibmhsi6rdh" path="res://assets/Undead Survivor/Sprites/icons/tile005.png" id="4_fc0rd"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_collect_radius.gd" id="4_kpss4"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_crit.gd" id="5_nnehc"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_speed.gd" id="6_bqi7o"]
+[ext_resource type="Texture2D" uid="uid://dua3qxglf7diw" path="res://assets/Undead Survivor/Sprites/icons/tile002.png" id="6_ex0jb"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_reload.gd" id="6_y5bae"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_add_weapon_list.gd" id="7_ip8v3"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_attack.gd" id="7_qndhl"]
+[ext_resource type="Texture2D" uid="uid://dyw4djkcm8l0t" path="res://assets/Undead Survivor/Sprites/icons/tile004.png" id="8_6vqhw"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_add_weapon.gd" id="8_m0q84"]
+[ext_resource type="Texture2D" uid="uid://dmb83v2ky2mph" path="res://assets/Undead Survivor/Sprites/icons/tile007.png" id="10_btbpj"]
 [ext_resource type="PackedScene" uid="uid://ct84npj8x28me" path="res://scenes/weapons/shovel.tscn" id="11_pmu8d"]
+[ext_resource type="Texture2D" uid="uid://5ptonhwwgg0e" path="res://assets/Undead Survivor/Sprites/icons/tile006.png" id="12_36lna"]
 [ext_resource type="PackedScene" uid="uid://bwcqalxnsfuru" path="res://scenes/weapons/pitchfork.tscn" id="12_rtx3w"]
+[ext_resource type="Texture2D" uid="uid://cn0ovjlwqownx" path="res://assets/Undead Survivor/Sprites/icons/tile003.png" id="14_ks7gr"]
+[ext_resource type="Texture2D" uid="uid://bw5p0nn2wao2g" path="res://assets/Undead Survivor/Sprites/icons/tile000.png" id="18_xq647"]
+[ext_resource type="Texture2D" uid="uid://rkggy83c73do" path="res://assets/Undead Survivor/Sprites/icons/tile001.png" id="20_og7i2"]
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_yqoji")
@@ -21,75 +29,86 @@ script = ExtResource("2_cwbcd")
 
 [node name="UpgradeHealth" type="Node" parent="UpgradeHealthList"]
 script = ExtResource("3_g3yrt")
-value = null
-_desription = null
+icon = ExtResource("4_fc0rd")
 
 [node name="UpgradeHealth2" type="Node" parent="UpgradeHealthList"]
 script = ExtResource("3_g3yrt")
-value = null
-_desription = null
+icon = ExtResource("4_fc0rd")
 
 [node name="UpgradeHealth3" type="Node" parent="UpgradeHealthList"]
 script = ExtResource("3_g3yrt")
-value = null
-_desription = null
+icon = ExtResource("4_fc0rd")
 
 [node name="UpgradeCollectRadiusList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")
 
 [node name="UpgradeCollectRadius" type="Node" parent="UpgradeCollectRadiusList"]
 script = ExtResource("4_kpss4")
+icon = ExtResource("6_ex0jb")
 
 [node name="UpgradeCollectRadius2" type="Node" parent="UpgradeCollectRadiusList"]
 script = ExtResource("4_kpss4")
+icon = ExtResource("6_ex0jb")
 
 [node name="UpgradeCritList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")
 
 [node name="UpgradeCrit" type="Node" parent="UpgradeCritList"]
 script = ExtResource("5_nnehc")
+icon = ExtResource("8_6vqhw")
 
 [node name="UpgradeCrit2" type="Node" parent="UpgradeCritList"]
 script = ExtResource("5_nnehc")
+icon = ExtResource("8_6vqhw")
 
 [node name="UpgradeCrit3" type="Node" parent="UpgradeCritList"]
 script = ExtResource("5_nnehc")
+icon = ExtResource("8_6vqhw")
 
 [node name="UpgradeSpeedList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")
 
 [node name="UpgradeSpeed" type="Node" parent="UpgradeSpeedList"]
 script = ExtResource("6_bqi7o")
+icon = ExtResource("10_btbpj")
 
 [node name="UpgradeSpeed2" type="Node" parent="UpgradeSpeedList"]
 script = ExtResource("6_bqi7o")
+icon = ExtResource("10_btbpj")
 
 [node name="UpgradeSpeed3" type="Node" parent="UpgradeSpeedList"]
 script = ExtResource("6_bqi7o")
+icon = ExtResource("10_btbpj")
 
 [node name="UpgradeReloadList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")
 
 [node name="UpgradeReload" type="Node" parent="UpgradeReloadList"]
 script = ExtResource("6_y5bae")
+icon = ExtResource("12_36lna")
 
 [node name="UpgradeReload2" type="Node" parent="UpgradeReloadList"]
 script = ExtResource("6_y5bae")
+icon = ExtResource("12_36lna")
 
 [node name="UpgradeReload3" type="Node" parent="UpgradeReloadList"]
 script = ExtResource("6_y5bae")
+icon = ExtResource("12_36lna")
 
 [node name="UpgradeAttackList" type="Node" parent="."]
 script = ExtResource("2_cwbcd")
 
 [node name="UpgradeAttack" type="Node" parent="UpgradeAttackList"]
 script = ExtResource("7_qndhl")
+icon = ExtResource("14_ks7gr")
 
 [node name="UpgradeAttack2" type="Node" parent="UpgradeAttackList"]
 script = ExtResource("7_qndhl")
+icon = ExtResource("14_ks7gr")
 
 [node name="UpgradeAttack3" type="Node" parent="UpgradeAttackList"]
 script = ExtResource("7_qndhl")
+icon = ExtResource("14_ks7gr")
 
 [node name="UpgradeAddWeaponList" type="Node" parent="."]
 script = ExtResource("7_ip8v3")
@@ -98,26 +117,31 @@ script = ExtResource("7_ip8v3")
 script = ExtResource("8_m0q84")
 weapon = ExtResource("11_pmu8d")
 _desription = "Give shovel."
+icon = ExtResource("18_xq647")
 
 [node name="UpgradeAddWeapon2" type="Node" parent="UpgradeAddWeaponList"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("11_pmu8d")
 _desription = "Give shovel."
+icon = ExtResource("18_xq647")
 
 [node name="UpgradeAddWeapon3" type="Node" parent="UpgradeAddWeaponList"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("11_pmu8d")
 _desription = "Give shovel."
+icon = ExtResource("18_xq647")
 
 [node name="UpgradeAddWeapon4" type="Node" parent="UpgradeAddWeaponList"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("11_pmu8d")
 _desription = "Give shovel."
+icon = ExtResource("18_xq647")
 
 [node name="UpgradeAddWeapon5" type="Node" parent="UpgradeAddWeaponList"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("11_pmu8d")
 _desription = "Give shovel."
+icon = ExtResource("18_xq647")
 
 [node name="UpgradeAddWeaponList2" type="Node" parent="."]
 script = ExtResource("7_ip8v3")
@@ -126,23 +150,28 @@ script = ExtResource("7_ip8v3")
 script = ExtResource("8_m0q84")
 weapon = ExtResource("12_rtx3w")
 _desription = "Give pitchfork."
+icon = ExtResource("20_og7i2")
 
 [node name="UpgradeAddWeapon2" type="Node" parent="UpgradeAddWeaponList2"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("12_rtx3w")
 _desription = "Give pitchfork."
+icon = ExtResource("20_og7i2")
 
 [node name="UpgradeAddWeapon3" type="Node" parent="UpgradeAddWeaponList2"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("12_rtx3w")
 _desription = "Give pitchfork."
+icon = ExtResource("20_og7i2")
 
 [node name="UpgradeAddWeapon4" type="Node" parent="UpgradeAddWeaponList2"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("12_rtx3w")
 _desription = "Give pitchfork."
+icon = ExtResource("20_og7i2")
 
 [node name="UpgradeAddWeapon5" type="Node" parent="UpgradeAddWeaponList2"]
 script = ExtResource("8_m0q84")
 weapon = ExtResource("12_rtx3w")
 _desription = "Give pitchfork."
+icon = ExtResource("20_og7i2")

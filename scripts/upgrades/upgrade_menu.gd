@@ -2,15 +2,14 @@ class_name UpgradeMenu
 extends CanvasLayer
 
 signal deactivated
+signal on_upgrade_added(upgrade: Upgrade)
 
 @onready var button_1 = $HBoxContainer/VBoxContainer/Button1
 @onready var button_2 = $HBoxContainer/VBoxContainer/Button2
 @onready var button_3 = $HBoxContainer/VBoxContainer/Button3
-@onready var rich_text_label_1 = $HBoxContainer/VBoxContainer/Button1/RichTextLabel
-@onready var rich_text_label_2 = $HBoxContainer/VBoxContainer/Button2/RichTextLabel
-@onready var rich_text_label_3 = $HBoxContainer/VBoxContainer/Button3/RichTextLabel
 
 var upgrade_lists : Array[UpgradeList]
+var upgrades : Array[Upgrade]
 
 func _init():
 	Global.upgrade_menu = self
@@ -21,9 +20,9 @@ func _ready():
 func activate():
 	self.show()
 	upgrade_lists = Global.upgrade_manager.get_random_upgrades(3)
-	_set_button_text(button_1, rich_text_label_1, _get_at(upgrade_lists, 0))
-	_set_button_text(button_2, rich_text_label_2, _get_at(upgrade_lists, 1))
-	_set_button_text(button_3, rich_text_label_3, _get_at(upgrade_lists, 2))
+	_set_button_text(button_1, _get_at(upgrade_lists, 0))
+	_set_button_text(button_2, _get_at(upgrade_lists, 1))
+	_set_button_text(button_3, _get_at(upgrade_lists, 2))
 	button_1.grab_focus()
 	get_tree().paused = true
 	if upgrade_lists.size() <= 0:
@@ -35,9 +34,10 @@ func deactivate():
 	get_tree().paused = false
 	deactivated.emit()
 
-func _set_button_text(button: Button, text : Label, upgrade_list: UpgradeList):
+func _set_button_text(button: UButton, upgrade_list: UpgradeList):
 	if upgrade_list and button:
-		text.text = upgrade_list.upgrades.front().description
+		button.set_utext(upgrade_list.upgrades.front().description)
+		button.set_uicon(upgrade_list.upgrades.front().icon)
 		button.show()
 
 func _hide_all():
@@ -51,10 +51,16 @@ func _on_button_pressed(button_index):
 	if not upgrade:
 		return
 	upgrade_lists[button_index].selected = true
-	upgrade.apply(Global.player)
+	add_upgrade(upgrade)
 	Global.upgrade_manager.return_upgrades(upgrade_lists)
 	deactivate()
 
+func add_upgrade(upgrade: Upgrade):
+	upgrade.apply(Global.player)
+	upgrades.append(upgrade)
+	Global.upgrade_icon_list.add_upgrade_icon(upgrade)
+	on_upgrade_added.emit(upgrade)
+	
 func _on_button_1_pressed():
 	_on_button_pressed(0)
 

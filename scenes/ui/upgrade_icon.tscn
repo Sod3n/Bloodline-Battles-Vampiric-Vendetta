@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqkyg2okfa2c2"]
+
+[ext_resource type="Texture2D" uid="uid://bw5p0nn2wao2g" path="res://assets/Undead Survivor/Sprites/icons/tile000.png" id="1_22jre"]
+[ext_resource type="Script" path="res://scripts/ui/upgrade_icon.gd" id="2_3ybdh"]
+[ext_resource type="FontFile" uid="uid://cmg4b2lpdwgfr" path="res://assets/joystix monospace.otf" id="3_snuog"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(150, 150)
+texture = ExtResource("1_22jre")
+script = ExtResource("2_3ybdh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_snuog")
+theme_override_font_sizes/font_size = 48
+text = "2
+"

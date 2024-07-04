@@ -3,5 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dfnuidsfs83ko" path="res://assets/button.png" id="1_surfr"]
 
 [resource]
+content_margin_left = 1000.0
+content_margin_top = 40.0
+content_margin_bottom = 80.0
 texture = ExtResource("1_surfr")
 modulate_color = Color(0.733005, 0.733005, 0.733005, 1)

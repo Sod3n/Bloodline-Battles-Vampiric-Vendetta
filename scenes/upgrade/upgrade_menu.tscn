@@ -1,15 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcjtoiftywxt1"]
+[gd_scene load_steps=3 format=3 uid="uid://bcjtoiftywxt1"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_menu.gd" id="1_oj2vu"]
-[ext_resource type="PackedScene" uid="uid://t8qx80oscpko" path="res://scenes/upgrade/upgrade_controll.tscn" id="2_ujutr"]
-[ext_resource type="StyleBox" uid="uid://bbio73juo5mgo" path="res://textures/upgrade_menu.tres" id="3_70k2f"]
-[ext_resource type="Texture2D" uid="uid://dfnuidsfs83ko" path="res://assets/button.png" id="3_fo4wn"]
-[ext_resource type="StyleBox" uid="uid://brfxd1uugnq3s" path="res://textures/new_style_box_texture3.tres" id="4_5c5fx"]
-[ext_resource type="StyleBox" uid="uid://do6ll7p23ta3a" path="res://textures/new_style_box_texture.tres" id="5_8ku1k"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gnse"]
-texture = ExtResource("3_fo4wn")
-modulate_color = Color(0.521141, 0.521141, 0.52114, 1)
+[ext_resource type="PackedScene" uid="uid://y3uhiqicoyam" path="res://scenes/utils/upgrade_button.tscn" id="2_my1f3"]
 
 [node name="UpgradeMenu" type="CanvasLayer"]
 process_mode = 3
@@ -29,88 +21,20 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Button1" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ujutr")]
+[node name="Button1" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_my1f3")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button3")
-focus_neighbor_bottom = NodePath("../Button2")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6gnse")
-theme_override_styles/hover = ExtResource("3_70k2f")
-theme_override_styles/pressed = ExtResource("4_5c5fx")
-theme_override_styles/disabled = ExtResource("4_5c5fx")
-theme_override_styles/focus = ExtResource("5_8ku1k")
+focus_neighbor_top = NodePath("")
+focus_neighbor_bottom = NodePath("")
 
-[node name="RichTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/Button1"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -57.5
-offset_bottom = 57.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.122252, 0.122252, 0.122252, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 6
-theme_override_font_sizes/font_size = 96
-text = "Increase hp."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button2" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ujutr")]
+[node name="Button2" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_my1f3")]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Button3")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6gnse")
-theme_override_styles/hover = ExtResource("3_70k2f")
-theme_override_styles/pressed = ExtResource("4_5c5fx")
-theme_override_styles/disabled = ExtResource("4_5c5fx")
-theme_override_styles/focus = ExtResource("5_8ku1k")
+focus_neighbor_top = NodePath("")
+focus_neighbor_bottom = NodePath("")
 
-[node name="RichTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/Button2"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -57.5
-offset_bottom = 57.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.122252, 0.122252, 0.122252, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 6
-theme_override_font_sizes/font_size = 96
-text = "Increase hp."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button3" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ujutr")]
+[node name="Button3" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_my1f3")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../Button1")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6gnse")
-theme_override_styles/hover = ExtResource("3_70k2f")
-theme_override_styles/pressed = ExtResource("4_5c5fx")
-theme_override_styles/disabled = ExtResource("4_5c5fx")
-theme_override_styles/focus = ExtResource("5_8ku1k")
-
-[node name="RichTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/Button3"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -57.5
-offset_bottom = 57.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.122252, 0.122252, 0.122252, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 6
-theme_override_font_sizes/font_size = 96
-text = "Increase hp."
-horizontal_alignment = 1
-vertical_alignment = 1
+focus_neighbor_top = NodePath("")
+focus_neighbor_bottom = NodePath("")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
