@@ -8,4 +8,4 @@ func _ready():
 	description = _desription
 	
 func apply(character : BasicCharacter) -> void:
-	character.reload /= value_scale
+	character.reload /= (1 / character.reload + value_scale)
