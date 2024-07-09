@@ -29,7 +29,7 @@ var additional_angle = 120
 var additional_attack_angle = 75 + 120
 
 # Time to wait in wait attack state (in seconds)
-var wait_attack_time = 5.0
+@export var wait_attack_time = 5.0
 
 var rotate_distance = 0.0
 
