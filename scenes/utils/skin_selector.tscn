@@ -11,9 +11,8 @@ atlas = ExtResource("4_bgxh7")
 region = Rect2(115, 1, 15, 19)
 
 [sub_resource type="Curve" id="Curve_nj1wm"]
-min_value = -200.0
 max_value = 200.0
-_data = [Vector2(0, -37.9728), 0.0, 0.0, 0, 0, Vector2(0.95935, 123.298), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.883652), 0.0, 0.0, 0, 0, Vector2(1, 60.3631), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_ag2pc"]
@@ -26,19 +25,20 @@ script = ExtResource("1_5mx7i")
 id = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-14, -16)
-scale = Vector2(10, 10)
-amount = 5
-lifetime = 0.3
+show_behind_parent = true
+position = Vector2(-14, -18)
+amount = 7
+lifetime = 0.7
+local_coords = true
 draw_order = 1
 texture = SubResource("AtlasTexture_rhpuu")
 direction = Vector2(-1, 0)
 spread = 0.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 50.0
-linear_accel_min = 31.26
-linear_accel_max = 31.26
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 30.0
+linear_accel_max = 30.0
 linear_accel_curve = SubResource("Curve_nj1wm")
 scale_amount_min = 10.0
 scale_amount_max = 10.0
