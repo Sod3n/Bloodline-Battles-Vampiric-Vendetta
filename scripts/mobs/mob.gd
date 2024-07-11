@@ -8,6 +8,8 @@ const SILVER_COIN = preload("res://scenes/collectables/silver_coin.tscn")
 const COPPER_COIN = preload("res://scenes/collectables/copper_coin.tscn")
 
 @onready var player_body : Node2D = Global.player.body
+@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
+@export var attack_cooldown = 1
 
 var alpha = 1
 var alpha_speed = 0.2
@@ -15,6 +17,7 @@ var alpha_speed = 0.2
 var dropped_collectable
 
 func _ready():
+	super()
 	Global.mob_manager.mobs.append(self)
 
 
@@ -40,6 +43,7 @@ func die():
 		collectable.global_position = body.global_position
 		get_tree().current_scene.call_deferred("add_child", collectable)
 	
+	Global.mob_manager.dead_mobs_count += 1
 
 func _process(delta):
 	super(delta)
@@ -64,3 +68,17 @@ func keep_distance_with_player(keep_distance : float, distance_spread : float) -
 		return true
 	else:
 		return false
+
+func _on_damage_area_2d_on_enter(body: Character):
+	var dmg = Damage.new()
+	dmg.value = damage
+	dmg.owner = self
+	dmg.target = body
+	dmg.is_direct = true
+	dmg.is_crit = is_damage_was_crit
+	dmg.inflict()
+	damage_area_2d.disable()
+	get_tree().create_timer(attack_cooldown * reload).timeout.connect(Callable(self, "_enable_damage_area"))
+
+func _enable_damage_area():
+	damage_area_2d.enable()

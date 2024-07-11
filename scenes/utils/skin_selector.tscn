@@ -11,13 +11,13 @@ script = ExtResource("1_5mx7i")
 id = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("2_wxcbh")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(1, -2)
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("3_xdjdi")

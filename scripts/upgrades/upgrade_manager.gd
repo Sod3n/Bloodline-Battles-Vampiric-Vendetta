@@ -29,7 +29,6 @@ func get_random_upgrades(count : int) -> Array[UpgradeList]:
 			random_upgrades.append(upgrade_instance)
 			selected_upgrades.remove_at(random_index)
 		else:
-			print("size ", not_selected_upgrades.size())
 			if not_selected_upgrades.size() == 0:
 				break
 			var random_index = randi() % not_selected_upgrades.size()
@@ -61,6 +60,5 @@ func get_children_upgrade_lists():
 
 func remove_not_available_upgrades(array: Array) -> Array:
 	return array.filter(func(item):
-		print("item.available ", item.available)
 		return item.available
 	)

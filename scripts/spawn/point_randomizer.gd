@@ -21,7 +21,6 @@ func find_nearest_point_in_navigation(point: Vector2, from_point: Vector2) -> Ve
 # Функция для проверки дистанции от точки до позиции игрока
 func is_within_spawn_distance(point: Vector2, player_pos: Vector2, min_distance: float, max_distance: float) -> bool:
 	var distance_to_player = point.distance_to(player_pos)
-	print("distance", distance_to_player)
 	return distance_to_player > min_distance and distance_to_player < max_distance
 
 # Функция для проверки, находится ли точка внутри прямоугольника, заданного центральной позицией и размерами

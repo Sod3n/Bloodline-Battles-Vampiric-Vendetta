@@ -8,9 +8,10 @@ const BULLET = preload("res://scenes/weapons/bullet.tscn")
 @export var auto_init : bool = true
 @export var rotation_speed : float = 0
 @onready var range_mob = $"../.."
-
+@export var shooter_owner : Node2D
 var bullet = BULLET
 var target : Node2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,7 @@ func _on_timeout(ray : ShooterRay):
 	instance.global_position = self.global_position
 	instance.damage = range_mob.damage
 	instance.lifetime = ray.bullet_lifetime
+	instance.bullet_owner = shooter_owner
 	get_tree().current_scene.add_child.call_deferred(instance)
 	pass
 

@@ -1,8 +1,10 @@
-extends Node2D
+class_name WeaponShovel
+extends Weapon
 
 @export var attack_rotation_speed = 1200
 @export var prepare_rotation_speed = 200
 @export var rotation_speed = 5
+@onready var animated_sprite_2d = %AnimatedSprite2D
 
 # Constants for states
 enum WeaponState {
@@ -17,11 +19,6 @@ var state = WeaponState.WAIT_ATTACK
 # Shovel point for rotation
 var shovel_point
 
-# Damage area 2D node
-var damage_area
-
-@onready var player = Global.player
-
 # Additional angle for prepare attack
 var additional_angle = 120
 
@@ -35,46 +32,39 @@ var rotate_distance = 0.0
 
 var attack_direct_to_left = false
 
-var _target : Node2D
-
 # Called when the node enters the scene tree for the first time
 func _ready():
-	shovel_point = $".."
-	damage_area = $DamageArea2D
 	_wait_attack()
 
 # Process function called every frame
 func _process(delta):
-	if not Global.player.can_act():
+	if not weapon_owner.can_act():
 		return
 	
+	target = weapon_owner.get_target()
+
 	match state:
 		
 		WeaponState.WAIT_ATTACK:
-			if player.target != null:
-				if _target == player.default_target:
-					_target = player.random_target
-				if not player.targets.has(_target):
-					_target = player.random_target
 			
-			if _target != null:
-				shovel_point.rotation = lerp_angle(shovel_point.rotation, shovel_point.global_position.angle_to_point(_target.global_position), rotation_speed * delta)
-				damage_area.disable()
-				var point_rot = get_rotation_between_neg_pi_and_pi(shovel_point)
-				attack_direct_to_left = abs(point_rot) > PI / 2
-			elif player.target != null:
-				_target = player.random_target
-			else:
-				_target = player.default_target
+			self.rotation = lerp_angle(self.rotation, \
+				self.global_position.angle_to_point(target.global_position), \
+				rotation_speed * delta)
+			
+			damage_area.disable()
+			var point_rot = get_rotation_between_neg_pi_and_pi(self)
+			attack_direct_to_left = abs(point_rot) > PI / 2
 
 		WeaponState.PREPARE_ATTACK:
-			if rotate_object(shovel_point, attack_direct_to_left, prepare_rotation_speed, additional_angle):
+			if rotate_object(self, attack_direct_to_left, prepare_rotation_speed, additional_angle):
 				state = WeaponState.ATTACK
+				animated_sprite_2d.play("attack")
 				rotate_distance = 0
 
 		WeaponState.ATTACK:
 			damage_area.enable()
-			if rotate_object(shovel_point, !attack_direct_to_left, attack_rotation_speed, additional_attack_angle):
+			
+			if rotate_object(self, !attack_direct_to_left, attack_rotation_speed, additional_attack_angle):
 				_wait_attack()
 				rotate_distance = 0
 
@@ -95,39 +85,13 @@ func rotate_object(object_to_rotate: Node2D, clockwise: bool, speed: float, angl
 
 # Wait in WAIT_ATTACK state and then switch to PREPARE_ATTACK state
 func _wait_attack():
-	if player:
-		_target = player.random_target
+	animated_sprite_2d.play("default")
+	
 	state = WeaponState.WAIT_ATTACK
-	await get_tree().create_timer(wait_attack_time * player.reload).timeout
+	await get_tree().create_timer(wait_attack_time * weapon_owner.reload).timeout
 	rotate_distance = 0
 	state = WeaponState.PREPARE_ATTACK
 
-
-func lerp_angle(from, to, weight):
-	return from + short_angle_dist(from, to) * weight
-
-func short_angle_dist(from, to):
-	var max_angle = PI * 2
-	var difference = fmod(to - from, max_angle)
-	return fmod(2 * difference, max_angle) - difference
-
-func get_rotation_between_neg_pi_and_pi(object_to_check: Node2D) -> float:
-	# Get the raw rotation of the object
-	var raw_rotation = object_to_check.rotation
-
-	# Ensure the rotation is between -2*pi and 2*pi
-	raw_rotation = fmod(raw_rotation, 2 * PI)
-
-	# Normalize the rotation to be between -pi and pi
-	var rotation_neg_pi_to_pi = raw_rotation
-	if rotation_neg_pi_to_pi > PI:
-		rotation_neg_pi_to_pi -= 2 * PI
-
-	return rotation_neg_pi_to_pi
-
-
-func _on_damage_area_2d_on_enter(body):
-	var damage = Global.player.damage
-	if body.receive_damage(damage):
-		GlobalDamageNumbersManager.show_damage(damage, Global.player.is_damage_was_crit, global_position)
-	
+func def_anim():
+	animated_sprite_2d.animation_finished.disconnect(def_anim)
+	animated_sprite_2d.play("default")

@@ -3,7 +3,6 @@ extends Control
 const MAIN_MENU = preload("res://scenes/utils/main_menu.tscn")
 
 func _unhandled_input(event):
-	print(event)
 	if event is InputEventMouseMotion:
 		return
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cu8h487obshij"]
+[gd_scene load_steps=32 format=3 uid="uid://cu8h487obshij"]
 
 [ext_resource type="Script" path="res://scripts/mobs/death_mob.gd" id="1_lbmig"]
 [ext_resource type="Script" path="res://scripts/character_components/shooter_ray.gd" id="2_knkgr"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="5_k2152"]
 [ext_resource type="PackedScene" uid="uid://jkg61ngdnd8w" path="res://scenes/weapons/scythe.tscn" id="6_q4f4d"]
 [ext_resource type="Script" path="res://scripts/ui/marker.gd" id="10_s4erm"]
-[ext_resource type="Texture2D" uid="uid://c4uqrxfr3q11o" path="res://assets/Undead Survivor/Sprites/UI.png" id="11_426a5"]
+[ext_resource type="Texture2D" uid="uid://bd3cbkhrgdgt8" path="res://assets/Undead Survivor/Sprites/UI2.png" id="11_w4vrp"]
 
 [sub_resource type="Resource" id="Resource_6upo5"]
 script = ExtResource("2_knkgr")
@@ -159,10 +159,6 @@ height = 196.0
 radius = 167.0
 height = 344.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5e2ia"]
-atlas = ExtResource("11_426a5")
-region = Rect2(0, 76, 8, 8)
-
 [node name="DeathMob" type="Node2D"]
 script = ExtResource("1_lbmig")
 circle_attack = SubResource("Resource_xe4ej")
@@ -170,8 +166,6 @@ ray_circle_attack = SubResource("Resource_87s7s")
 ghost_attack = SubResource("Resource_y26ng")
 cooldown_time = 1.0
 keep_distance = 750.0
-hp = 10000.0
-max_hp = 10000.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 128
@@ -196,19 +190,21 @@ animation = &"run"
 position = Vector2(1, 12)
 shape = SubResource("CapsuleShape2D_50gcs")
 
-[node name="Shooter" type="Node2D" parent="CharacterBody2D"]
+[node name="Shooter" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("shooter_owner")]
 unique_name_in_owner = true
 script = ExtResource("4_7vkq1")
 auto_init = false
+shooter_owner = NodePath("../..")
 
 [node name="FakeTarget" type="Node2D" parent="CharacterBody2D/Shooter"]
 unique_name_in_owner = true
 position = Vector2(100, 0)
 
-[node name="Shooter2" type="Node2D" parent="CharacterBody2D"]
+[node name="Shooter2" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("shooter_owner")]
 unique_name_in_owner = true
 script = ExtResource("4_7vkq1")
 auto_init = false
+shooter_owner = NodePath("../..")
 
 [node name="FakeTarget2" type="Node2D" parent="CharacterBody2D/Shooter2"]
 unique_name_in_owner = true
@@ -231,12 +227,13 @@ script = ExtResource("10_s4erm")
 target = NodePath("../../CharacterBody2D")
 margin = 100.0
 
-[node name="Marker" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Marker" type="NinePatchRect" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -72.0
 offset_top = -89.0
 offset_right = 78.0
 offset_bottom = 61.0
-texture = SubResource("AtlasTexture_5e2ia")
+texture = ExtResource("11_w4vrp")
+region_rect = Rect2(0, 75.8285, 8.32153, 8.17147)
 
 [connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

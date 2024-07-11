@@ -3,9 +3,6 @@ extends "res://scripts/mobs/mob.gd"
 
 @export var keep_distance : float = 500
 @export var distance_spread : float  = 100
-@export var attack_cooldown = 1
-
-@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 func _ready():
 	super()
@@ -60,13 +57,3 @@ func _process(delta):
 func _physics_process(delta):
 	_actual_velocity = body.global_position - _last_point
 	_last_point = body.global_position
-
-func _on_damage_area_2d_on_enter(body):
-	body.receive_damage(damage)
-	damage_area_2d.disable()
-	get_tree().create_timer(attack_cooldown * reload).timeout.connect(Callable(self, "_enable_damage_area"))
-
-
-func _enable_damage_area():
-	damage_area_2d.enable()
-	print("damage_area_2d")

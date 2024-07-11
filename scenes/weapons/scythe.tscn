@@ -12,6 +12,7 @@ height = 76.0
 script = ExtResource("1_7apvp")
 
 [node name="DamageArea2D" parent="." instance=ExtResource("2_0xdv5")]
+unique_name_in_owner = true
 position = Vector2(34, 3)
 collision_layer = 0
 
@@ -23,8 +24,6 @@ shape = SubResource("CapsuleShape2D_q0m2n")
 position = Vector2(38, 5)
 scale = Vector2(9, 9)
 sprite_frames = ExtResource("3_s5jyp")
-
-[node name="Timer" type="Timer" parent="."]
 
 [connection signal="on_enter" from="DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]
 

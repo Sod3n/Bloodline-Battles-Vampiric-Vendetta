@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://oconfydlj17b"]
+[gd_scene load_steps=18 format=3 uid="uid://oconfydlj17b"]
 
 [ext_resource type="Script" path="res://scripts/mobs/basic_mob.gd" id="1_nptcl"]
 [ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_t17cj"]
 [ext_resource type="Texture2D" uid="uid://n4auhs4g7ga8" path="res://assets/Undead Survivor/Sprites/Enemy 1.png" id="3_b4g4f"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="4_2rgpi"]
 [ext_resource type="Script" path="res://scripts/ui/marker.gd" id="5_pwuwt"]
-[ext_resource type="Texture2D" uid="uid://c4uqrxfr3q11o" path="res://assets/Undead Survivor/Sprites/UI.png" id="6_mwxwn"]
+[ext_resource type="Texture2D" uid="uid://bd3cbkhrgdgt8" path="res://assets/Undead Survivor/Sprites/UI2.png" id="6_ymtgh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t3xv"]
 atlas = ExtResource("3_b4g4f")
@@ -89,10 +89,6 @@ height = 196.0
 radius = 167.0
 height = 344.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evnem"]
-atlas = ExtResource("6_mwxwn")
-region = Rect2(0, 76, 8, 8)
-
 [node name="BasicMob" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_nptcl")
@@ -131,12 +127,13 @@ script = ExtResource("5_pwuwt")
 target = NodePath("../../CharacterBody2D")
 margin = 100.0
 
-[node name="Marker" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Marker" type="NinePatchRect" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -72.0
 offset_top = -89.0
 offset_right = 78.0
 offset_bottom = 61.0
-texture = SubResource("AtlasTexture_evnem")
+texture = ExtResource("6_ymtgh")
+region_rect = Rect2(0, 75.8285, 8.32153, 8.17147)
 
 [connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

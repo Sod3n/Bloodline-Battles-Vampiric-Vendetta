@@ -23,7 +23,6 @@ func _on_released():
 
 func _on_focus_entered():
 	_set_hover_state()
-	print("focusentered")
 
 func _on_focus_exited():
 	_set_normal_state()

@@ -40,7 +40,6 @@ func deactivate():
 	for spawn in spawns:
 		spawn.deactivate()
 	end.emit()
-	print("end")
 
 func get_children_spawns():
 	var array : Array

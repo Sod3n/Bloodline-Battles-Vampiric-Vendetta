@@ -24,8 +24,6 @@ const BULLET_LARGE = preload("res://scenes/weapons/bullet_large.tscn")
 
 @onready var scythe = %Scythe
 
-@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
-
 enum states {MOVE, STAY, ATTACK, DIED}
 var state = states.MOVE
 var _actual_velocity : Vector2
@@ -40,6 +38,7 @@ func _ready():
 	circle_attack.init(shooter, fake_target, scythe)
 	ray_circle_attack.init(shooter2, fake_target2)
 	ghost_attack.init(body)
+	default_target = Global.player
 
 var _circle_attack_counter : int = 0
 
@@ -113,13 +112,3 @@ func _process(delta):
 func _physics_process(delta):
 	_actual_velocity = body.global_position - _last_point
 	_last_point = body.global_position
-
-func _on_damage_area_2d_on_enter(body: Character):
-	body.receive_damage(damage)
-	damage_area_2d.disable()
-	get_tree().create_timer(cooldown_time * reload).timeout.connect(Callable(self, "_enable_damage_area"))
-
-
-func _enable_damage_area():
-	damage_area_2d.enable()
-	print("damage_area_2d")

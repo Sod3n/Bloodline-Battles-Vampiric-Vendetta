@@ -42,7 +42,6 @@ func _on_scale_in_completed():
 	tip.show()
 
 func _input(event):
-	print("event ", event)
 	if event is InputEventMouseMotion:
 		return
 	

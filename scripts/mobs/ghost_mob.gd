@@ -1,10 +1,7 @@
 class_name GhostMob
 extends "res://scripts/mobs/mob.gd"
 
-@export var attack_cooldown = 1
 @export var stun_time = 1.5
-
-@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 var direction : Vector2
 
@@ -51,12 +48,10 @@ func _process(delta):
 
 
 func _on_damage_area_2d_on_enter(body: Character):
-	body.receive_damage(damage)
+	super(body)
 	body.stun(stun_time)
-	damage_area_2d.disable()
 	die()
 
 
 func _enable_damage_area():
 	damage_area_2d.enable()
-	print("damage_area_2d")

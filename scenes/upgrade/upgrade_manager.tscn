@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://nrj6x38vqmld"]
+[gd_scene load_steps=26 format=3 uid="uid://nrj6x38vqmld"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_manager.gd" id="1_yqoji"]
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade_list.gd" id="2_cwbcd"]
@@ -18,7 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://5ptonhwwgg0e" path="res://assets/Undead Survivor/Sprites/icons/tile006.png" id="12_36lna"]
 [ext_resource type="PackedScene" uid="uid://bwcqalxnsfuru" path="res://scenes/weapons/pitchfork.tscn" id="12_rtx3w"]
 [ext_resource type="Texture2D" uid="uid://cn0ovjlwqownx" path="res://assets/Undead Survivor/Sprites/icons/tile003.png" id="14_ks7gr"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_return_damage.gd" id="15_xlx86"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_berserk.gd" id="16_ns3b8"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_invincibility.gd" id="17_h283w"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_focus.gd" id="18_rsqj3"]
 [ext_resource type="Texture2D" uid="uid://bw5p0nn2wao2g" path="res://assets/Undead Survivor/Sprites/icons/tile000.png" id="18_xq647"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_germes.gd" id="19_1v1lu"]
 [ext_resource type="Texture2D" uid="uid://rkggy83c73do" path="res://assets/Undead Survivor/Sprites/icons/tile001.png" id="20_og7i2"]
 
 [node name="UpgradeManager" type="Node"]
@@ -109,6 +114,75 @@ icon = ExtResource("14_ks7gr")
 [node name="UpgradeAttack3" type="Node" parent="UpgradeAttackList"]
 script = ExtResource("7_qndhl")
 icon = ExtResource("14_ks7gr")
+
+[node name="UpgradeReturnDamageList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeReturnDamage" type="Node" parent="UpgradeReturnDamageList"]
+script = ExtResource("15_xlx86")
+
+[node name="UpgradeReturnDamage2" type="Node" parent="UpgradeReturnDamageList"]
+script = ExtResource("15_xlx86")
+
+[node name="UpgradeReturnDamage3" type="Node" parent="UpgradeReturnDamageList"]
+script = ExtResource("15_xlx86")
+
+[node name="UpgradeBerserkList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeBerserk" type="Node" parent="UpgradeBerserkList"]
+script = ExtResource("16_ns3b8")
+
+[node name="UpgradeBerserk2" type="Node" parent="UpgradeBerserkList"]
+script = ExtResource("16_ns3b8")
+
+[node name="UpgradeInvincibilityList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeInvincibility" type="Node" parent="UpgradeInvincibilityList"]
+script = ExtResource("17_h283w")
+
+[node name="UpgradeInvincibility2" type="Node" parent="UpgradeInvincibilityList"]
+script = ExtResource("17_h283w")
+
+[node name="UpgradeInvincibility3" type="Node" parent="UpgradeInvincibilityList"]
+script = ExtResource("17_h283w")
+
+[node name="UpgradeFocusList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeFocus" type="Node" parent="UpgradeFocusList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeFocus2" type="Node" parent="UpgradeFocusList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeFocus3" type="Node" parent="UpgradeFocusList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeArmorList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeArmor" type="Node" parent="UpgradeArmorList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeArmor2" type="Node" parent="UpgradeArmorList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeArmor3" type="Node" parent="UpgradeArmorList"]
+script = ExtResource("18_rsqj3")
+
+[node name="UpgradeGermesList" type="Node" parent="."]
+script = ExtResource("2_cwbcd")
+
+[node name="UpgradeGermes" type="Node" parent="UpgradeGermesList"]
+script = ExtResource("19_1v1lu")
+
+[node name="UpgradeGermes2" type="Node" parent="UpgradeGermesList"]
+script = ExtResource("19_1v1lu")
+
+[node name="UpgradeGermes3" type="Node" parent="UpgradeGermesList"]
+script = ExtResource("19_1v1lu")
 
 [node name="UpgradeAddWeaponList" type="Node" parent="."]
 script = ExtResource("7_ip8v3")

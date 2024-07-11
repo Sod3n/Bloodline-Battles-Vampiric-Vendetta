@@ -8,26 +8,29 @@
 radius = 38.0
 height = 76.0
 
-[node name="PitchforkPoint" type="Node2D"]
-
-[node name="Pitchfork" type="Node2D" parent="."]
-position = Vector2(256, 13)
+[node name="Pitchfork" type="Node2D"]
 script = ExtResource("1_vcgqx")
 
-[node name="DamageArea2D" parent="Pitchfork" instance=ExtResource("2_dohqh")]
+[node name="PitchforkPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(256, 0)
+
+[node name="DamageArea2D" parent="PitchforkPoint" instance=ExtResource("2_dohqh")]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 142
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pitchfork/DamageArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitchforkPoint/DamageArea2D"]
 position = Vector2(52, -3)
 shape = SubResource("CapsuleShape2D_q0m2n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pitchfork"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PitchforkPoint"]
 scale = Vector2(9, 9)
 sprite_frames = ExtResource("3_vthg0")
 
-[node name="Timer" type="Timer" parent="Pitchfork"]
+[node name="Timer" type="Timer" parent="PitchforkPoint"]
+unique_name_in_owner = true
 
-[connection signal="on_enter" from="Pitchfork/DamageArea2D" to="Pitchfork" method="_on_damage_area_2d_on_enter"]
+[connection signal="on_enter" from="PitchforkPoint/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]
 
-[editable path="Pitchfork/DamageArea2D"]
+[editable path="PitchforkPoint/DamageArea2D"]

@@ -117,10 +117,11 @@ animation = &"idle"
 position = Vector2(1, 12)
 shape = SubResource("CapsuleShape2D_50gcs")
 
-[node name="Shooter" type="Node2D" parent="CharacterBody2D"]
+[node name="Shooter" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("shooter_owner")]
 script = ExtResource("4_sxkdm")
 rays = Array[ExtResource("5_fwhl7")]([SubResource("Resource_4dd1c")])
 active = true
+shooter_owner = NodePath("../..")
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("5_20n5i")]
 collision_layer = 2

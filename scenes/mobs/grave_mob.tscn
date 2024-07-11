@@ -72,9 +72,6 @@ height = 344.0
 
 [node name="GraveMob" type="Node2D"]
 script = ExtResource("1_jqakx")
-hp = 100.0
-max_hp = 100.0
-speed = 0.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 4
@@ -92,10 +89,11 @@ autoplay = "idle"
 position = Vector2(1, 12)
 shape = SubResource("CapsuleShape2D_50gcs")
 
-[node name="Shooter" type="Node2D" parent="CharacterBody2D"]
+[node name="Shooter" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("shooter_owner")]
 unique_name_in_owner = true
 script = ExtResource("4_f7ior")
 rays = Array[ExtResource("5_6lpa0")]([SubResource("Resource_ftdh0"), SubResource("Resource_24bwd"), SubResource("Resource_y3tt8")])
+shooter_owner = NodePath("../..")
 
 [node name="DamageArea2D" parent="CharacterBody2D" instance=ExtResource("5_jhone")]
 collision_layer = 2

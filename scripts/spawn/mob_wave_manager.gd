@@ -12,7 +12,6 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	waves = get_children()
-	print("waves ",get_children().size())
 	next_wave = waves.pop_front()
 	start_next_wave()
 	

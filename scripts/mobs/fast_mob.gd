@@ -3,8 +3,6 @@ extends "res://scripts/mobs/mob.gd"
 @export var distance_to_around : float  = 3000
 @export var distance_to_stub : float  = 500
 @export var around_max_time = 7
-@export var attack_cooldown = 1
-@onready var damage_area_2d = $CharacterBody2D/DamageArea2D
 
 
 func _ready():
@@ -27,9 +25,7 @@ func _process(delta):
 	var player_pos = player_body.global_position
 	var vector = player_pos - body.global_position
 	var length = vector.length()
-	
-	print("length ", length)
-	
+
 	if is_stunned:
 		state = states.STAY
 		damage_area_2d.disable()
@@ -92,14 +88,3 @@ func _process(delta):
 			
 	body.vector = velocity
 	rotate_sprite()
-
-
-func _on_damage_area_2d_on_enter(body):
-	body.receive_damage(damage)
-	damage_area_2d.disable()
-	get_tree().create_timer(attack_cooldown * reload).timeout.connect(Callable(self, "_enable_damage_area"))
-
-
-func _enable_damage_area():
-	damage_area_2d.enable()
-	print("damage_area_2d")

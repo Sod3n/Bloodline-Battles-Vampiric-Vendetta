@@ -16,6 +16,5 @@ func activate():
 	timer.start()
 
 func assign():
-	print("assign")
 	spawn.collectables.append_array(collectables) 
 	

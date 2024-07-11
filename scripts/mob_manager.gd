@@ -3,6 +3,7 @@ extends Node
 
 var _mobs : Array[Mob]
 
+var dead_mobs_count : int = 0
 
 var mobs : Array[Mob] :
 	get:

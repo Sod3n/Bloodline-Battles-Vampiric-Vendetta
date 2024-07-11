@@ -23,9 +23,9 @@ script = ExtResource("2_omk5f")
 [node name="UpgradeMenu" parent="." instance=ExtResource("3_8x7k2")]
 visible = false
 
-[node name="UpgradeManager" parent="." instance=ExtResource("5_m10ex")]
-
 [node name="MobWaveManager" parent="." instance=ExtResource("4_pv2l7")]
+
+[node name="UpgradeManager" parent="." instance=ExtResource("5_m10ex")]
 
 [node name="Stopwatch" parent="." instance=ExtResource("6_ycbsj")]
 

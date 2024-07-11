@@ -6,9 +6,10 @@ extends Node2D
 @onready var slot_3 = $Slot3
 @onready var slot_4 = $Slot4
 @onready var slot_5 = $Slot5
+@export var weapon_owner: Node2D
 
 # Array to hold the weapon slots
-var weapon_slots : Array
+var weapon_slots : Array[Node2D]
 
 # Property to check if there is a free slot
 var is_there_free_slot : bool :
@@ -32,8 +33,10 @@ func add_weapon(weapon_resouce: Resource) -> void:
 	
 	for slot in weapon_slots:
 		if slot.get_child_count() == 0:
+			weapon.weapon_owner = weapon_owner
 			slot.add_child(weapon)
 			weapon.position = Vector2.ZERO
+			
 			print("Weapon added to slot: ", slot.name)
 			# Update the free slot status
 			return
