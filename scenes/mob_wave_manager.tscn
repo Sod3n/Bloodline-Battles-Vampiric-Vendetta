@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djm4xctll8d8i"]
+[gd_scene load_steps=14 format=3 uid="uid://djm4xctll8d8i"]
 
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_manager.gd" id="1_aulks"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave.gd" id="2_831yk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwhsy8qieg58l" path="res://scenes/collectables/magnite.tscn" id="7_vns7k"]
 [ext_resource type="PackedScene" uid="uid://dcm4jk26lmset" path="res://scenes/mobs/range_mob.tscn" id="8_vgba5"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_spawn_event.gd" id="9_kdado"]
+[ext_resource type="PackedScene" uid="uid://oconfydlj17b" path="res://scenes/mobs/fat_mob.tscn" id="10_jn02g"]
 [ext_resource type="PackedScene" uid="uid://cdqibqxwvc0ls" path="res://scenes/mobs/fast_mob.tscn" id="10_oh41l"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_wall_event.gd" id="11_tjpyy"]
 [ext_resource type="Script" path="res://scripts/spawn/mob_wave_boss_spawn_event.gd" id="12_6yuep"]
@@ -16,48 +17,138 @@
 [node name="MobWaveManager" type="Node"]
 script = ExtResource("1_aulks")
 
-[node name="MobWave" type="Node" parent="."]
+[node name="MobWave_Start_1_1" type="Node" parent="."]
 script = ExtResource("2_831yk")
+duration = 30.0
 
-[node name="MobSpawn" type="Node" parent="MobWave"]
+[node name="MobSpawn" type="Node" parent="MobWave_Start_1_1"]
 script = ExtResource("3_6nvlt")
-count = 10
+count = 3
 frequency = 2.0
 random_side = true
 
-[node name="MobDroppedCollectable" type="Node" parent="MobWave" node_paths=PackedStringArray("spawn")]
+[node name="MobDroppedCollectable" type="Node" parent="MobWave_Start_1_1" node_paths=PackedStringArray("spawn")]
 script = ExtResource("4_gwg7o")
 spawn = NodePath("../MobSpawn")
-collectables = Array[PackedScene]([ExtResource("5_t16ps"), ExtResource("6_g2ufw"), ExtResource("7_vns7k")])
+collectables = Array[PackedScene]([ExtResource("7_vns7k")])
 
-[node name="MobWave2" type="Node" parent="."]
+[node name="MobWave_Start_1_2" type="Node" parent="."]
+script = ExtResource("2_831yk")
+duration = 30.0
+
+[node name="MobSpawn" type="Node" parent="MobWave_Start_1_2"]
+script = ExtResource("3_6nvlt")
+count = 3
+frequency = 2.0
+random_side = true
+
+[node name="MobDroppedCollectable" type="Node" parent="MobWave_Start_1_2" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn")
+collectables = Array[PackedScene]([ExtResource("6_g2ufw")])
+
+[node name="MobSpawn2" type="Node" parent="MobWave_Start_1_2"]
+script = ExtResource("3_6nvlt")
+type = ExtResource("8_vgba5")
+frequency = 6.0
+random_side = true
+
+[node name="MobDroppedCollectable2" type="Node" parent="MobWave_Start_1_2" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn2")
+collectables = Array[PackedScene]([ExtResource("7_vns7k")])
+
+[node name="MobWave_zombies" type="Node" parent="."]
+script = ExtResource("2_831yk")
+duration = 60.0
+
+[node name="MobSpawn" type="Node" parent="MobWave_zombies"]
+script = ExtResource("3_6nvlt")
+count = 2
+frequency = 1.0
+random_side = true
+
+[node name="MobDroppedCollectable" type="Node" parent="MobWave_zombies" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn")
+collectables = Array[PackedScene]([ExtResource("5_t16ps")])
+
+[node name="MobSpawn2" type="Node" parent="MobWave_zombies"]
+script = ExtResource("3_6nvlt")
+type = ExtResource("8_vgba5")
+frequency = 10.0
+random_side = true
+
+[node name="MobDroppedCollectable2" type="Node" parent="MobWave_zombies" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn2")
+
+[node name="MobSpawn3" type="Node" parent="MobWave_zombies"]
+script = ExtResource("3_6nvlt")
+type = ExtResource("10_oh41l")
+count = 5
+frequency = 60.0
+random_side = true
+
+[node name="MobDroppedCollectable3" type="Node" parent="MobWave_zombies" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn3")
+collectables = Array[PackedScene]([ExtResource("6_g2ufw")])
+
+[node name="MobWave_zombies+" type="Node" parent="."]
+script = ExtResource("2_831yk")
+duration = 60.0
+
+[node name="MobSpawn" type="Node" parent="MobWave_zombies+"]
+script = ExtResource("3_6nvlt")
+count = 3
+frequency = 1.0
+random_side = true
+
+[node name="MobDroppedCollectable" type="Node" parent="MobWave_zombies+" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn")
+collectables = Array[PackedScene]([ExtResource("5_t16ps")])
+
+[node name="MobSpawn2" type="Node" parent="MobWave_zombies+"]
+script = ExtResource("3_6nvlt")
+type = ExtResource("10_jn02g")
+frequency = 30.0
+random_side = true
+
+[node name="MobDroppedCollectable2" type="Node" parent="MobWave_zombies+" node_paths=PackedStringArray("spawn")]
+script = ExtResource("4_gwg7o")
+spawn = NodePath("../MobSpawn2")
+collectables = Array[PackedScene]([ExtResource("6_g2ufw")])
+
+[node name="MobWave10" type="Node" parent="."]
 script = ExtResource("2_831yk")
 
-[node name="MobSpawn" type="Node" parent="MobWave2"]
+[node name="MobSpawn" type="Node" parent="MobWave10"]
 script = ExtResource("3_6nvlt")
 type = ExtResource("8_vgba5")
 count = 10
 frequency = 2.0
 direction_priorities = Array[int]([3, 0, 2, 1])
 
-[node name="MobDroppedCollectable" type="Node" parent="MobWave2" node_paths=PackedStringArray("spawn")]
+[node name="MobDroppedCollectable" type="Node" parent="MobWave10" node_paths=PackedStringArray("spawn")]
 script = ExtResource("4_gwg7o")
 spawn = NodePath("../MobSpawn")
 collectables = Array[PackedScene]([ExtResource("5_t16ps"), ExtResource("6_g2ufw"), ExtResource("7_vns7k")])
 
-[node name="MobWaveWallEvent" type="Node" parent="MobWave2"]
+[node name="MobWaveWallEvent" type="Node" parent="MobWave10"]
 script = ExtResource("11_tjpyy")
 direction_priorities = Array[int]([3, 0, 2, 1])
 
-[node name="MobWaveSpawnEvents" type="Node" parent="MobWave2"]
+[node name="MobWaveSpawnEvents" type="Node" parent="MobWave10"]
 script = ExtResource("9_kdado")
 
-[node name="MobSpawn2" type="Node" parent="MobWave2/MobWaveSpawnEvents"]
+[node name="MobSpawn2" type="Node" parent="MobWave10/MobWaveSpawnEvents"]
 script = ExtResource("3_6nvlt")
 type = ExtResource("10_oh41l")
 count = 30
 frequency = 1.0
 direction_priorities = Array[int]([1, 2, 0, 3])
 
-[node name="MobWaveBossSpawnEvent" type="Node" parent="MobWave2"]
+[node name="MobWaveBossSpawnEvent" type="Node" parent="MobWave10"]
 script = ExtResource("12_6yuep")
