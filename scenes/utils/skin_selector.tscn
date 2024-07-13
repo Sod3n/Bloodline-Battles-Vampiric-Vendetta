@@ -1,48 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://yjm5uou5xda6"]
+[gd_scene load_steps=5 format=3 uid="uid://yjm5uou5xda6"]
 
 [ext_resource type="Script" path="res://scripts/utils/skin_selector.gd" id="1_5mx7i"]
 [ext_resource type="SpriteFrames" uid="uid://bvikgv8puy7gc" path="res://frames/character.tres" id="2_wxcbh"]
 [ext_resource type="SpriteFrames" uid="uid://bd2rjyuo1q3p1" path="res://frames/miku_frames.tres" id="3_xdjdi"]
-[ext_resource type="Texture2D" uid="uid://bnqbcyo4a45uq" path="res://assets/Undead Survivor/Sprites/Miku-sheet-sheet.png" id="4_bgxh7"]
 [ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="4_r5qrj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhpuu"]
-atlas = ExtResource("4_bgxh7")
-region = Rect2(115, 1, 15, 19)
-
-[sub_resource type="Curve" id="Curve_nj1wm"]
-max_value = 200.0
-_data = [Vector2(0, 0.883652), 0.0, 0.0, 0, 0, Vector2(1, 60.3631), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_ag2pc"]
-offsets = PackedFloat32Array(0.00215517, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Node" type="Node2D"]
 position = Vector2(1960, 1556)
 script = ExtResource("1_5mx7i")
 id = 1
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-show_behind_parent = true
-position = Vector2(-14, -18)
-amount = 7
-lifetime = 0.7
-local_coords = true
-draw_order = 1
-texture = SubResource("AtlasTexture_rhpuu")
-direction = Vector2(-1, 0)
-spread = 0.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-linear_accel_min = 30.0
-linear_accel_max = 30.0
-linear_accel_curve = SubResource("Curve_nj1wm")
-scale_amount_min = 10.0
-scale_amount_max = 10.0
-color_ramp = SubResource("Gradient_ag2pc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

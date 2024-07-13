@@ -5,8 +5,8 @@
 [ext_resource type="SpriteFrames" uid="uid://eo28scj1fcdr" path="res://frames/shovel.tres" id="3_ayt8c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jp8tv"]
-radius = 53.0
-height = 118.0
+radius = 58.0
+height = 245.995
 
 [node name="Shovel" type="Node2D"]
 script = ExtResource("1_6agnl")
@@ -14,7 +14,7 @@ attack_rotation_speed = 800
 
 [node name="ShovelPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(145, 0)
+position = Vector2(219, 0)
 
 [node name="DamageArea2D" parent="ShovelPoint" instance=ExtResource("2_nxjeq")]
 unique_name_in_owner = true
@@ -22,7 +22,8 @@ collision_layer = 0
 collision_mask = 142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShovelPoint/DamageArea2D"]
-position = Vector2(77, -5)
+position = Vector2(11, -2)
+rotation = 1.57318
 shape = SubResource("CapsuleShape2D_jp8tv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShovelPoint"]

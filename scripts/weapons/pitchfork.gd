@@ -38,15 +38,15 @@ func _process(delta):
 		_states.ATTACK:
 			damage_area.enable()
 			
-			position += Vector2.RIGHT * delta * attack_speed
+			pitchfork_point.position += Vector2.RIGHT * delta * attack_speed
 
-			if position.distance_to(self.position) > _attack_distance:
+			if pitchfork_point.position.distance_to(self.position) > _attack_distance:
 				_return_state()
 		
 		_states.RETURN:
 			damage_area.disable()
 			
-			position += position.direction_to(self.position) * delta * return_speed
+			pitchfork_point.position += pitchfork_point.position.direction_to(self.position) * delta * return_speed
 			
 			if position.distance_to(pitchfork_point.position) < _return_distance:
 				_wait_state()
@@ -55,7 +55,8 @@ func _attack_state():
 	if target == null:
 		_wait_state()
 		return
-	
+	var angle = weapon_owner.body.global_position.direction_to(target.global_position).angle()
+	self.rotation = lerp_angle(self.rotation, angle, 1)
 	_state = _states.ATTACK
 	_attack_point = target.global_position
 	timer.stop()

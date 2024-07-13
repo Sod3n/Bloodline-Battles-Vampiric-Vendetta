@@ -49,6 +49,14 @@ stun_time = 3.0
 rest_time = 3.0
 duration = 0.1
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50gcs"]
+radius = 90.0
+height = 196.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmp3u"]
+radius = 167.0
+height = 344.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_echa5"]
 atlas = ExtResource("3_mxx15")
 region = Rect2(19, 63, 19, 21)
@@ -151,14 +159,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50gcs"]
-radius = 90.0
-height = 196.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmp3u"]
-radius = 167.0
-height = 344.0
-
 [node name="DeathMob" type="Node2D"]
 script = ExtResource("1_lbmig")
 circle_attack = SubResource("Resource_xe4ej")
@@ -178,13 +178,6 @@ position = Vector2(177, -51)
 rotation = -1.5708
 move_speed = 2250
 return_speed = 1500
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-z_index = -1
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_gy5yk")
-animation = &"run"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 12)
@@ -215,6 +208,16 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
 shape = SubResource("CapsuleShape2D_bmp3u")
+
+[node name="Presentation" type="Node2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation"]
+unique_name_in_owner = true
+z_index = -1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gy5yk")
+animation = &"run"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -5,10 +5,10 @@ const GAME_OVER_SCREEN = preload("res://scenes/ui/game_over_screen.tscn")
 
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var exp_bar : ProgressBar = %ExpBar
-@onready var collect_shape_2d : CollisionShape2D = $CharacterBody2D/CollectArea2D/CollisionShape2D
+@onready var collect_shape_2d : CollisionShape2D = %CollisionShape2D
 @onready var weapon_slots : WeaponSlots = %WeaponSlots
 
-@onready var skins : SkinSelector = $CharacterBody2D/Skins
+@onready var skins : SkinSelector = %Skins
 @export var speed_scale_on_damage : float = 0.5
 @export var speed_scale_on_damage_time : float = 0.5
 @export var in_main_menu : bool = false
@@ -17,7 +17,7 @@ const GAME_OVER_SCREEN = preload("res://scenes/ui/game_over_screen.tscn")
 @export var speed_on_nonstop_frequency := 0.5
 @export var speed_on_nonstop_cap := 200
 
-@onready var savestate = $Savestate
+@onready var savestate = %Savestate
 
 var _target: Node2D
 var extra_speed := 0
@@ -165,13 +165,15 @@ func get_target() -> Node2D:
 	return _target
 
 func update_target():
-	if _target != null and _target != default_target:
+	print(_target)
+	if _target != null and _target != default_target and targets.find(_target) != -1:
 		return
 	
 	if first_target != null:
 		_target = random_target
 	else:
 		_target = default_target
+	print(_target)
 
 func die():
 	super()

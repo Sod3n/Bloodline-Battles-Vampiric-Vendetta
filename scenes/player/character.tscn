@@ -1,12 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://pqca05bjsioj"]
+[gd_scene load_steps=38 format=3 uid="uid://pqca05bjsioj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k12wf"]
 [ext_resource type="Script" path="res://scripts/character_components/move.gd" id="2_i2kvp"]
 [ext_resource type="Theme" uid="uid://dexdmgrhrsh0h" path="res://ui/base_theme.tres" id="3_dwfqp"]
+[ext_resource type="Texture2D" uid="uid://dcewmbibext8a" path="res://textures/character.tres" id="3_giihc"]
 [ext_resource type="PackedScene" uid="uid://yjm5uou5xda6" path="res://scenes/utils/skin_selector.tscn" id="3_i5um2"]
+[ext_resource type="Curve" uid="uid://bsmauv7uso37c" path="res://character_accel_curve.tres" id="3_kmmnc"]
 [ext_resource type="SpriteFrames" uid="uid://cnks8rtf72hwo" path="res://frames/angry.tres" id="4_3ici7"]
+[ext_resource type="Gradient" uid="uid://ekxog0032hd3" path="res://character_color_ramp.tres" id="4_icml0"]
 [ext_resource type="Shape2D" uid="uid://d1enhgygmn6ng" path="res://collision_shapes/character.tres" id="4_q6s4o"]
 [ext_resource type="SpriteFrames" uid="uid://br50i31awextu" path="res://frames/focus.tres" id="4_sfpf4"]
+[ext_resource type="Script" path="res://scripts/character_components/trail.gd" id="5_8r3re"]
 [ext_resource type="Script" path="res://scenes/player/berserk_presentation.gd" id="5_svqj4"]
 [ext_resource type="PackedScene" uid="uid://wtb0bpq1j403" path="res://scenes/utils/camera_2d.tscn" id="5_uwxc7"]
 [ext_resource type="Script" path="res://scripts/character_components/focus_presentation.gd" id="6_xc7b0"]
@@ -24,6 +28,40 @@
 [ext_resource type="FontFile" uid="uid://cmg4b2lpdwgfr" path="res://assets/joystix monospace.otf" id="21_fgwt4"]
 [ext_resource type="Script" path="res://scripts/ui/dead_enemy_counter.gd" id="22_sqs02"]
 
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x1x03"]
+gradient = ExtResource("4_icml0")
+
+[sub_resource type="Curve" id="Curve_cbkro"]
+_data = [Vector2(0, 0.243942), 0.0, 0.0, 0, 0, Vector2(0.997845, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vn8u2"]
+curve = SubResource("Curve_cbkro")
+
+[sub_resource type="CurveTexture" id="CurveTexture_c00sf"]
+curve = ExtResource("3_kmmnc")
+
+[sub_resource type="Curve" id="Curve_yqtah"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.905493), 0.0, 0.0, 0, 0, Vector2(0.997845, 0.747981), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dfs3s"]
+curve = SubResource("Curve_yqtah")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qh1xy"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_c00sf")
+scale_min = 9.96
+scale_max = 9.96
+scale_curve = SubResource("CurveTexture_dfs3s")
+color_ramp = SubResource("GradientTexture1D_x1x03")
+hue_variation_min = -0.1
+hue_variation_max = -0.1
+hue_variation_curve = SubResource("CurveTexture_vn8u2")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdet2"]
 radius = 335.001
 
@@ -37,6 +75,8 @@ region_rect = Rect2(0, 0, 465, 32)
 
 [node name="Character" type="Node2D" node_paths=PackedStringArray("default_target")]
 script = ExtResource("1_k12wf")
+speed_on_nonstop = 250
+speed = 1200.0
 attack = 1000.0
 invincibility_time = 0.0
 focus_scale = 1.0
@@ -46,23 +86,58 @@ default_target = NodePath("DefaultTarget")
 unique_name_in_owner = true
 position = Vector2(0, 1060)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." node_paths=PackedStringArray("skins", "character")]
+position = Vector2(-13, -13)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_qh1xy")
+texture = ExtResource("3_giihc")
+lifetime = 0.3
+script = ExtResource("5_8r3re")
+skins = NodePath("../CharacterBody2D/Presentation/Skins")
+character = NodePath("..")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(984, 9)
+scale = Vector2(1, 0.96)
+amount = 7
+lifetime = 0.7
+draw_order = 1
+texture = ExtResource("3_giihc")
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 30.0
+linear_accel_max = 30.0
+linear_accel_curve = ExtResource("3_kmmnc")
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+color_ramp = ExtResource("4_icml0")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 33
 motion_mode = 1
 script = ExtResource("2_i2kvp")
 
-[node name="Skins" parent="CharacterBody2D" instance=ExtResource("3_i5um2")]
+[node name="Presentation" type="Node2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+
+[node name="Skins" parent="CharacterBody2D/Presentation" instance=ExtResource("3_i5um2")]
+unique_name_in_owner = true
 position = Vector2(0, 0)
 
-[node name="BerserkPresentation" type="AnimatedSprite2D" parent="CharacterBody2D" node_paths=PackedStringArray("character")]
+[node name="BerserkPresentation" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation" node_paths=PackedStringArray("character")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(50, -50)
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("4_3ici7")
 script = ExtResource("5_svqj4")
-character = NodePath("../..")
+character = NodePath("../../..")
 
-[node name="FocusPresentation" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="FocusPresentation" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-19, 8)
@@ -70,6 +145,16 @@ scale = Vector2(10, 10)
 sprite_frames = ExtResource("4_sfpf4")
 autoplay = "default"
 script = ExtResource("6_xc7b0")
+
+[node name="StunPresentation" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(11, -32)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("10_jj4yi")
+autoplay = "default"
+frame_progress = 0.823185
+script = ExtResource("8_olylb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-4, 47)
@@ -97,16 +182,6 @@ theme = ExtResource("3_dwfqp")
 theme_override_font_sizes/font_size = 36
 metadata/_edit_use_anchors_ = true
 
-[node name="StunPresentation" type="AnimatedSprite2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-position = Vector2(11, -32)
-scale = Vector2(10, 10)
-sprite_frames = ExtResource("10_jj4yi")
-autoplay = "default"
-frame_progress = 0.823185
-script = ExtResource("8_olylb")
-
 [node name="Camera2D" parent="CharacterBody2D" instance=ExtResource("5_uwxc7")]
 zoom = Vector2(1, 1)
 script = ExtResource("6_ywwtg")
@@ -119,6 +194,7 @@ collision_mask = 16
 script = ExtResource("8_vwmd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/CollectArea2D"]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_fdet2")
 
 [node name="WeaponSlots" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("weapon_owner")]
@@ -148,7 +224,7 @@ collision_mask = 142
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/TargetArea2D"]
 shape = SubResource("CircleShape2D_xmfvp")
 
-[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
+[node name="WeaponAdder" type="Node2D" parent="CharacterBody2D"]
 script = ExtResource("10_mo5pi")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CharacterBody2D"]
@@ -247,10 +323,12 @@ text = "0
 script = ExtResource("22_sqs02")
 
 [node name="Savestate" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("13_4rph6")
 
-[connection signal="on_focus_changed" from="." to="CharacterBody2D/FocusPresentation" method="_on_character_on_focus_changed"]
-[connection signal="on_stun_changed" from="." to="CharacterBody2D/StunPresentation" method="_on_character_on_stun_changed"]
+[connection signal="on_focus_changed" from="." to="CharacterBody2D/Presentation/FocusPresentation" method="_on_character_on_focus_changed"]
+[connection signal="on_stun_changed" from="." to="CharacterBody2D/Presentation/StunPresentation" method="_on_character_on_stun_changed"]
+[connection signal="on_skin_changed" from="CharacterBody2D/Presentation/Skins" to="CPUParticles2D" method="_on_skins_on_skin_changed"]
 [connection signal="area_entered" from="CharacterBody2D/CollectArea2D" to="CharacterBody2D/CollectArea2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/TargetArea2D" to="." method="_on_target_area_2d_body_exited"]

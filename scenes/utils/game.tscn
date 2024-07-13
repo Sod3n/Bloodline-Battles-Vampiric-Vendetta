@@ -20,10 +20,10 @@
 [node name="MobManager" type="Node" parent="."]
 script = ExtResource("2_omk5f")
 
+[node name="MobWaveManager" parent="." instance=ExtResource("4_pv2l7")]
+
 [node name="UpgradeMenu" parent="." instance=ExtResource("3_8x7k2")]
 visible = false
-
-[node name="MobWaveManager" parent="." instance=ExtResource("4_pv2l7")]
 
 [node name="UpgradeManager" parent="." instance=ExtResource("5_m10ex")]
 

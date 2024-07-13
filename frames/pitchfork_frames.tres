@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="1_l2ygq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6h8ro"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_asith"]
 atlas = ExtResource("1_l2ygq")
-region = Rect2(19, 0, 19, 7)
+region = Rect2(19, 20, 19, 10)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6h8ro")
+"texture": SubResource("AtlasTexture_asith")
 }],
 "loop": true,
 "name": &"default",

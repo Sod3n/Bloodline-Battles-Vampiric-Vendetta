@@ -16,7 +16,6 @@ script = ExtResource("3_fwwmk")
 
 [node name="Character" parent="." instance=ExtResource("2_vll7i")]
 in_main_menu = true
-speed = 600.0
 attack = 10.0
 invincibility_time = 3.0
 

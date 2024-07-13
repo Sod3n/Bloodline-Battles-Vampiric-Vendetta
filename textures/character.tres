@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dcewmbibext8a"]
+
+[ext_resource type="Texture2D" uid="uid://bnqbcyo4a45uq" path="res://assets/Undead Survivor/Sprites/Miku-sheet-sheet.png" id="1_y71pj"]
+
+[resource]
+atlas = ExtResource("1_y71pj")
+region = Rect2(115, 1, 15, 19)

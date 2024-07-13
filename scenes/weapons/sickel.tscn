@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmmdvia4v5viu"]
+
+[ext_resource type="Script" path="res://scripts/weapons/sickle.gd" id="1_1neor"]
+[ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="2_t0trp"]
+[ext_resource type="SpriteFrames" uid="uid://eo28scj1fcdr" path="res://frames/shovel.tres" id="3_okj61"]
+[ext_resource type="Gradient" uid="uid://ekxog0032hd3" path="res://character_color_ramp.tres" id="4_1q2pk"]
+[ext_resource type="Curve" uid="uid://bsmauv7uso37c" path="res://character_accel_curve.tres" id="5_vqa6e"]
+[ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="6_qwbdb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jp8tv"]
+radius = 58.0
+height = 245.995
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_45fqo"]
+gradient = ExtResource("4_1q2pk")
+
+[sub_resource type="CurveTexture" id="CurveTexture_vfytq"]
+curve = ExtResource("5_vqa6e")
+
+[sub_resource type="Curve" id="Curve_ci0q4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.905493), 0.0, 0.0, 0, 0, Vector2(0.997845, 0.747981), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1mttc"]
+curve = SubResource("Curve_ci0q4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vt3so"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_vfytq")
+scale_min = 13.0
+scale_max = 13.0
+scale_curve = SubResource("CurveTexture_1mttc")
+color = Color(1, 1, 1, 0.611765)
+color_ramp = SubResource("GradientTexture1D_45fqo")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inc0a"]
+atlas = ExtResource("6_qwbdb")
+region = Rect2(42, 20, 13, 9)
+
+[node name="Sickle" type="Node2D"]
+script = ExtResource("1_1neor")
+
+[node name="SicklePoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-551, 0)
+
+[node name="DamageArea2D" parent="SicklePoint" instance=ExtResource("2_t0trp")]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 142
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SicklePoint/DamageArea2D"]
+position = Vector2(11, -2)
+rotation = 1.57318
+shape = SubResource("CapsuleShape2D_jp8tv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SicklePoint"]
+unique_name_in_owner = true
+position = Vector2(-6, 4)
+scale = Vector2(15, 15)
+sprite_frames = ExtResource("3_okj61")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SicklePoint/AnimatedSprite2D"]
+show_behind_parent = true
+position = Vector2(1.33333, -0.133333)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_vt3so")
+texture = SubResource("AtlasTexture_inc0a")
+lifetime = 0.3
+
+[connection signal="on_enter" from="SicklePoint/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]
+
+[editable path="SicklePoint/DamageArea2D"]

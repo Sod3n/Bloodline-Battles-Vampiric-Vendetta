@@ -1,7 +1,7 @@
 class_name Weapon
 extends Node2D
 
-@onready var damage_area = %DamageArea2D
+@onready var damage_area : DamageArea = %DamageArea2D
 
 var target: Node2D # change target for next attack
 var weapon_owner : Character

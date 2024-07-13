@@ -7,6 +7,14 @@
 [ext_resource type="Script" path="res://scripts/ui/marker.gd" id="5_pwuwt"]
 [ext_resource type="Texture2D" uid="uid://bd3cbkhrgdgt8" path="res://assets/Undead Survivor/Sprites/UI2.png" id="6_ymtgh"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3yv3"]
+radius = 90.0
+height = 196.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3gl5"]
+radius = 167.0
+height = 344.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t3xv"]
 atlas = ExtResource("3_b4g4f")
 region = Rect2(19, 38, 19, 19)
@@ -81,14 +89,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3yv3"]
-radius = 90.0
-height = 196.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3gl5"]
-radius = 167.0
-height = 344.0
-
 [node name="BasicMob" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_nptcl")
@@ -100,12 +100,6 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("2_t17cj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-z_index = -1
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_4a0s5")
-animation = &"idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-6, 13)
 shape = SubResource("CapsuleShape2D_t3yv3")
@@ -115,6 +109,15 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
 shape = SubResource("CapsuleShape2D_y3gl5")
+
+[node name="Presentation" type="Node2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation"]
+z_index = -1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_4a0s5")
+animation = &"idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

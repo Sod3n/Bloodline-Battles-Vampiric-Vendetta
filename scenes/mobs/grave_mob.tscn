@@ -7,6 +7,35 @@
 [ext_resource type="Script" path="res://scripts/character_components/shooter_ray.gd" id="5_6lpa0"]
 [ext_resource type="PackedScene" uid="uid://r5t6udk2o024" path="res://scenes/utils/damage_area_2d.tscn" id="5_jhone"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50gcs"]
+radius = 90.0
+height = 196.0
+
+[sub_resource type="Resource" id="Resource_ftdh0"]
+script = ExtResource("5_6lpa0")
+frequency = 0.75
+bullet_speed = 500.0
+bullet_lifetime = 5.0
+deviation = 0.0
+
+[sub_resource type="Resource" id="Resource_24bwd"]
+script = ExtResource("5_6lpa0")
+frequency = 0.75
+bullet_speed = 500.0
+bullet_lifetime = 5.0
+deviation = 15.0
+
+[sub_resource type="Resource" id="Resource_y3tt8"]
+script = ExtResource("5_6lpa0")
+frequency = 0.75
+bullet_speed = 500.0
+bullet_lifetime = 5.0
+deviation = -15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmp3u"]
+radius = 167.0
+height = 344.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnbuw"]
 atlas = ExtResource("3_lk23l")
 region = Rect2(0, 19, 19, 19)
@@ -41,35 +70,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50gcs"]
-radius = 90.0
-height = 196.0
-
-[sub_resource type="Resource" id="Resource_ftdh0"]
-script = ExtResource("5_6lpa0")
-frequency = 0.75
-bullet_speed = 500.0
-bullet_lifetime = 5.0
-deviation = 0.0
-
-[sub_resource type="Resource" id="Resource_24bwd"]
-script = ExtResource("5_6lpa0")
-frequency = 0.75
-bullet_speed = 500.0
-bullet_lifetime = 5.0
-deviation = 15.0
-
-[sub_resource type="Resource" id="Resource_y3tt8"]
-script = ExtResource("5_6lpa0")
-frequency = 0.75
-bullet_speed = 500.0
-bullet_lifetime = 5.0
-deviation = -15.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmp3u"]
-radius = 167.0
-height = 344.0
-
 [node name="GraveMob" type="Node2D"]
 script = ExtResource("1_jqakx")
 
@@ -77,13 +77,6 @@ script = ExtResource("1_jqakx")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_gex1t")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-z_index = -1
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_gy5yk")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 12)
@@ -100,5 +93,15 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DamageArea2D"]
 shape = SubResource("CapsuleShape2D_bmp3u")
+
+[node name="Presentation" type="Node2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Presentation"]
+z_index = -1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gy5yk")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="on_enter" from="CharacterBody2D/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]

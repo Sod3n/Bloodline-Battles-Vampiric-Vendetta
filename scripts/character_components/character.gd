@@ -47,6 +47,9 @@ var speed_scale : float  = 1.0
 @export var stun_from_crit_duration : float = 0.5
 @export var default_target : Node2D
 
+
+@onready var presentation = %Presentation
+
 var invincibility_current_time := 0.0
 var invincibility_blink := 0.0
 var is_stunned := false
@@ -136,9 +139,9 @@ func return_damage(damage : Damage) -> Damage:
 
 func rotate_sprite():
 	if velocity.x < 0:
-		animated_sprite_2d.flip_h = true
+		presentation.scale = Vector2(-1, 1)
 	elif velocity.x > 0:
-		animated_sprite_2d.flip_h = false
+		presentation.scale = Vector2(1, 1)
 
 func die():
 	is_died = true
