@@ -28,10 +28,9 @@ shape = SubResource("CapsuleShape2D_jp8tv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShovelPoint"]
 unique_name_in_owner = true
-position = Vector2(-2, 21)
+position = Vector2(-12, 1.90735e-06)
 scale = Vector2(15, 15)
 sprite_frames = ExtResource("3_ayt8c")
-animation = &"attack"
 
 [connection signal="on_enter" from="ShovelPoint/DamageArea2D" to="." method="_on_damage_area_2d_on_enter"]
 

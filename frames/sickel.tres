@@ -1,47 +1,47 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://eo28scj1fcdr"]
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://c1052csykv8yr"]
 
-[ext_resource type="Texture2D" uid="uid://5plnmi7qlppx" path="res://assets/Undead Survivor/Sprites/shovel.png" id="1_ccrg2"]
-[ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="2_fxhot"]
+[ext_resource type="Texture2D" uid="uid://5plnmi7qlppx" path="res://assets/Undead Survivor/Sprites/shovel.png" id="1_6ux7x"]
+[ext_resource type="Texture2D" uid="uid://d1uthjjwun26j" path="res://assets/Undead Survivor/Sprites/Props.png" id="2_avfsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bdde"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(0, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsgbu"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(38, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlmvn"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(57, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8gfq"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(76, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_342a1"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(95, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcki4"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(95, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1tem"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(114, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6j2sq"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(152, 0, 19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vkuj"]
-atlas = ExtResource("1_ccrg2")
+atlas = ExtResource("1_6ux7x")
 region = Rect2(171, 0, 19, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgj0b"]
-atlas = ExtResource("2_fxhot")
-region = Rect2(0, 20, 19, 10)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ucss"]
+atlas = ExtResource("2_avfsl")
+region = Rect2(38, 20, 19, 10)
 
 [resource]
 animations = [{
@@ -84,7 +84,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgj0b")
+"texture": SubResource("AtlasTexture_7ucss")
 }],
 "loop": true,
 "name": &"default",
