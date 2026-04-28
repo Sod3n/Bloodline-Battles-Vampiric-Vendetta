@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c76tip27aw8su"]
+[gd_scene load_steps=8 format=3 uid="uid://dndqjbbtqkkaa"]
 
 [ext_resource type="PackedScene" uid="uid://dtnxu58so78by" path="res://scenes/world/tile_map.tscn" id="1_dm50q"]
 [ext_resource type="PackedScene" uid="uid://pqca05bjsioj" path="res://scenes/player/character.tscn" id="2_vll7i"]
@@ -76,8 +76,7 @@ grow_horizontal = 1
 grow_vertical = 1
 focus_neighbor_left = NodePath("../MinusSkin")
 focus_neighbor_bottom = NodePath("../../Start")
-text = ">
-"
+text = ">"
 
 [node name="Start" parent="CanvasLayer/Control" instance=ExtResource("6_cd770")]
 layout_mode = 0
@@ -95,8 +94,7 @@ grow_vertical = 1
 pivot_offset = Vector2(497.11, 150)
 focus_neighbor_top = NodePath("../Control/MinusSkin")
 theme_override_font_sizes/font_size = 256
-text = "START
-"
+text = "START"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 modulate = Color(1, 1, 1, 0)
